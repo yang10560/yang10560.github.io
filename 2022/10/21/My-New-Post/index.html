@@ -4,15 +4,22 @@
   <meta charset="utf-8">
   
   
-  <title>夜雨博客</title>
+  <title>My New Post | 夜雨博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="夜雨博客">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="文章已同步至GitHub开源项目: JVM底层原理解析  Java内存模型JVM虚拟机规范中曾经试图定义一种Java内存模型，来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都可以达到一致性的内存访问效果。  然而定义这样一套内存模型并非很容易，这个模型必须足够严谨，才能让Java的并发内存访问操作不会有歧义。但是也必须足够宽松，这样使得虚拟机的具体实现能够有自由的发挥">
+<meta property="og:type" content="article">
+<meta property="og:title" content="My New Post">
+<meta property="og:url" content="http://example.com/2022/10/21/My-New-Post/index.html">
 <meta property="og:site_name" content="夜雨博客">
+<meta property="og:description" content="文章已同步至GitHub开源项目: JVM底层原理解析  Java内存模型JVM虚拟机规范中曾经试图定义一种Java内存模型，来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都可以达到一致性的内存访问效果。  然而定义这样一套内存模型并非很容易，这个模型必须足够严谨，才能让Java的并发内存访问操作不会有歧义。但是也必须足够宽松，这样使得虚拟机的具体实现能够有自由的发挥">
 <meta property="og:locale">
+<meta property="og:image" content="https://gitee.com/ShaoxiongDu/imageBed/raw/master//images/image-20210731210337786.png">
+<meta property="og:image" content="https://gitee.com/ShaoxiongDu/imageBed/raw/master//images/image-20210731215601479.png">
+<meta property="article:published_time" content="2022-10-21T03:27:00.000Z">
+<meta property="article:modified_time" content="2022-10-21T03:31:05.921Z">
 <meta property="article:author" content="夜雨">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/ShaoxiongDu/imageBed/raw/master//images/image-20210731210337786.png">
   
     <link rel="alternate" href="/atom.xml" title="夜雨博客" type="application/atom+xml">
   
@@ -69,108 +76,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-01-垃圾回收概述" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/10/21/01-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%A6%82%E8%BF%B0/" class="article-date">
-  <time class="dt-published" datetime="2022-10-21T03:32:04.508Z" itemprop="datePublished">2022-10-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/10/21/01-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%A6%82%E8%BF%B0/">垃圾回收概述</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="垃圾回收概述"><a href="#垃圾回收概述" class="headerlink" title="垃圾回收概述"></a>垃圾回收概述</h1><p><img src="https://gitee.com/ShaoxiongDu/imageBed/raw/master//images/JVM%E5%BA%95%E5%B1%82%E4%BD%93%E7%B3%BB.jpg"></p>
-<h2 id="一、什么是垃圾"><a href="#一、什么是垃圾" class="headerlink" title="一、什么是垃圾"></a>一、什么是垃圾</h2><p>什么是垃圾（ Garbage） 呢？</p>
-<p> ➢垃圾是指在运行程序中没有任何指针指向的对象，这个对象就是需要被回收的垃圾。<br> 如果不及时对内存中的垃圾进行清理，那么，这些垃圾对象所占的内存空 间会一直保留到应用程序结束，被保留的空间无法被其他对象使用。甚至可能导致内存溢出。</p>
-<ul>
-<li>垃圾收集，不是Java语言的伴生产物。早在1960年，第一门开始使用内存动态分配和垃圾收集技术的Lisp语言诞生。</li>
-<li>关于垃圾收集有三个经典问题：<ul>
-<li>➢哪些内存需要回收？</li>
-<li>➢什么时候回收？</li>
-<li>➢如何回收？</li>
-</ul>
-</li>
-<li>垃圾收集机制是Java的招牌能力，极大地提高了开发效率。如今，垃圾收集几乎成为现代语言的标配，即使经过如此长时间的发展，Java的垃圾收集机制仍然在不断的演进中，不同大小的设备、不同特征的应用场景，对垃圾收集提出了新的挑战，这当然也是面试的热点。</li>
-</ul>
-<h2 id="二、为什么需要GC"><a href="#二、为什么需要GC" class="headerlink" title="二、为什么需要GC"></a>二、为什么需要GC</h2><ul>
-<li><p>对于高级语言来说，一个基本认知是，如果不进行垃圾回收，内存迟早都会被消耗完，因为不断地分配内存空间而不进行回收，就好像不停地生产生活垃圾而从来不打扫一样。</p>
-</li>
-<li><p>除了释放没用的对象，垃圾回收也可以清除内存里的记录碎片。碎片整理将所占用的堆内存移到堆的一端，以便JVM 将整理出的内存分配给新的对象。</p>
-</li>
-<li><p>随着应用程序所应付的业务越来越庞大、复杂，用户越来越多，没有GC就不能保证应用程序的正常进行。而经常造成STW的GC又跟不上实际的需求，所以才会不断地尝试对GC进行优化。</p>
-</li>
-</ul>
-<h2 id="三、早期的垃圾回收"><a href="#三、早期的垃圾回收" class="headerlink" title="三、早期的垃圾回收"></a>三、早期的垃圾回收</h2><ul>
-<li>在早期的C&#x2F;C++时代，垃圾回收基本.上是手工进行的。开发人员可以使用</li>
-</ul>
-<p>new关键字进行内存申请，并使用delete关键字进行内存释放。比如以下代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MibBridge *pBridge = <span class="keyword">new</span> <span class="built_in">cmBaseGroupBridge</span>()；</span><br><span class="line"><span class="comment">//如果注册失败，使用Delete释放该对象所占内存区域</span></span><br><span class="line"><span class="keyword">if</span> （pBridge-&gt;Register（kDestroy）！= NO_ERROR）</span><br><span class="line"><span class="keyword">delete</span> pBridge；</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>这种方式可以灵活控制内存释放的时间，但是会给开发人员带来&#x3D;&#x3D;频繁申请和释放内存的管理负担&#x3D;&#x3D;。倘若有一处内存区间由于程序员编码的问题忘记被回收，那么就会产生内存泄漏，垃圾对象永远无法被清除，随着系统运行时间的不断增长，垃圾对象所耗内存可能持续上升，直到出现内存溢出并造成应用程序崩溃。</li>
-<li>在有了垃圾回收机制后，上述代码块极有可能变成这样：</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MibBridge *pBridge = <span class="keyword">new</span> <span class="built_in">cmBaseGroupBridge</span>()；</span><br><span class="line">pBridge -&gt; <span class="built_in">Register</span>(kDestroy);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>现在，除了Java以外，C#、Python、 Ruby等语言都使用了自动垃圾回收的思想，也是未来发展趋势。可以说，这种自动化的内存分配和垃圾回收的方式己经成为现代开发语言必备的标准。</li>
-</ul>
-<h2 id="四、Java垃圾回收机制"><a href="#四、Java垃圾回收机制" class="headerlink" title="四、Java垃圾回收机制"></a>四、Java垃圾回收机制</h2><ul>
-<li><p>自动内存管理，无需开发人员手动参与内存的分配与回收，这样降低内存泄漏和内存溢出的风险</p>
-</li>
-<li><p>自动内存管理机制，将程序员从繁重的内存管理中释放出来，可以更专心地专注于业务开发</p>
-</li>
-<li><p>对于Java开发人员而言，自动内存管理就像是一个黑匣子，如果过度依赖于“自动”，那么这将会是一场灾难，最严重的就会弱化Java开发人员在程序出现内存溢出时定位问题和解决问题的能力。</p>
-</li>
-<li><p>此时，了 解JVM的自动内存分配和内存回收原理就显得非常重要，只有在真正了解JVM是如何管理内存后，我们才能够在遇见OutOfMemoryError时， 快速地根据错误异常日志定位问题和解决问题。</p>
-</li>
-<li><p>当需要排查各种内存溢出、内存泄漏问题时，当垃圾收集成为系统达到更高并发量的瓶颈时，我们就必须对这些“自动化”的技术实施必要的监控和调节。</p>
-</li>
-<li><p>垃圾回收器可以对年轻代回收，也可以对老年代回收，甚至是全堆和方法区的回收。</p>
-<ul>
-<li>其中，Java堆是垃圾收集器的工作重点。</li>
-<li>从次数上讲：<ul>
-<li>频繁收集Young区</li>
-<li>较少收集0ld区</li>
-<li>基本不动Perm区(方法区)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><img src="https://gitee.com/ShaoxiongDu/imageBed/raw/master/image-20210703093933143.png" alt="image-20210703093933143"></p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/10/21/01-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%A6%82%E8%BF%B0/" data-id="cl9hxrjsz0001ccu79xdv5i0n" data-title="垃圾回收概述" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-My-New-Post" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-My-New-Post" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/10/21/My-New-Post/" class="article-date">
   <time class="dt-published" datetime="2022-10-21T03:27:00.000Z" itemprop="datePublished">2022-10-21</time>
@@ -183,8 +89,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/10/21/My-New-Post/">My New Post</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      My New Post
     </h1>
   
 
@@ -300,62 +206,28 @@ Java内存模型中是以这种方式实现的: 在变量修改之后将修改�
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/10/21/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2022-10-21T03:17:34.399Z" itemprop="datePublished">2022-10-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2022/10/21/01-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%A6%82%E8%BF%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
         
+          垃圾回收概述
+        
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/10/21/hello-world/">Hello World</a>
-    </h1>
   
+    <a href="/2022/10/21/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/10/21/hello-world/" data-id="cl9hxagaa0000gsu7hor5fpeg" data-title="Hello World" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
 
 
 </section>
@@ -413,8 +285,6 @@ Java内存模型中是以这种方式实现的: 在变量修改之后将修改�
       
       &copy; 2022 夜雨<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-	  <a href="https://beian.miit.gov.cn/" target="_blank">桂ICP备2021005110号</a>
-	  
     </div>
   </div>
 </footer>
@@ -448,13 +318,4 @@ Java内存模型中是以这种方式实现的: 在变量修改之后将修改�
 
   </div>
 </body>
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?4925a5b02da9504aab1a241aad222dfd";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
 </html>
