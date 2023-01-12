@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="垃圾回收概述"><meta name="keywords" content="辣鸡,回收,jvm"><meta name="author" content="夜雨"><meta name="copyright" content="夜雨"><title>垃圾回收概述 | 夜雨小屋</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://v1.hitokoto.cn/?encode=js&amp;charset=utf-8&amp;select=.footer_custom_text" defer></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '6.3.0'
+} </script><meta name="generator" content="Hexo 6.3.0"></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">垃圾回收概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E5%9E%83%E5%9C%BE"><span class="toc-number">1.1.</span> <span class="toc-text">一、什么是垃圾</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81GC"><span class="toc-number">1.2.</span> <span class="toc-text">二、为什么需要GC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%97%A9%E6%9C%9F%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="toc-number">1.3.</span> <span class="toc-text">三、早期的垃圾回收</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6"><span class="toc-number">1.4.</span> <span class="toc-text">四、Java垃圾回收机制</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="http://q.qlogo.cn/headimg_dl?dst_uin=29491242&amp;spec=640&amp;img_type=jpg"></div><div class="author-info__name text-center">夜雨</div><div class="author-info__description text-center">技术分享博客</div><div class="follow-button"><a target="_blank" rel="noopener" href="https://api.vvhan.com/api/qqChat?qq=29491242">联系QQ</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">3</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">3</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">友链</div><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://molunerfinn.com">Molunerfinn</a><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://piegg.cn">PiEgg</a><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://www.google.com">Google</a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://s1.ax1x.com/2023/01/10/pSmKTYT.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">夜雨小屋</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title">垃圾回收概述</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-01-12</time><span class="post-meta__separator">|</span><i class="fa fa-comment-o post-meta__icon" aria-hidden="true"></i><a href="/2023/01/12/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%A6%82%E8%BF%B0/#disqus_thread"><span class="disqus-comment-count" data-disqus-identifier="2023/01/12/垃圾回收概述/"></span></a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="垃圾回收概述"><a href="#垃圾回收概述" class="headerlink" title="垃圾回收概述"></a>垃圾回收概述</h1><p><img src="https://gitee.com/ShaoxiongDu/imageBed/raw/master//images/JVM%E5%BA%95%E5%B1%82%E4%BD%93%E7%B3%BB.jpg"></p>
+<h2 id="一、什么是垃圾"><a href="#一、什么是垃圾" class="headerlink" title="一、什么是垃圾"></a>一、什么是垃圾</h2><p>什么是垃圾（ Garbage） 呢？</p>
+<p> ➢垃圾是指在运行程序中没有任何指针指向的对象，这个对象就是需要被回收的垃圾。<br> 如果不及时对内存中的垃圾进行清理，那么，这些垃圾对象所占的内存空 间会一直保留到应用程序结束，被保留的空间无法被其他对象使用。甚至可能导致内存溢出。</p>
+<ul>
+<li>垃圾收集，不是Java语言的伴生产物。早在1960年，第一门开始使用内存动态分配和垃圾收集技术的Lisp语言诞生。</li>
+<li>关于垃圾收集有三个经典问题：<ul>
+<li>➢哪些内存需要回收？</li>
+<li>➢什么时候回收？</li>
+<li>➢如何回收？</li>
+</ul>
+</li>
+<li>垃圾收集机制是Java的招牌能力，极大地提高了开发效率。如今，垃圾收集几乎成为现代语言的标配，即使经过如此长时间的发展，Java的垃圾收集机制仍然在不断的演进中，不同大小的设备、不同特征的应用场景，对垃圾收集提出了新的挑战，这当然也是面试的热点。</li>
+</ul>
+<h2 id="二、为什么需要GC"><a href="#二、为什么需要GC" class="headerlink" title="二、为什么需要GC"></a>二、为什么需要GC</h2><ul>
+<li><p>对于高级语言来说，一个基本认知是，如果不进行垃圾回收，内存迟早都会被消耗完，因为不断地分配内存空间而不进行回收，就好像不停地生产生活垃圾而从来不打扫一样。</p>
+</li>
+<li><p>除了释放没用的对象，垃圾回收也可以清除内存里的记录碎片。碎片整理将所占用的堆内存移到堆的一端，以便JVM 将整理出的内存分配给新的对象。</p>
+</li>
+<li><p>随着应用程序所应付的业务越来越庞大、复杂，用户越来越多，没有GC就不能保证应用程序的正常进行。而经常造成STW的GC又跟不上实际的需求，所以才会不断地尝试对GC进行优化。</p>
+</li>
+</ul>
+<h2 id="三、早期的垃圾回收"><a href="#三、早期的垃圾回收" class="headerlink" title="三、早期的垃圾回收"></a>三、早期的垃圾回收</h2><ul>
+<li>在早期的C&#x2F;C++时代，垃圾回收基本.上是手工进行的。开发人员可以使用</li>
+</ul>
+<p>new关键字进行内存申请，并使用delete关键字进行内存释放。比如以下代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MibBridge *pBridge = <span class="keyword">new</span> <span class="built_in">cmBaseGroupBridge</span>()；</span><br><span class="line"><span class="comment">//如果注册失败，使用Delete释放该对象所占内存区域</span></span><br><span class="line"><span class="keyword">if</span> （pBridge-&gt;Register（kDestroy）！= NO_ERROR）</span><br><span class="line"><span class="keyword">delete</span> pBridge；</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这种方式可以灵活控制内存释放的时间，但是会给开发人员带来&#x3D;&#x3D;频繁申请和释放内存的管理负担&#x3D;&#x3D;。倘若有一处内存区间由于程序员编码的问题忘记被回收，那么就会产生内存泄漏，垃圾对象永远无法被清除，随着系统运行时间的不断增长，垃圾对象所耗内存可能持续上升，直到出现内存溢出并造成应用程序崩溃。</li>
+<li>在有了垃圾回收机制后，上述代码块极有可能变成这样：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MibBridge *pBridge = <span class="keyword">new</span> <span class="built_in">cmBaseGroupBridge</span>()；</span><br><span class="line">pBridge -&gt; <span class="built_in">Register</span>(kDestroy);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>现在，除了Java以外，C#、Python、 Ruby等语言都使用了自动垃圾回收的思想，也是未来发展趋势。可以说，这种自动化的内存分配和垃圾回收的方式己经成为现代开发语言必备的标准。</li>
+</ul>
+<h2 id="四、Java垃圾回收机制"><a href="#四、Java垃圾回收机制" class="headerlink" title="四、Java垃圾回收机制"></a>四、Java垃圾回收机制</h2><ul>
+<li><p>自动内存管理，无需开发人员手动参与内存的分配与回收，这样降低内存泄漏和内存溢出的风险</p>
+</li>
+<li><p>自动内存管理机制，将程序员从繁重的内存管理中释放出来，可以更专心地专注于业务开发</p>
+</li>
+<li><p>对于Java开发人员而言，自动内存管理就像是一个黑匣子，如果过度依赖于“自动”，那么这将会是一场灾难，最严重的就会弱化Java开发人员在程序出现内存溢出时定位问题和解决问题的能力。</p>
+</li>
+<li><p>此时，了 解JVM的自动内存分配和内存回收原理就显得非常重要，只有在真正了解JVM是如何管理内存后，我们才能够在遇见OutOfMemoryError时， 快速地根据错误异常日志定位问题和解决问题。</p>
+</li>
+<li><p>当需要排查各种内存溢出、内存泄漏问题时，当垃圾收集成为系统达到更高并发量的瓶颈时，我们就必须对这些“自动化”的技术实施必要的监控和调节。</p>
+</li>
+<li><p>垃圾回收器可以对年轻代回收，也可以对老年代回收，甚至是全堆和方法区的回收。</p>
+<ul>
+<li>其中，Java堆是垃圾收集器的工作重点。</li>
+<li>从次数上讲：<ul>
+<li>频繁收集Young区</li>
+<li>较少收集0ld区</li>
+<li>基本不动Perm区(方法区)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><img src="https://gitee.com/ShaoxiongDu/imageBed/raw/master/image-20210703093933143.png" alt="image-20210703093933143"></p>
+</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">夜雨</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://yang10560.github.io/2023/01/12/垃圾回收概述/">https://yang10560.github.io/2023/01/12/垃圾回收概述/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://yang10560.github.io">夜雨小屋</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%BE%A3%E9%B8%A1/">辣鸡</a><a class="post-meta__tags" href="/tags/%E5%9B%9E%E6%94%B6/">回收</a><a class="post-meta__tags" href="/tags/jvm/">jvm</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/2023/01/12/hello-world/"><span>Hello World</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="disqus_thread"></div><script>var unused = null;
+var disqus_config = function () {
+  this.page.url = 'https://yang10560.github.io/2023/01/12/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%A6%82%E8%BF%B0/';
+  this.page.identifier = '2023/01/12/垃圾回收概述/';
+  this.page.title = '垃圾回收概述';
+}
+var d = document, s = d.createElement('script');
+s.src = "https://" + 'mryang' +".disqus.com/embed.js";
+s.setAttribute('data-timestamp', '' + +new Date());
+(d.head || d.body).appendChild(s);</script><script id="dsq-count-scr" src="https://mryang.disqus.com/count.js" async></script></div></div><footer class="footer-bg" style="background-image: url(https://s1.ax1x.com/2023/01/10/pSmKTYT.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2020 - 2023 By 夜雨</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">hitokoto</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script src="/js/search/local-search.js"></script><script id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" data-click="true"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
