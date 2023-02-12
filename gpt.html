@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>gpt</title>
+	</head>
+	<style type="text/css">
+		body {
+			text-align: center;
+			font: normal 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+			color: #4f6b72;
+			background: #E6EAE9;
+		}
+
+		a {
+			color: #c75f3e;
+		}
+
+		#mytable {
+			width: 700px;
+			padding: 0;
+			margin: 0;
+		}
+
+		caption {
+			padding: 0 0 5px 0;
+			width: 700px;
+			font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+			text-align: right;
+		}
+
+		th {
+			font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+			color: #4f6b72;
+			border-right: 1px solid #C1DAD7;
+			border-bottom: 1px solid #C1DAD7;
+			border-top: 1px solid #C1DAD7;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			text-align: left;
+			padding: 6px 6px 6px 12px;
+			background: #CAE8EA no-repeat;
+		}
+
+		th.nobg {
+			border-top: 0;
+			border-left: 0;
+			border-right: 1px solid #C1DAD7;
+			background: none;
+		}
+
+		td {
+			border-right: 1px solid #C1DAD7;
+			border-bottom: 1px solid #C1DAD7;
+			background: #fff;
+			font-size: 11px;
+			padding: 6px 6px 6px 12px;
+			color: #4f6b72;
+		}
+
+
+		td.alt {
+			background: #F5FAFA;
+			color: #797268;
+		}
+
+		th.spec {
+			border-left: 1px solid #C1DAD7;
+			border-top: 0;
+			background: #fff no-repeat;
+			font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+		}
+
+		th.specalt {
+			border-left: 1px solid #C1DAD7;
+			border-top: 0;
+			background: #f5fafa no-repeat;
+			font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+			color: #797268;
+		}
+
+		/*---------for IE 5.x bug*/
+		html>body td {
+			font-size: 11px;
+		}
+
+		body,
+		td,
+		th {
+			font-family: 宋体, Arial;
+			font-size: 12px;
+		}
+
+		button {
+
+			display: inline-block;
+
+			zoom: 1;
+			/* zoom and *display = ie7 hack for display:inline-block */
+
+			*display: inline;
+
+			vertical-align: baseline;
+
+			margin: 0 2px;
+
+			outline: none;
+
+			cursor: pointer;
+
+			text-align: center;
+
+			text-decoration: none;
+
+			font: 14px/100% Arial, Helvetica, sans-serif;
+
+			padding: .5em 2em .55em;
+
+			text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+
+			-webkit-border-radius: .5em;
+
+			-moz-border-radius: .5em;
+
+			border-radius: .5em;
+
+			-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+
+			-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+
+			box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+
+		}
+
+		button:hover {
+
+			text-decoration: none;
+
+		}
+
+		button:active {
+
+			position: relative;
+
+			top: 1px;
+
+		}
+	
+	input {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			outline: 0;
+			padding: 0 8px;
+			border: solid 1px #f00;
+			border-radius: 20px;
+		}
+		
+		table {
+		    border-collapse: collapse;
+		    border-spacing: 0;
+		}
+		 
+		td,th {
+		    padding: 0;
+		}
+		 
+		.pure-table {
+		    border-collapse: collapse;
+		    border-spacing: 0;
+		    empty-cells: show;
+		    border: 1px solid #cbcbcb;
+		}
+		 
+		.pure-table caption {
+		    color: #000;
+		    font: italic 85%/1 arial,sans-serif;
+		    padding: 1em 0;
+		    text-align: center;
+		}
+		 
+		.pure-table td,.pure-table th {
+		    border-left: 1px solid #cbcbcb;
+		    border-width: 0 0 0 1px;
+		    font-size: inherit;
+		    margin: 0;
+		    overflow: visible;
+		    padding: .5em 1em;
+		}
+		 
+		.pure-table thead {
+		    background-color: #e0e0e0;
+		    color: #000;
+		    text-align: left;
+		    vertical-align: bottom;
+		}
+		 
+		.pure-table td {
+		    background-color: transparent;
+		}
+	</style>
+	<body>
+		<input id="question" value="" placeholder="请输入问题" />
+		<button onclick="ask()">提问</button> <button onclick="list()">刷新问题</button></br>
+		<textarea id="ans" style="width:75%; height:100px; border:solid 1px #f00; border-radius:20px; resize:none;"></textarea>
+		<table  id="mytable" cellspacing="0">
+
+			<!--    <tr>
+        <th scope="col">问题列表</th>
+        <th scope="col">操作</th>
+    </tr> -->
+			<!--    <tr>
+        <td class="row">saaaaaa</td>
+        <td class="row"><button class="button" value="123" onclick="lookAns(this)">查看答案</button></td>
+    </tr>
+    <tr>
+       <td class="row">bb</td>
+       <td class="row"><button value="abc" onclick="lookAns(this)">查看答案</button></td>
+    </tr> -->
+		</table>
+
+	</body>
+	<footer>夜雨-2023-高级AI群：<a href="https://jq.qq.com/?_wv=1027&k=8xldsY0P">249733992</a></footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+
+	<script>
+		function ask() {
+			let q = $("#question").val();
+			if (q) {
+				$.get("https://devapps.mouor.cn/mp/askQuestion/oDbKy5KRcg9WrSYZozl_hS13muzk/" + q, function(data) {
+					console.log(data);
+					alert(data.msg)
+					list()
+				});
+			}
+
+
+		}
+
+		function list() {
+			$.get("https://devapps.mouor.cn/mp/ProblemList/oDbKy5KRcg9WrSYZozl_hS13muzk", function(data) {
+		 	var ret = data.data;
+				$("#mytable").html("")
+				let ht = `    <tr>
+        <th scope="col">问题列表</th>
+        <th scope="col">操作</th>
+		</tr>`
+				//console.log(ht)
+				$("#mytable").html(ht)
+				for (var i = 0; i < ret.length; i++) {
+					ht += `<tr>
+       <td class="row">` + ret[i].problem + `</td>
+       <td class="row"><button value="` + ret[i].problemId + `" onclick="lookAns(this)">查看答案</button></td>
+    </tr>`
+				}
+				$("#mytable").html(ht)
+				
+			});
+		}
+
+		function lookAns(obj) {
+			console.log(obj.value)
+			$("#ans").val("分析中，请稍后...长时间不动，请重新查看")
+			$.get("https://devapps.mouor.cn/mp/AnswerList/oDbKy5KRcg9WrSYZozl_hS13muzk/" + obj.value, function(data) {
+				console.log(data);
+				$("#ans").val(data.data.answer)
+			});
+		}
+
+		setTimeout(list, 2000)
+	</script>
+
+</html>
