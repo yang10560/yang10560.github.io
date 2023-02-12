@@ -2,6 +2,9 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
+<meta name="viewport"
+    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+
 
 		<title>gpt</title>
 	</head>
@@ -146,8 +149,8 @@
 			top: 1px;
 
 		}
-	
-	input {
+
+		input {
 			-webkit-appearance: none;
 			-moz-appearance: none;
 			appearance: none;
@@ -156,55 +159,58 @@
 			border: solid 1px #f00;
 			border-radius: 20px;
 		}
-		
+
 		table {
-		    border-collapse: collapse;
-		    border-spacing: 0;
+			border-collapse: collapse;
+			border-spacing: 0;
 		}
-		 
-		td,th {
-		    padding: 0;
+
+		td,
+		th {
+			padding: 0;
 		}
-		 
+
 		.pure-table {
-		    border-collapse: collapse;
-		    border-spacing: 0;
-		    empty-cells: show;
-		    border: 1px solid #cbcbcb;
+			border-collapse: collapse;
+			border-spacing: 0;
+			empty-cells: show;
+			border: 1px solid #cbcbcb;
 		}
-		 
+
 		.pure-table caption {
-		    color: #000;
-		    font: italic 85%/1 arial,sans-serif;
-		    padding: 1em 0;
-		    text-align: center;
+			color: #000;
+			font: italic 85%/1 arial, sans-serif;
+			padding: 1em 0;
+			text-align: center;
 		}
-		 
-		.pure-table td,.pure-table th {
-		    border-left: 1px solid #cbcbcb;
-		    border-width: 0 0 0 1px;
-		    font-size: inherit;
-		    margin: 0;
-		    overflow: visible;
-		    padding: .5em 1em;
+
+		.pure-table td,
+		.pure-table th {
+			border-left: 1px solid #cbcbcb;
+			border-width: 0 0 0 1px;
+			font-size: inherit;
+			margin: 0;
+			overflow: visible;
+			padding: .5em 1em;
 		}
-		 
+
 		.pure-table thead {
-		    background-color: #e0e0e0;
-		    color: #000;
-		    text-align: left;
-		    vertical-align: bottom;
+			background-color: #e0e0e0;
+			color: #000;
+			text-align: left;
+			vertical-align: bottom;
 		}
-		 
+
 		.pure-table td {
-		    background-color: transparent;
+			background-color: transparent;
 		}
 	</style>
 	<body>
 		<input id="question" value="" placeholder="请输入问题" />
 		<button onclick="ask()">提问</button> <button onclick="list()">刷新问题</button></br>
-		<textarea id="ans" style="width:75%; height:100px; border:solid 1px #f00; border-radius:20px; resize:none;"></textarea>
-		<table  id="mytable" cellspacing="0">
+		<textarea id="ans"
+			style="width:75%; height:100px; border:solid 1px #f00; border-radius:20px; resize:none;"></textarea>
+		<table id="mytable" cellspacing="0">
 
 			<!--    <tr>
         <th scope="col">问题列表</th>
@@ -241,7 +247,7 @@
 
 		function list() {
 			$.get("https://devapps.mouor.cn/mp/ProblemList/oDbKy5KRcg9WrSYZozl_hS13muzk", function(data) {
-		 	var ret = data.data;
+				var ret = data.data;
 				$("#mytable").html("")
 				let ht = `    <tr>
         <th scope="col">问题列表</th>
@@ -249,14 +255,15 @@
 		</tr>`
 				//console.log(ht)
 				$("#mytable").html(ht)
-				for (var i = 0; i < ret.length; i++) {
+				let len = ret.length > 10 ? 10 : ret.length
+				for (var i = 0; i < len; i++) {
 					ht += `<tr>
-       <td class="row">` + ret[i].problem + `</td>
-       <td class="row"><button value="` + ret[i].problemId + `" onclick="lookAns(this)">查看答案</button></td>
+       <td align="left" class="row">` + ret[i].problem.slice(0,7) + `...</td>
+       <td align="left" class="row"><button  value="` + ret[i].problemId + `" onclick="lookAns(this)">查看答案</button></td>
     </tr>`
 				}
 				$("#mytable").html(ht)
-				
+
 			});
 		}
 
