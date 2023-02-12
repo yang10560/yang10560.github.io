@@ -255,7 +255,7 @@
 		</tr>`
 				//console.log(ht)
 				$("#mytable").html(ht)
-				let len = ret.length > 10 ? 10 : ret.length
+				let len = ret.length > 15 ? 15 : ret.length
 				for (var i = 0; i < len; i++) {
 					ht += `<tr>
        <td align="left" class="row">` + ret[i].problem.slice(0,7) + `...</td>
