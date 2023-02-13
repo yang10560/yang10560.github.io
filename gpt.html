@@ -236,7 +236,7 @@
 		function ask() {
 			let q = $("#question").val();
 			if (q) {
-				$.get("https://devapps.mouor.cn/mp/askQuestion/oDbKy5KRcg9WrSYZozl_hS13muzm/" + q, function(data) {
+				$.get("https://devapps.mouor.cn/mp/askQuestion/oDbKy5KRcg9WrSYZozl_hS13muzn/" + q, function(data) {
 					console.log(data);
 					alert(data.msg)
 					list()
@@ -247,7 +247,7 @@
 		}
 
 		function list() {
-			$.get("https://devapps.mouor.cn/mp/ProblemList/oDbKy5KRcg9WrSYZozl_hS13muzm", function(data) {
+			$.get("https://devapps.mouor.cn/mp/ProblemList/oDbKy5KRcg9WrSYZozl_hS13muzn", function(data) {
 				var ret = data.data;
 				$("#mytable").html("")
 				let ht = `    <tr>
@@ -271,7 +271,7 @@
 		function lookAns(obj) {
 			console.log(obj.value)
 			$("#ans").val("分析中，请稍后...长时间不动，请重新查看")
-			$.get("https://devapps.mouor.cn/mp/AnswerList/oDbKy5KRcg9WrSYZozl_hS13muzm/" + obj.value, function(data) {
+			$.get("https://devapps.mouor.cn/mp/AnswerList/oDbKy5KRcg9WrSYZozl_hS13muzn/" + obj.value, function(data) {
 				console.log(data);
 				$("#ans").val(data.data.answer)
 			});
