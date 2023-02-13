@@ -2,8 +2,8 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-<meta name="viewport"
-    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
 
 
 		<title>gpt</title>
@@ -207,7 +207,8 @@
 	</style>
 	<body>
 		<input id="question" value="" placeholder="请输入问题" />
-		<button onclick="ask()">提问</button> <button onclick="list()">刷新问题</button></br>
+		<button onclick="ask()">提问</button> <button onclick="list()">刷新问题</button><button
+			onclick="gg()">刷新缓存</button></br>
 		<textarea id="ans"
 			style="width:75%; height:200px; border:solid 1px #f00; border-radius:20px; resize:none;"></textarea>
 		<table id="mytable" cellspacing="0">
@@ -258,7 +259,7 @@
 				let len = ret.length > 15 ? 15 : ret.length
 				for (var i = 0; i < len; i++) {
 					ht += `<tr>
-       <td align="left" class="row">` + ret[i].problem.slice(0,7) + `...</td>
+       <td align="left" class="row">` + ret[i].problem.slice(0, 7) + `...</td>
        <td align="left" class="row"><button  value="` + ret[i].problemId + `" onclick="lookAns(this)">查看答案</button></td>
     </tr>`
 				}
@@ -277,12 +278,20 @@
 		}
 
 		setTimeout(list, 2000)
-		
-		if(!(location.href.indexOf("random")!=-1)){
-					var reurl = location.protocol +"//" + location.host + location.pathname+"?random="+Math.random();
-					//刷新缓存
-					
-					location.href = reurl;
+
+		function gg() {
+
+			var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
+			//刷新缓存
+
+			location.href = reurl;
+
+		}
+		if (!(location.href.indexOf("random") != -1)) {
+			var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
+			//刷新缓存
+
+			location.href = reurl;
 		}
 	</script>
 
