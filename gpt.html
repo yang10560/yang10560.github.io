@@ -209,6 +209,8 @@
 		<input id="question" value="" placeholder="请输入问题" />
 		<button onclick="ask()">提问</button> <button onclick="list()">刷新问题</button><button
 			onclick="gg()">刷新缓存</button></br>
+			<p>如果提示违规,请更新cookie</p> <button onclick="updateCookie()">更新cookie</button>
+			<br>
 		<textarea id="ans"
 			style="width:75%; height:200px; border:solid 1px #f00; border-radius:20px; resize:none;"></textarea>
 		<table id="mytable" cellspacing="0">
@@ -231,12 +233,44 @@
 	<footer>夜雨-2023-高级AI群：<a href="https://jq.qq.com/?_wv=1027&k=8xldsY0P">249733992</a></footer>
 
 	<script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 	<script>
+		
+		function randomString(len) {
+		  　　len = len || 32;
+		  　　var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+		  　　var maxPos = $chars.length;
+		 　　var pwd = '';
+		  　　for (i = 0; i < len; i++) {
+		 　　　　pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+		 　　}
+		 　　return pwd;
+		 }
+		 
+		function updateCookie(){
+			let seconds = 3600;
+			let expires = new Date(new Date() * 1 + seconds * 1000);
+			Cookies.set('userToken', randomString(8), { expires: expires }); // 10 秒后失效
+			location.reload()
+		}
+		
+		
+		
+		
+		
+		
 		function ask() {
+			var BaseUrl = "https://devapps.mouor.cn/mp/askQuestion/oDbKy5KRcg9WrSYZozl_";
+			let url_suffix = Cookies.get("userToken");
+			if(!url_suffix){
+				url_suffix = randomString(8);
+				let seconds = 3600;
+				let expires = new Date(new Date() * 1 + seconds * 1000);
+				Cookies.set('userToken',url_suffix, { expires: expires }); // 10 秒后失效
+			}
 			let q = $("#question").val();
 			if (q) {
-				$.get("https://devapps.mouor.cn/mp/askQuestion/oDbKy5KRcg9WrSYZozl_hS13muzn/" + q, function(data) {
+				$.get(BaseUrl + url_suffix + "/" + q, function(data) {
 					console.log(data);
 					alert(data.msg)
 					list()
@@ -247,7 +281,15 @@
 		}
 
 		function list() {
-			$.get("https://devapps.mouor.cn/mp/ProblemList/oDbKy5KRcg9WrSYZozl_hS13muzn", function(data) {
+			let url_suffix = Cookies.get("userToken");
+			if(!url_suffix){
+				url_suffix = randomString(8);
+				let seconds = 3600;
+				let expires = new Date(new Date() * 1 + seconds * 1000);
+				Cookies.set('userToken',url_suffix, { expires: expires }); // 10 秒后失效
+			}
+			
+			$.get("https://devapps.mouor.cn/mp/ProblemList/oDbKy5KRcg9WrSYZozl_" + url_suffix , function(data) {
 				var ret = data.data;
 				$("#mytable").html("")
 				let ht = `    <tr>
@@ -269,9 +311,16 @@
 		}
 
 		function lookAns(obj) {
+			let url_suffix = Cookies.get("userToken");
+			if(!url_suffix){
+				url_suffix = randomString(8);
+				let seconds = 3600;
+				let expires = new Date(new Date() * 1 + seconds * 1000);
+				Cookies.set('userToken',url_suffix, { expires: expires }); // 10 秒后失效
+			}
 			console.log(obj.value)
 			$("#ans").val("分析中，请稍后...长时间不动，请重新查看")
-			$.get("https://devapps.mouor.cn/mp/AnswerList/oDbKy5KRcg9WrSYZozl_hS13muzn/" + obj.value, function(data) {
+			$.get("https://devapps.mouor.cn/mp/AnswerList/oDbKy5KRcg9WrSYZozl_"+  url_suffix + "/" + obj.value, function(data) {
 				console.log(data);
 				$("#ans").val(data.data.answer)
 			});
