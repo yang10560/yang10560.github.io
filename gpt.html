@@ -277,6 +277,13 @@
 		}
 
 		setTimeout(list, 2000)
+		
+		if(!(location.href.indexOf("random")!=-1)){
+					var reurl = location.protocol +"//" + location.host + location.pathname+"?random="+Math.random();
+					//刷新缓存
+					
+					location.href = reurl;
+		}
 	</script>
 
 </html>
