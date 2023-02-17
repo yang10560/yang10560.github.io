@@ -208,7 +208,7 @@
 	<body>
 		<input id="question" value="" style="height: 35px;" placeholder="请输入问题" />
 		<button onclick="ask()">提问接口1</button> <button onclick="ask1()">提问接口2</button> </br> 
-		<button onclick="ask2()">极速接3</button> </br>
+		<button onclick="ask2()">极速接口3</button> </br>
 		<button onclick="list()">刷新问题</button><button onclick="gg()">刷新缓存</button>
 		<p>如果提示违规,请更新cookie</p> <button onclick="updateCookie()">更新cookie</button>
 		<br>
@@ -263,6 +263,7 @@
 
 
 
+		//小老弟 偷看源码是不对的！！
 		function ask() {
 			var BaseUrl = "https://devapps.mouor.cn/mp/askQuestion/oDbKy5KRcg9WrSYZozl_";
 			let url_suffix = Cookies.get("userToken");
