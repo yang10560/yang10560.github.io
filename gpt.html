@@ -207,14 +207,14 @@
 	</style>
 	<body>
 		<input id="question" value="" style="height: 35px;" placeholder="请输入问题" />
-		<button onclick="ask()">提问接口1</button> <button onclick="ask1()">提问接口2</button> </br> 
+		<button style="display: none;" onclick="ask()">提问接口1</button> <button onclick="ask1()">提问接口2</button> 
 		<button onclick="ask2()">极速接口3</button> </br>
-		<button onclick="list()">刷新问题</button><button onclick="gg()">刷新缓存</button>
-		<p>如果提示违规,请更新cookie</p> <button onclick="updateCookie()">更新cookie</button>
+		<button style="display: none;" onclick="list()">刷新问题</button><button onclick="gg()">刷新缓存</button>
+		<p style="display: none;">如果提示违规,请更新cookie</p> <button style="display: none;" onclick="updateCookie()">更新cookie</button>
 		<br>
 		<textarea id="ans"
 			style="width:75%; height:200px; border:solid 1px #f00; border-radius:20px; resize:none;"></textarea>
-		<table id="mytable" cellspacing="0">
+		<table id="mytable" style="display: none;" cellspacing="0">
 
 			<!--    <tr>
         <th scope="col">问题列表</th>
