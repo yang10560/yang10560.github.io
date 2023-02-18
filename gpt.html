@@ -326,7 +326,12 @@
 					}),
 					success: function(res) {
 					
-						AiMsg(res.choices[0].text.replaceAll("\n","</br>"))
+						try{
+							AiMsg(res.choices[0].text.replaceAll("\n","</br>"))
+						}catch(e){
+							//TODO handle the exception
+							AiMsg(res.choices[0].text)
+						}
 						$("#msg_status").html("AI畅聊")
 					},
 					error:function(res){
@@ -353,7 +358,11 @@
 					},
 					success: function(res) {
 					
-						AiMsg(res.data.answer.replaceAll("\n","</br>"))
+						try{
+							AiMsg(res.data.answer.replaceAll("\n","</br>"))
+						}catch(e){
+							AiMsg(res.data.answer)
+						}
 						$("#msg_status").html("AI畅聊")
 					},
 					error:function(res){
