@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+	</head>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		.chat_commento {
+			width: 450px;
+			height: 650px;
+			margin: auto;
+			border-radius: 10px;
+			border: 2px solid #f4f5f7;
+		}
+
+		.clearfix::after {
+			content: "";
+			display: block;
+			clear: both;
+			width: 0;
+			height: 0;
+			line-height: 0;
+			visibility: hidden;
+		}
+
+		/* top */
+		.chat_top {
+			width: 100%;
+			height: 50px;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			padding-left: 20px;
+			font-size: 20px;
+			line-height: 50px;
+			box-sizing: border-box;
+			font-weight: 550;
+			border-width: 0px;
+		}
+
+		/* middle */
+		/* 左边 */
+		.chat_middle {
+			width: 450px;
+			height: 455px;
+			position: relative;
+			box-sizing: border-box;
+			overflow: auto;
+			border-width: 0px;
+		}
+
+		.chat_left {
+			width: 100%;
+			height: 120px;
+			margin-top: 20px;
+		}
+
+		.chat_left_item_1 {
+			width: 50px;
+			height: 50px;
+			background-color: #4459AB;
+			float: left;
+			margin-top: 10px;
+			margin-left: 10px;
+			margin-right: 10px;
+			text-align: center;
+			line-height: 50px;
+			color: white;
+			border-radius: 25px;
+		}
+
+		.chat_left_item_2 {
+			width: 55%;
+			height: 100px;
+			float: left;
+			margin-top: 10px;
+		}
+
+		.chat_left_item_2 .chat_left_chat {
+			float: left;
+		}
+
+		.chat_left_item_2 .chat_left_content {
+			padding: 15px;
+			margin-top: 10px;
+			background-color: #f4f5f7;
+			display: inline-block;
+			border-radius: 10px;
+			border-top-left-radius: 0px;
+		}
+
+		/* 右边 */
+		.chat_right {
+			width: 100%;
+			height: 120px;
+			margin-top: 20px;
+		}
+
+		.chat_right_item_1 {
+			width: 50px;
+			height: 50px;
+			background-color: #4459AB;
+			float: right;
+			margin-top: 10px;
+			margin-left: 10px;
+			margin-right: 10px;
+			text-align: center;
+			line-height: 50px;
+			color: white;
+			border-radius: 25px;
+		}
+
+		.chat_right_item_2 {
+			width: 55%;
+			height: 100px;
+			float: right;
+			margin-top: 10px;
+		}
+
+		.chat_right_time {
+			width: 100%;
+			text-align: right;
+		}
+
+		.chat_right_content {
+			float: right;
+			padding: 15px;
+			border-radius: 10px;
+			margin-top: 10px;
+			border-top-right-radius: 0px;
+			background-color: #4F7cff;
+			color: white;
+		}
+
+		/* foot */
+		.chat_foot {
+			width: 450px;
+			height: 130px;
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+			position: relative;
+		}
+
+		.chat_context {
+			width: 100%;
+			height: 100%;
+			font-size: 17px;
+			box-sizing: border-box;
+			outline: none;
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+			border-width: 0px;
+			padding: 16px;
+		}
+
+		.chat_commit {
+			width: 80px;
+			height: 30px;
+			color: white;
+			background-color: #4F7cff;
+			line-height: 30px;
+			text-align: center;
+			border-radius: 5px;
+			position: absolute;
+			right: 10px;
+			bottom: 20px;
+			margin-right: 10px;
+		}
+
+		.chat_context {
+			resize: none;
+		}
+
+		.chat_context::placeholder {
+			color: black;
+			font-weight: 500k;
+		}
+
+		.line {
+			width: 100%;
+			border-top: 1px;
+			border-color: #f4f5f7;
+			border-style: solid;
+		}
+	</style>
+	<body>
+		<!-- entry -->
+		<div class="chat_commento">
+			<!-- top -->
+			<div id="msg_status" class="chat_top">
+				AI畅聊
+			</div>
+			<!-- line -->
+			<div class="line"></div>
+			<!-- middle -->
+			<div class="chat_middle" id="chat_middle_item">
+				<!-- 左边 -->
+				<div class="chat_left clearfix">
+					<div class="chat_left_item_1 ">AI</div>
+					<div class="chat_left_item_2">
+						<div class="chat_time">00:00</div>
+						<div class="chat_left_content">
+							夜雨-2023-高级AI群：<a target="_blank"
+								href="https://jq.qq.com/?_wv=1027&k=8xldsY0P">249733992</a><br>
+						</div>
+					</div>
+				</div>
+				<!-- 左边 -->
+				<div class="chat_left clearfix">
+					<div class="chat_left_item_1 ">AI</div>
+					<div class="chat_left_item_2">
+						<div class="chat_time">00:00</div>
+						<div class="chat_left_content">
+							<a target="_blank"
+								href="https://greasyfork.org/zh-CN/scripts/459997">已集成搜索引擎电脑插件(油猴tampermonkey)</a>
+
+						</div>
+					</div>
+				</div>
+
+
+				<!--右边 -->
+				<div class="chat_right">
+					<div class="chat_right_item_1 ">人类</div>
+					<div class="chat_right_item_2 ">
+						<div class="chat_right_time">00:00</div>
+						<div class="chat_right_content">
+							<a href="javascript:gg();" >欢迎提问,点击这里刷新缓存</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- line -->
+			<div class="line"></div>
+			<!-- foot -->
+			<div class="chat_foot">
+				<!-- context -->
+				<textarea class="chat_context" id="chat_context_item" cols="30" rows="10" placeholder="请输入"></textarea>
+				<div style="top: 10px;" class="chat_commit" id="jk2">接口2</div>
+				<div class="chat_commit" id="jk1">接口1</div>
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+		<script>
+			
+			//偷代码是不对的，小老弟！！！
+			function humanMsg(message) {
+				// 成功发送
+				var send_message = document.getElementById("chat_middle_item");
+				// 发送内容
+				var str = message;
+				var date = new Date();
+				var hour = date.getHours();
+				var mm = date.getMinutes();
+				var time = hour + ':' + mm;
+				var ans = '<div class="chat_right_item_1 clearfix">人类</div>' +
+					'<div class="chat_right_item_2">' +
+					'<div class="chat_right_time clearfix">' + time + '</div>' +
+					'<div class="chat_right_content clearfix">' + str + '</div>' +
+					'</div>';
+				var oLi = document.createElement("div");
+				oLi.setAttribute("class", "chat_right");
+				oLi.innerHTML = ans;
+				send_message.append(oLi);
+				message.value = "";
+			}
+
+
+
+			function AiMsg(message) {
+				// 成功发送
+				var send_message = document.getElementById("chat_middle_item");
+				// 发送内容
+
+
+				var str = message;
+				var date = new Date();
+				var hour = date.getHours();
+				var mm = date.getMinutes();
+				var time = hour + ':' + mm;
+				var ans = '<div class="chat_left_item_1 ">AI</div>' +
+					'<div class="chat_left_item_2">' +
+					'<div class="chat_time">' + time + '</div>' +
+					'<div class="chat_left_content">' + str + '</div>' +
+					'</div>';
+				var oLi = document.createElement("div");
+				oLi.setAttribute("class", "chat_left");
+				oLi.innerHTML = ans;
+				send_message.append(oLi);
+				message.value = "";
+			}
+
+
+			var jk1btn = document.getElementById("jk1");
+			var jk2btn = document.getElementById("jk2");
+			var messageInput = document.getElementById("chat_context_item");
+			jk1btn.addEventListener("click", function() {
+				let q = messageInput.value;
+				messageInput.value = ""
+				humanMsg(q);
+				//AiMsg(messageInput.value)
+				$("#msg_status").html("分析中，请稍后...")
+				$.ajax({
+					method: "POST",
+					url: "https://api.forchange.cn",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer `,
+					},
+					data: JSON.stringify({
+						prompt: "Human:" + q + "\nAI:",
+						tokensLength: q.length
+					}),
+					success: function(res) {
+					
+						AiMsg(res.choices[0].text.replaceAll("\n","</br>"))
+						$("#msg_status").html("AI畅聊")
+					},
+					error:function(res){
+						AiMsg("未知错误...")
+					}
+				})
+			});
+		
+			jk2btn.addEventListener("click", function() {
+				let q = messageInput.value;
+				messageInput.value = ""
+				humanMsg(q);
+				//AiMsg(messageInput.value)
+				$("#msg_status").html("分析中，请稍后...")
+				$.ajax({
+					method: "POST",
+					url: "https://kt.hptap.com/v1/question/createApi",
+					headers: {
+						"token": `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOTIiLCJleHAiOjE2NzkyMzQzNjR9.x5WnAgD4k-CIOUTuPT9mhkAr30F1M-FW_RflU6q6jc8`,
+					},
+					data: {
+						text: q,
+						type: 0
+					},
+					success: function(res) {
+					
+						AiMsg(res.data.answer.replaceAll("\n","</br>"))
+						$("#msg_status").html("AI畅聊")
+					},
+					error:function(res){
+						AiMsg("未知错误...")
+					}
+				})
+			});
+			
+			//刷新
+			function gg() {
+			
+				var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
+				//刷新缓存
+			
+				location.href = reurl;
+			
+			}
+			if (!(location.href.indexOf("random") != -1)) {
+				var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
+				//刷新缓存
+			
+				location.href = reurl;
+			}
+			
+		</script>
+	</body>
+</html>
