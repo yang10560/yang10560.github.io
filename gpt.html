@@ -275,6 +275,8 @@
 				oLi.setAttribute("class", "chat_right");
 				oLi.innerHTML = ans;
 				send_message.append(oLi);
+				send_message.scrollTop = send_message.scrollHeight;
+				//send_message.scrollIntoView()
 				message.value = "";
 			}
 
@@ -300,6 +302,8 @@
 				oLi.setAttribute("class", "chat_left");
 				oLi.innerHTML = ans;
 				send_message.append(oLi);
+				send_message.scrollTop = send_message.scrollHeight;
+				//send_message.scrollIntoView(true)
 				message.value = "";
 			}
 
