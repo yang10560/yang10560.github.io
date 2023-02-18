@@ -2,418 +2,375 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport"
-			content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
-
-
-		<title>gpt</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
 	</head>
-	<style type="text/css">
-		body {
-			text-align: center;
-			font: normal 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-			color: #4f6b72;
-			background: #E6EAE9;
-		}
-
-		a {
-			color: #c75f3e;
-		}
-
-		#mytable {
-			width: 700px;
+	<style>
+		* {
 			padding: 0;
 			margin: 0;
 		}
 
-		caption {
-			padding: 0 0 5px 0;
-			width: 700px;
-			font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+		.chat_commento {
+			width: 450px;
+			height: 650px;
+			margin: auto;
+			border-radius: 10px;
+			border: 2px solid #f4f5f7;
+		}
+
+		.clearfix::after {
+			content: "";
+			display: block;
+			clear: both;
+			width: 0;
+			height: 0;
+			line-height: 0;
+			visibility: hidden;
+		}
+
+		/* top */
+		.chat_top {
+			width: 100%;
+			height: 50px;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			padding-left: 20px;
+			font-size: 20px;
+			line-height: 50px;
+			box-sizing: border-box;
+			font-weight: 550;
+			border-width: 0px;
+		}
+
+		/* middle */
+		/* 左边 */
+		.chat_middle {
+			width: 450px;
+			height: 455px;
+			position: relative;
+			box-sizing: border-box;
+			overflow: auto;
+			border-width: 0px;
+		}
+
+		.chat_left {
+			width: 100%;
+			height: 120px;
+			margin-top: 20px;
+		}
+
+		.chat_left_item_1 {
+			width: 50px;
+			height: 50px;
+			background-color: #4459AB;
+			float: left;
+			margin-top: 10px;
+			margin-left: 10px;
+			margin-right: 10px;
+			text-align: center;
+			line-height: 50px;
+			color: white;
+			border-radius: 25px;
+		}
+
+		.chat_left_item_2 {
+			width: 55%;
+			height: 100px;
+			float: left;
+			margin-top: 10px;
+		}
+
+		.chat_left_item_2 .chat_left_chat {
+			float: left;
+		}
+
+		.chat_left_item_2 .chat_left_content {
+			padding: 15px;
+			margin-top: 10px;
+			background-color: #f4f5f7;
+			display: inline-block;
+			border-radius: 10px;
+			border-top-left-radius: 0px;
+		}
+
+		/* 右边 */
+		.chat_right {
+			width: 100%;
+			height: 120px;
+			margin-top: 20px;
+		}
+
+		.chat_right_item_1 {
+			width: 50px;
+			height: 50px;
+			background-color: #4459AB;
+			float: right;
+			margin-top: 10px;
+			margin-left: 10px;
+			margin-right: 10px;
+			text-align: center;
+			line-height: 50px;
+			color: white;
+			border-radius: 25px;
+		}
+
+		.chat_right_item_2 {
+			width: 55%;
+			height: 100px;
+			float: right;
+			margin-top: 10px;
+		}
+
+		.chat_right_time {
+			width: 100%;
 			text-align: right;
 		}
 
-		th {
-			font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-			color: #4f6b72;
-			border-right: 1px solid #C1DAD7;
-			border-bottom: 1px solid #C1DAD7;
-			border-top: 1px solid #C1DAD7;
-			letter-spacing: 2px;
-			text-transform: uppercase;
-			text-align: left;
-			padding: 6px 6px 6px 12px;
-			background: #CAE8EA no-repeat;
+		.chat_right_content {
+			float: right;
+			padding: 15px;
+			border-radius: 10px;
+			margin-top: 10px;
+			border-top-right-radius: 0px;
+			background-color: #4F7cff;
+			color: white;
 		}
 
-		th.nobg {
-			border-top: 0;
-			border-left: 0;
-			border-right: 1px solid #C1DAD7;
-			background: none;
-		}
-
-		td {
-			border-right: 1px solid #C1DAD7;
-			border-bottom: 1px solid #C1DAD7;
-			background: #fff;
-			font-size: 11px;
-			padding: 6px 6px 6px 12px;
-			color: #4f6b72;
-		}
-
-
-		td.alt {
-			background: #F5FAFA;
-			color: #797268;
-		}
-
-		th.spec {
-			border-left: 1px solid #C1DAD7;
-			border-top: 0;
-			background: #fff no-repeat;
-			font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-		}
-
-		th.specalt {
-			border-left: 1px solid #C1DAD7;
-			border-top: 0;
-			background: #f5fafa no-repeat;
-			font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-			color: #797268;
-		}
-
-		/*---------for IE 5.x bug*/
-		html>body td {
-			font-size: 11px;
-		}
-
-		body,
-		td,
-		th {
-			font-family: 宋体, Arial;
-			font-size: 12px;
-		}
-
-		button {
-
-			display: inline-block;
-
-			zoom: 1;
-			/* zoom and *display = ie7 hack for display:inline-block */
-
-			*display: inline;
-
-			vertical-align: baseline;
-
-			margin: 0 2px;
-
-			outline: none;
-
-			cursor: pointer;
-
-			text-align: center;
-
-			text-decoration: none;
-
-			font: 14px/100% Arial, Helvetica, sans-serif;
-
-			padding: .5em 2em .55em;
-
-			text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
-
-			-webkit-border-radius: .5em;
-
-			-moz-border-radius: .5em;
-
-			border-radius: .5em;
-
-			-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-
-			-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-
-			box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-
-		}
-
-		button:hover {
-
-			text-decoration: none;
-
-		}
-
-		button:active {
-
+		/* foot */
+		.chat_foot {
+			width: 450px;
+			height: 130px;
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
 			position: relative;
-
-			top: 1px;
-
 		}
 
-		input {
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
-			outline: 0;
-			padding: 0 8px;
-			border: solid 1px #f00;
-			border-radius: 20px;
+		.chat_context {
+			width: 100%;
+			height: 100%;
+			font-size: 17px;
+			box-sizing: border-box;
+			outline: none;
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+			border-width: 0px;
+			padding: 16px;
 		}
 
-		table {
-			border-collapse: collapse;
-			border-spacing: 0;
-		}
-
-		td,
-		th {
-			padding: 0;
-		}
-
-		.pure-table {
-			border-collapse: collapse;
-			border-spacing: 0;
-			empty-cells: show;
-			border: 1px solid #cbcbcb;
-		}
-
-		.pure-table caption {
-			color: #000;
-			font: italic 85%/1 arial, sans-serif;
-			padding: 1em 0;
+		.chat_commit {
+			width: 80px;
+			height: 30px;
+			color: white;
+			background-color: #4F7cff;
+			line-height: 30px;
 			text-align: center;
+			border-radius: 5px;
+			position: absolute;
+			right: 10px;
+			bottom: 20px;
+			margin-right: 10px;
 		}
 
-		.pure-table td,
-		.pure-table th {
-			border-left: 1px solid #cbcbcb;
-			border-width: 0 0 0 1px;
-			font-size: inherit;
-			margin: 0;
-			overflow: visible;
-			padding: .5em 1em;
+		.chat_context {
+			resize: none;
 		}
 
-		.pure-table thead {
-			background-color: #e0e0e0;
-			color: #000;
-			text-align: left;
-			vertical-align: bottom;
+		.chat_context::placeholder {
+			color: black;
+			font-weight: 500k;
 		}
 
-		.pure-table td {
-			background-color: transparent;
+		.line {
+			width: 100%;
+			border-top: 1px;
+			border-color: #f4f5f7;
+			border-style: solid;
 		}
 	</style>
 	<body>
-		<input id="question" value="" style="height: 35px;" placeholder="请输入问题" />
-		<button style="display: none;" onclick="ask()">提问接口1</button> <button onclick="ask1()">提问接口2</button> 
-		<button onclick="ask2()">极速接口3</button> </br>
-		<button style="display: none;" onclick="list()">刷新问题</button><button onclick="gg()">刷新缓存</button>
-		<p style="display: none;">如果提示违规,请更新cookie</p> <button style="display: none;" onclick="updateCookie()">更新cookie</button>
-		<br>
-		<textarea id="ans"
-			style="width:75%; height:200px; border:solid 1px #f00; border-radius:20px; resize:none;"></textarea>
-		<table id="mytable" style="display: none;" cellspacing="0">
+		<!-- entry -->
+		<div class="chat_commento">
+			<!-- top -->
+			<div id="msg_status" class="chat_top">
+				AI畅聊
+			</div>
+			<!-- line -->
+			<div class="line"></div>
+			<!-- middle -->
+			<div class="chat_middle" id="chat_middle_item">
+				<!-- 左边 -->
+				<div class="chat_left clearfix">
+					<div class="chat_left_item_1 ">AI</div>
+					<div class="chat_left_item_2">
+						<div class="chat_time">00:00</div>
+						<div class="chat_left_content">
+							夜雨-2023-高级AI群：<a target="_blank"
+								href="https://jq.qq.com/?_wv=1027&k=8xldsY0P">249733992</a><br>
+						</div>
+					</div>
+				</div>
+				<!-- 左边 -->
+				<div class="chat_left clearfix">
+					<div class="chat_left_item_1 ">AI</div>
+					<div class="chat_left_item_2">
+						<div class="chat_time">00:00</div>
+						<div class="chat_left_content">
+							<a target="_blank"
+								href="https://greasyfork.org/zh-CN/scripts/459997">已集成搜索引擎电脑插件(油猴tampermonkey)</a>
 
-			<!--    <tr>
-        <th scope="col">问题列表</th>
-        <th scope="col">操作</th>
-    </tr> -->
-			<!--    <tr>
-        <td class="row">saaaaaa</td>
-        <td class="row"><button class="button" value="123" onclick="lookAns(this)">查看答案</button></td>
-    </tr>
-    <tr>
-       <td class="row">bb</td>
-       <td class="row"><button value="abc" onclick="lookAns(this)">查看答案</button></td>
-    </tr> -->
-		</table>
+						</div>
+					</div>
+				</div>
 
+
+				<!--右边 -->
+				<div class="chat_right">
+					<div class="chat_right_item_1 ">人类</div>
+					<div class="chat_right_item_2 ">
+						<div class="chat_right_time">00:00</div>
+						<div class="chat_right_content">
+							<a href="javascript:gg();" >欢迎提问,点击这里刷新缓存</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- line -->
+			<div class="line"></div>
+			<!-- foot -->
+			<div class="chat_foot">
+				<!-- context -->
+				<textarea class="chat_context" id="chat_context_item" cols="30" rows="10" placeholder="请输入"></textarea>
+				<div style="top: 10px;" class="chat_commit" id="jk2">接口2</div>
+				<div class="chat_commit" id="jk1">接口1</div>
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+		<script>
+			function humanMsg(message) {
+				// 成功发送
+				var send_message = document.getElementById("chat_middle_item");
+				// 发送内容
+				var str = message;
+				var date = new Date();
+				var hour = date.getHours();
+				var mm = date.getMinutes();
+				var time = hour + ':' + mm;
+				var ans = '<div class="chat_right_item_1 clearfix">人类</div>' +
+					'<div class="chat_right_item_2">' +
+					'<div class="chat_right_time clearfix">' + time + '</div>' +
+					'<div class="chat_right_content clearfix">' + str + '</div>' +
+					'</div>';
+				var oLi = document.createElement("div");
+				oLi.setAttribute("class", "chat_right");
+				oLi.innerHTML = ans;
+				send_message.append(oLi);
+				message.value = "";
+			}
+
+
+
+			function AiMsg(message) {
+				// 成功发送
+				var send_message = document.getElementById("chat_middle_item");
+				// 发送内容
+
+
+				var str = message;
+				var date = new Date();
+				var hour = date.getHours();
+				var mm = date.getMinutes();
+				var time = hour + ':' + mm;
+				var ans = '<div class="chat_left_item_1 ">AI</div>' +
+					'<div class="chat_left_item_2">' +
+					'<div class="chat_time">' + time + '</div>' +
+					'<div class="chat_left_content">' + str + '</div>' +
+					'</div>';
+				var oLi = document.createElement("div");
+				oLi.setAttribute("class", "chat_left");
+				oLi.innerHTML = ans;
+				send_message.append(oLi);
+				message.value = "";
+			}
+
+
+			var jk1btn = document.getElementById("jk1");
+			var jk2btn = document.getElementById("jk2");
+			var messageInput = document.getElementById("chat_context_item");
+			jk1btn.addEventListener("click", function() {
+				let q = messageInput.value;
+				messageInput.value = ""
+				humanMsg(q);
+				//AiMsg(messageInput.value)
+				$("#msg_status").html("分析中，请稍后...")
+				$.ajax({
+					method: "POST",
+					url: "https://api.forchange.cn",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer `,
+					},
+					data: JSON.stringify({
+						prompt: "Human:" + q + "\nAI:",
+						tokensLength: q.length
+					}),
+					success: function(res) {
+					
+						AiMsg(res.choices[0].text.replaceAll("\n","</br>"))
+						$("#msg_status").html("AI畅聊")
+					},
+					error:function(res){
+						AiMsg("未知错误...")
+					}
+				})
+			});
+		
+			jk2btn.addEventListener("click", function() {
+				let q = messageInput.value;
+				messageInput.value = ""
+				humanMsg(q);
+				//AiMsg(messageInput.value)
+				$("#msg_status").html("分析中，请稍后...")
+				$.ajax({
+					method: "POST",
+					url: "https://kt.hptap.com/v1/question/createApi",
+					headers: {
+						"token": `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOTIiLCJleHAiOjE2NzkyMzQzNjR9.x5WnAgD4k-CIOUTuPT9mhkAr30F1M-FW_RflU6q6jc8`,
+					},
+					data: {
+						text: q,
+						type: 0
+					},
+					success: function(res) {
+					
+						AiMsg(res.data.answer.replaceAll("\n","</br>"))
+						$("#msg_status").html("AI畅聊")
+					},
+					error:function(res){
+						AiMsg("未知错误...")
+					}
+				})
+			});
+			
+			//刷新
+			function gg() {
+			
+				var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
+				//刷新缓存
+			
+				location.href = reurl;
+			
+			}
+			if (!(location.href.indexOf("random") != -1)) {
+				var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
+				//刷新缓存
+			
+				location.href = reurl;
+			}
+			
+		</script>
 	</body>
-	<footer>夜雨-2023-高级AI群：<a target="_blank" href="https://jq.qq.com/?_wv=1027&k=8xldsY0P">249733992</a><br>
-		<a target="_blank" href="https://greasyfork.org/zh-CN/scripts/459997">已集成搜索引擎电脑插件(油猴tampermonkey)</a>
-	</footer>
-
-	<script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
-	<script>
-		function randomString(len) {
-			len = len || 32;
-			var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678'; /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
-			var maxPos = $chars.length;
-			var pwd = '';
-		  for (i = 0; i < len; i++) {
-				pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
-			}
-			return pwd;
-		}
-
-		function updateCookie() {
-			let seconds = 3600;
-			let expires = new Date(new Date() * 1 + seconds * 1000);
-			Cookies.set('userToken', randomString(8), {
-				expires: expires
-			}); // 10 秒后失效
-			location.reload()
-		}
-
-
-
-
-
-
-		//小老弟 偷看源码是不对的！！
-		function ask() {
-			var BaseUrl = "https://devapps.mouor.cn/mp/askQuestion/oDbKy5KRcg9WrSYZozl_";
-			let url_suffix = Cookies.get("userToken");
-			if (!url_suffix) {
-				url_suffix = randomString(8);
-				let seconds = 3600;
-				let expires = new Date(new Date() * 1 + seconds * 1000);
-				Cookies.set('userToken', url_suffix, {
-					expires: expires
-				}); // 10 秒后失效
-			}
-			let q = $("#question").val();
-			if (q) {
-				$.get(BaseUrl + url_suffix + "/" + q, function(data) {
-					console.log(data);
-					alert(data.msg)
-					list()
-				});
-			}
-
-
-		}
-
-		function ask1() {
-			
-			let q = $("#question").val();
-			$("#ans").val("分析中，请稍后...")
-			$.ajax({
-				method: "POST",
-				//url: "https://chat.openai.com/backend-api/conversation",
-				url: "https://api.forchange.cn",
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Bearer `,
-				},
-				data: JSON.stringify({
-					prompt: "Human:" + q + "\nAI:",
-					tokensLength: q.length
-				}),
-				success: function(res) {
-				
-					$("#ans").val(res.choices[0].text)
-				},
-				error:function(res){
-					$("#ans").val("错误...")
-				}
-			})
-		}
-		
-		function ask2() {
-			
-			let q = $("#question").val();
-			$("#ans").val("分析中，请稍后...")
-			$.ajax({
-				method: "POST",
-				url: "https://kt.hptap.com/v1/question/createApi",
-				headers: {
-					"token": `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOTIiLCJleHAiOjE2NzkyMzQzNjR9.x5WnAgD4k-CIOUTuPT9mhkAr30F1M-FW_RflU6q6jc8`,
-				},
-				data: {
-					text: q,
-					type: 0
-				},
-				success: function(res) {
-					console.log(res)
-					$("#ans").val(res.data.answer)
-				},
-				error:function(res){
-					$("#ans").val("错误...")
-				}
-			})
-		}
-		
-
-		function list() {
-			let url_suffix = Cookies.get("userToken");
-			if (!url_suffix) {
-				url_suffix = randomString(8);
-				let seconds = 3600;
-				let expires = new Date(new Date() * 1 + seconds * 1000);
-				Cookies.set('userToken', url_suffix, {
-					expires: expires
-				}); // 10 秒后失效
-			}
-
-			$.get("https://devapps.mouor.cn/mp/ProblemList/oDbKy5KRcg9WrSYZozl_" + url_suffix, function(data) {
-				var ret = data.data;
-				$("#mytable").html("")
-				let ht = `    <tr>
-        <th scope="col">问题列表</th>
-        <th scope="col">操作</th>
-		</tr>`
-				//console.log(ht)
-				$("#mytable").html(ht)
-				let len = ret.length > 15 ? 15 : ret.length
-				for (var i = 0; i < len; i++) {
-					ht += `<tr>
-       <td align="left" class="row">` + ret[i].problem.slice(0, 7) + `...</td>
-       <td align="left" class="row"><button  value="` + ret[i].problemId + `" onclick="lookAns(this)">查看答案</button></td>
-    </tr>`
-				}
-				$("#mytable").html(ht)
-
-			});
-		}
-
-		function lookAns(obj) {
-			let url_suffix = Cookies.get("userToken");
-			if (!url_suffix) {
-				url_suffix = randomString(8);
-				let seconds = 3600;
-				let expires = new Date(new Date() * 1 + seconds * 1000);
-				Cookies.set('userToken', url_suffix, {
-					expires: expires
-				}); // 10 秒后失效
-			}
-			console.log(obj.value)
-			$("#ans").val("分析中，请稍后...长时间不动，请重新查看")
-			$.get("https://devapps.mouor.cn/mp/AnswerList/oDbKy5KRcg9WrSYZozl_" + url_suffix + "/" + obj.value, function(
-			data) {
-				console.log(data);
-				$("#ans").val(data.data.answer)
-			});
-		}
-
-		setTimeout(list, 2000)
-
-		function gg() {
-
-			var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
-			//刷新缓存
-
-			location.href = reurl;
-
-		}
-		if (!(location.href.indexOf("random") != -1)) {
-			var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
-			//刷新缓存
-
-			location.href = reurl;
-		}
-	</script>
-	<!-- 百度统计 -->
-	<script>
-		var _hmt = _hmt || [];
-		(function() {
-			var hm = document.createElement("script");
-			hm.src = "https://hm.baidu.com/hm.js?4925a5b02da9504aab1a241aad222dfd";
-			var s = document.getElementsByTagName("script")[0];
-			s.parentNode.insertBefore(hm, s);
-		})();
-	</script>
 </html>
