@@ -391,6 +391,15 @@
 				location.href = reurl;
 			}
 			
+			let msgInput = document.getElementById("chat_context_item");
+			msgInput.addEventListener("keydown",function(ev){
+				//console.log(ev.keyCode)
+				if(ev.keyCode == 13){
+					let jk2btn = document.getElementById("jk2");
+					jk2btn.click()
+				}
+			})
+			
 		</script>
 		<!-- 百度统计 -->
 		<script>
