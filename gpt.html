@@ -387,10 +387,10 @@
 				$("#msg_status").html("分析中，请稍后...")
 				$.ajax({
 					method: "POST",
-					url: "https://kt.hptap.com/v1/question/createApi",
+					url: "http://c.tazhidao.cn/api/",
 					headers: {
 						// "User-Agent": "apifox/1.0.0 (https://www.apifox.cn)",
-						// "Host": "http://c.tazhidao.cn",
+						// "Accpet-Type": "application/json, text/plain, */*",
 						"Content-Type": "application/json"
 					},
 					data: JSON.stringify({
@@ -410,7 +410,34 @@
 					error:function(res){
 						AiMsg("未知错误...")
 					}
-				})
+				});
+				
+				
+				// 		const xhr = new XMLHttpRequest();
+				
+					
+				// 		// 监听 readystatechange 事件
+				// 		xhr.onreadystatechange = function() {
+				// 			if (xhr.readyState === XMLHttpRequest.DONE) {
+				// 				if (xhr.status === 200) {
+				// 					console.log(xhr.responseText);
+				
+				// 				} else {
+				// 					console.error('请求失败：' + xhr.status);
+				// 				}
+				// 			}
+				// 		};
+						
+				
+				// 		// 发送请求
+				// 		xhr.open('POST', "http://c.tazhidao.cn/api/", false);
+				// 		xhr.setRequestHeader("content-type","application/json")
+				// 		xhr.setRequestHeader("Referer","http://c.tazhidao.cn/")
+				// 		xhr.send(JSON.stringify({
+				// 		prompt: q,
+				// 		options: {}
+				// 	}));
+					
 			});
 			
 			//刷新
