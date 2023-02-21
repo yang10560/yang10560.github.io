@@ -334,6 +334,7 @@
 							AiMsg(res.choices[0].text.replaceAll("\n","</br>"))
 						}catch(e){
 							//TODO handle the exception
+							res = JSON.parse(res)
 							AiMsg(res.choices[0].text)
 						}
 						$("#msg_status").html("AI畅聊")
