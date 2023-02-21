@@ -380,6 +380,10 @@
 			
 			
 			jk3btn.addEventListener("click", function() {
+				if(location.href.startsWith("https")){
+					location.href = "http://blog.yeyusmile.top/gpt.html"
+					return
+				}
 				let q = messageInput.value;
 				messageInput.value = ""
 				humanMsg(q);
