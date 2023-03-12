@@ -146,7 +146,7 @@
 
 		/* foot */
 		.chat_foot {
-			width: 450px;
+			width: 400px;
 			height: 130px;
 			border-bottom-left-radius: 10px;
 			border-bottom-right-radius: 10px;
@@ -248,9 +248,9 @@
 			<div class="chat_foot">
 				<!-- context -->
 				<textarea class="chat_context" id="chat_context_item" cols="30" rows="10" placeholder="请输入"></textarea>
-				<div style="top: 10px;" class="chat_commit" id="jk2">此接口已挂</div>
+				<div style="top: 10px;display: none;" class="chat_commit" id="jk2">接口2</div>
 				<div style="top: 45px;" class="chat_commit" id="jk3">接口3</div>
-				<div class="chat_commit" id="jk1">接口1</div>
+				<div style="display: none;" class="chat_commit" id="jk1">接口1</div>
 			</div>
 		</div>
 		<footer style="text-align: center;"><a target="_blank" href="http://yeyusmile.top/chatGPT11.apk">APP下载</a></footer>
@@ -381,34 +381,31 @@
 			
 			
 			jk3btn.addEventListener("click", function() {
-				if(location.href.startsWith("https")){
-					location.href = "http://blog.yeyusmile.top/gpt.html"
-					return
-				}
+				
 				let q = messageInput.value;
 				messageInput.value = ""
 				humanMsg(q);
 				//AiMsg(messageInput.value)
 				$("#msg_status").html("分析中，请稍后...")
 				$.ajax({
-					method: "POST",
-					url: "http://c.tazhidao.cn/api/",
+					method: "GET",
+					url: "https://wenxin110.top/api/chat_gpt?text=" + encodeURI(q),
 					headers: {
 						// "User-Agent": "apifox/1.0.0 (https://www.apifox.cn)",
 						// "Accpet-Type": "application/json, text/plain, */*",
-						"Content-Type": "application/json"
+						//"Content-Type": "application/json"
 					},
-					data: JSON.stringify({
-						prompt: q,
-						options: {}
-					}),
+					// data: JSON.stringify({
+					// 	prompt: q,
+					// 	options: {}
+					// }),
 					success: function(res) {
 					
 					
 						try{
-							AiMsg(res.data.text.replaceAll("\n","</br>"))
+							AiMsg(res.text.replaceAll("\n","</br>"))
 						}catch(e){
-							AiMsg(res.data.text)
+							AiMsg(res.text)
 						}
 						$("#msg_status").html("AI畅聊")
 					},
@@ -445,21 +442,21 @@
 					
 			});
 			
-			//刷新
-			function gg() {
+			// //刷新
+			// function gg() {
 			
-				var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
-				//刷新缓存
+			// 	var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
+			// 	//刷新缓存
 			
-				location.href = reurl;
+			// 	location.href = reurl;
 			
-			}
-			if (!(location.href.indexOf("random") != -1)) {
-				var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
-				//刷新缓存
+			// }
+			// if (!(location.href.indexOf("random") != -1)) {
+			// 	var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
+			// 	//刷新缓存
 			
-				location.href = reurl;
-			}
+			// 	location.href = reurl;
+			// }
 			
 			let msgInput = document.getElementById("chat_context_item");
 			msgInput.addEventListener("keydown",function(ev){
