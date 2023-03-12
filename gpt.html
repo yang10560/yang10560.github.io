@@ -442,21 +442,21 @@
 					
 			});
 			
-			// //刷新
-			// function gg() {
+			//刷新
+			function gg() {
 			
-			// 	var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
-			// 	//刷新缓存
+				var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
+				//刷新缓存
 			
-			// 	location.href = reurl;
+				location.href = reurl;
 			
-			// }
-			// if (!(location.href.indexOf("random") != -1)) {
-			// 	var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
-			// 	//刷新缓存
+			}
+			if (!(location.href.indexOf("random") != -1)) {
+				var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
+				//刷新缓存
 			
-			// 	location.href = reurl;
-			// }
+				location.href = reurl;
+			}
 			
 			let msgInput = document.getElementById("chat_context_item");
 			msgInput.addEventListener("keydown",function(ev){
