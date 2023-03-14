@@ -200,7 +200,7 @@
 		<div class="chat_commento">
 			<!-- top -->
 			<div id="msg_status" class="chat_top">
-				chatGPT版-AI畅聊-当前不可用状态！！！
+				chatGPT版-AI畅聊
 			</div>
 			<!-- line -->
 			<div class="line"></div>
@@ -304,7 +304,7 @@
 			var flash = document.getElementById("flash");
 			var messageInput = document.getElementById("chat_context_item");
 			
-			AiMsg("当前不可用状态....")
+			//AiMsg("当前不可用状态....")
 		
 			jk3btn.addEventListener("click", function() {
 				let q = messageInput.value;
@@ -327,8 +327,8 @@
 						$("#msg_status").html("chatGPT版-AI畅聊")
 					},
 					error:function(res){
-						//AiMsg("未知错误...\n仅支持安卓app中使用.\n下载http://yeyusmile.top/chatGPT11.apk")
-						AiMsg("不可用状态....")
+						AiMsg("未知错误...\n仅支持安卓app中使用.\n下载http://yeyusmile.top/chatGPT11.apk")
+						//AiMsg("不可用状态....")
 					}
 				})
 			});
