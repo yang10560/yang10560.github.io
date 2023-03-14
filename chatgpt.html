@@ -239,7 +239,8 @@
 			<div class="chat_foot">
 				<!-- context -->
 				<textarea class="chat_context" id="chat_context_item" cols="30" rows="10" placeholder="请输入"></textarea>
-				<div style="top: 45px;;" class="chat_commit" id="jk3">CHATGPT</div>
+				<div style="top: 70px;" class="chat_commit" id="jk3">CHATGPT</div>
+				<div style="top: 10px;"  class="chat_commit" id="flash">刷新</div>
 			</div>
 		</div>
 		<footer style="text-align: center;"><a target="_blank" href="http://yeyusmile.top/chatGPT11.apk">APP下载</a></footer>
@@ -300,12 +301,17 @@
 
 		
 			var jk3btn = document.getElementById("jk3");
+			var flash = document.getElementById("flash");
 			var messageInput = document.getElementById("chat_context_item");
+			
 			
 		
 			jk3btn.addEventListener("click", function() {
 				let q = messageInput.value;
 				messageInput.value = ""
+				if(q==""){
+					return
+				}
 				humanMsg(q);
 				//AiMsg(messageInput.value)
 				$("#msg_status").html("分析中，请稍后...")
@@ -321,12 +327,14 @@
 						$("#msg_status").html("chatGPT版-AI畅聊")
 					},
 					error:function(res){
-						AiMsg("未知错误...")
+						AiMsg("未知错误...\n仅支持安卓app中使用.")
 					}
 				})
 			});
 			
-					
+			flash.addEventListener("click", function() {
+				location.reload()
+			})		
 			
 			
 			//刷新
