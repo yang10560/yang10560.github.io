@@ -311,16 +311,10 @@
 				$("#msg_status").html("分析中，请稍后...")
 				$.ajax({
 					method: "POST",
-					url: "https://gpt.qccq.cc/api/chat",
-					headers: {
-						"Access-Control-Allow-Origin":"*",
-						"xl": "11f7e983b184295a421181737a7d1134-1678770299185",
-						"Accept": "application/json, text/plain, */*",
-						"Content-Type": "application/json"
-					},
-					data: JSON.stringify({id:"1678770118712",msg:q,apiKey:""}),
+					url: "https://blog.yeyusmile.top/api/chatgpt?id=1678770118712&prompt="+q,
 					success: function(res) {
-						console.log(res)
+						alert(res)
+						alert(res.data)
 						try{
 							 res = JSON.parse(res)
 							AiMsg(res.data.replaceAll("\n","</br>"))
