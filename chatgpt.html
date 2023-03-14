@@ -313,13 +313,9 @@
 					method: "POST",
 					url: "https://blog.yeyusmile.top/api/chatgpt?id=1678770118712&prompt="+q,
 					success: function(res) {
-						alert(res)
-						alert(res.data)
 						try{
-							 res = JSON.parse(res)
 							AiMsg(res.data.replaceAll("\n","</br>"))
 						}catch(e){
-							res = JSON.parse(res)
 							AiMsg(res.data)
 						}
 						$("#msg_status").html("chatGPT版-AI畅聊")
