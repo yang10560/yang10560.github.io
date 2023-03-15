@@ -6,7 +6,7 @@
 		<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 		<meta name="viewport"
 			content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
-		
+
 		<title>chatGPT3.5-AI畅聊</title>
 	</head>
 	<script src="https://cdn.bootcss.com/sockjs-client/1.1.4/sockjs.min.js"></script>
@@ -212,10 +212,13 @@
 					<div class="chat_left_item_2">
 						<div class="chat_time">00:00</div>
 						<div class="chat_left_content">
-							<a style="color: red;" href="./gpt.html" >切换OPENAI版本</a>
+							<a style="color: red;" href="./gpt.html">切换OPENAI版本</a>
 						</div>
 						<div class="chat_left_content">
-							<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=2vgWmjWLhgdReOjn3phDklRq4Tq_m8Xe&jump_from=webapi&authKey=4pYhD2LEICv8SZkuK0OliI9cWxitAHmIjDT5xGTAYG2hChaZ4cYvjsxmztje3dYT"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="高级AI研究所" title="高级AI研究所"></a>
+							<a target="_blank"
+								href="https://qm.qq.com/cgi-bin/qm/qr?k=2vgWmjWLhgdReOjn3phDklRq4Tq_m8Xe&jump_from=webapi&authKey=4pYhD2LEICv8SZkuK0OliI9cWxitAHmIjDT5xGTAYG2hChaZ4cYvjsxmztje3dYT"><img
+									border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="高级AI研究所"
+									title="高级AI研究所"></a>
 						</div>
 					</div>
 				</div>
@@ -227,7 +230,7 @@
 					<div class="chat_right_item_2 ">
 						<div class="chat_right_time">00:00</div>
 						<div class="chat_right_content">
-							<a href="javascript:gg();" >欢迎提问,点击这里刷新缓存</a>
+							<a href="javascript:gg();">欢迎提问,点击这里刷新缓存</a>
 						</div>
 					</div>
 				</div>
@@ -239,15 +242,16 @@
 			<div class="chat_foot">
 				<!-- context -->
 				<textarea class="chat_context" id="chat_context_item" cols="30" rows="10" placeholder="请输入"></textarea>
-				<div style="top: 70px;" class="chat_commit" id="jk3">CHATGPT</div>
-				<div style="top: 10px;"  class="chat_commit" id="flash">刷新</div>
+				<div style="top: 55px;" class="chat_commit" id="jk3">CHATGPT</div>
+				<div style="top: 100px;" class="chat_commit" id="jk2">GPT3.5</div>
+				<div style="top: 10px;" class="chat_commit" id="flash">刷新</div>
 			</div>
 		</div>
-		<footer style="text-align: center;"><a target="_blank" href="http://yeyusmile.top/chatGPT11.apk">APP下载</a></footer>
+		<footer style="text-align: center;"><a target="_blank" href="http://yeyusmile.top/chatGPT11.apk">APP下载</a>
+		</footer>
 		<script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 		<script>
-			
 			//偷代码是不对的，小老弟！！！
 			function humanMsg(message) {
 				// 成功发送
@@ -299,17 +303,19 @@
 				//message.value = "";
 			}
 
-		
+
 			var jk3btn = document.getElementById("jk3");
+			var jk2btn = document.getElementById("jk2");
 			var flash = document.getElementById("flash");
 			var messageInput = document.getElementById("chat_context_item");
-			
+
 			//AiMsg("当前不可用状态....")
-		
+
+			//接口1
 			jk3btn.addEventListener("click", function() {
 				let q = messageInput.value;
 				messageInput.value = ""
-				if(q==""){
+				if (q == "") {
 					return
 				}
 				humanMsg(q);
@@ -317,54 +323,82 @@
 				$("#msg_status").html("分析中，请稍后...")
 				$.ajax({
 					method: "POST",
-					url: "https://blog.yeyusmile.top/api/chatgpt?id=1678770118712&prompt="+q,
+					//&jk=1
+					url: "https://blog.yeyusmile.top/api/chatgpt?id=1678770118712&prompt=" + q,
 					success: function(res) {
-						try{
-							AiMsg(res.data.replaceAll("\n","</br>"))
-						}catch(e){
+						try {
+							AiMsg(res.data.replaceAll("\n", "</br>"))
+						} catch (e) {
 							AiMsg(res.data)
 						}
 						$("#msg_status").html("chatGPT版-AI畅聊")
 					},
-					error:function(res){
-						AiMsg("未知错误...\n仅支持安卓app中使用v1.1以上.\n下载http://yeyusmile.top/chatGPT11.apk")
+					error: function(res) {
+						AiMsg("未知错误...\n仅支持安卓app中使用v1.1以上.未升级的请升级app\n下载http://yeyusmile.top/chatGPT11.apk")
 						//AiMsg("不可用状态....")
 					}
 				})
 			});
-			
+
+			//接口2
+			jk2btn.addEventListener("click", function() {
+				let q = messageInput.value;
+				messageInput.value = ""
+				if (q == "") {
+					return
+				}
+				humanMsg(q);
+				//AiMsg(messageInput.value)
+				$("#msg_status").html("分析中，请稍后...")
+				$.ajax({
+					method: "POST",
+					url: "https://blog.yeyusmile.top/api/chatgpt?id=1678770118712&prompt=" + q + "&jk=2",
+					success: function(res) {
+						try {
+							AiMsg(res.data.replaceAll("\n", "</br>"))
+						} catch (e) {
+							AiMsg(res.data)
+						}
+						$("#msg_status").html("chatGPT版-AI畅聊")
+					},
+					error: function(res) {
+						AiMsg("未知错误...\n仅支持安卓app中使用v1.2以上.未升级的请升级app\n下载请到群文件。不再提供网站下载链接")
+						//AiMsg("不可用状态....")
+					}
+				})
+			});
+
 			flash.addEventListener("click", function() {
 				location.reload()
-			})		
-			
-			
+			})
+
+
 			//刷新
-			
+
 			function gg() {
-			
+
 				var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
 				//刷新缓存
-			
+
 				location.href = reurl;
-			
+
 			}
 			if (!(location.href.indexOf("random") != -1)) {
 				var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
 				//刷新缓存
-			
+
 				location.href = reurl;
 			}
-			
+
 			let msgInput = document.getElementById("chat_context_item");
-			
-			msgInput.addEventListener("keydown",function(ev){
+
+			msgInput.addEventListener("keydown", function(ev) {
 				//console.log(ev.keyCode)
-				if(ev.keyCode == 13){
+				if (ev.keyCode == 13) {
 					let jk3btn = document.getElementById("jk3");
 					jk3btn.click()
 				}
 			})
-			
 		</script>
 		<!-- 百度统计 -->
 		<script>
