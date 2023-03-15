@@ -355,9 +355,9 @@
 					url: "https://blog.yeyusmile.top/api/chatgpt?id=1678770118712&prompt=" + q + "&jk=2",
 					success: function(res) {
 						try {
-							AiMsg(res.data.replaceAll("\n", "</br>"))
+							AiMsg(res.replaceAll("\n", "</br>"))
 						} catch (e) {
-							AiMsg(res.data)
+							AiMsg(res)
 						}
 						$("#msg_status").html("chatGPT版-AI畅聊")
 					},
