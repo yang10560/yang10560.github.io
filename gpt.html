@@ -63,7 +63,7 @@
     }
     
     .from-bot .message-content {
-      background-color: #6a6a6a;
+      background-color: #1a1a1a;
     }
     
     #input-container {
@@ -246,7 +246,7 @@ function simulateBotResponse(restMessage) {
   const messageContent = document.createElement("article");
 //  console.log(restMessage)
   newMessage.classList.add("message", "from-bot");
- // messageContent.classList.add("message-content");
+  messageContent.classList.add("message-content");
   messageContent.classList.add("markdown-body");
   messageContent.innerHTML = `${mdConverter(restMessage.replace(/\\n+/g,"\n"))}`;
   newMessage.appendChild(messageContent);
