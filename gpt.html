@@ -240,7 +240,7 @@ function simulateBotResponse(restMessage) {
   newMessage.classList.add("message", "from-bot");
  // messageContent.classList.add("message-content");
   messageContent.classList.add("markdown-body");
-  messageContent.innerHTML = `${mdConverter(restMessage.replaceAll(/\\n+/g,"\n"))}`;
+  messageContent.innerHTML = `${mdConverter(restMessage.replace(/\\n+/g,"\n"))}`;
   newMessage.appendChild(messageContent);
   messagesContainer.appendChild(newMessage);
   
