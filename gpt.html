@@ -118,7 +118,7 @@
     <div id="input-container">
       <input type="text" placeholder="请输入问题...">
 	  <hr>
-  <button id="send-button">接口1</button>  <button id="send-button2">接口2</button>
+  <button id="send-button">接口1</button>  <button id="send-button2">接口2</button><button id="clearBtn">清空历史</button>
 </div>
 </div>
 	<footer style="text-align: center;"><a target="_blank" href="https://greasyfork.org/zh-CN/scripts/462092">@夜雨-2020-2023</a></footer>
@@ -138,6 +138,45 @@ const inputField = document.querySelector("#input-container input[type='text']")
 
 
 
+function saveHistory(humanMsg,botMsg){
+	var chatList =  localStorage.getItem("chatList")
+	if(chatList){
+		chatList = JSON.parse(chatList)
+		chatList.push({
+			human: humanMsg,
+			bot: botMsg
+		})
+		 localStorage.setItem("chatList",JSON.stringify(chatList))
+	}else{
+		chatList = []
+		chatList.push({
+			human: humanMsg,
+			bot: botMsg
+		})
+		localStorage.setItem("chatList",JSON.stringify(chatList))
+	}
+}
+
+function loadHistory(){
+	var chatList =  localStorage.getItem("chatList")
+	if(chatList){
+		chatList = JSON.parse(chatList)
+		chatList.forEach(function(item) {
+		  //human
+		  const newMessage = document.createElement("div");
+		  const messageContent = document.createElement("div");
+		  newMessage.classList.add("message", "from-user");
+		  messageContent.classList.add("message-content");
+		  messageContent.textContent = item.human;
+		  newMessage.appendChild(messageContent);
+		  messagesContainer.appendChild(newMessage);
+		  
+		  //bot
+		  simulateBotResponse(item.bot)
+		})
+	}
+}
+
 function handleBot(question,type){
 	let q = question;
 	$("#chat-header").html("思考中，请稍后...")
@@ -149,8 +188,9 @@ function handleBot(question,type){
 			headers: {
 			},
 			success: function(res) {
+				//Save History
+				saveHistory(question,res.text)
 				simulateBotResponse(res.text)
-				
 				$("#chat-header").html("AI Chat")
 			},
 			error:function(res){
@@ -171,6 +211,8 @@ function handleBot(question,type){
 			}),
 			success: function(res) {
 			
+				//Save History
+				saveHistory(question,res.choices[0].text)
 				simulateBotResponse(res.choices[0].text)
 				
 				$("#chat-header").html("AI Chat")
@@ -255,6 +297,11 @@ sendButton2.addEventListener("click", ()=>{
 	handleUserInput(2)
 });
 
+document.getElementById("clearBtn").addEventListener("click",()=>{
+	localStorage.removeItem("chatList")
+	location.reload()
+})
+
 
 //md start
 function Uint8ArrayToString(fileData) {
@@ -308,6 +355,9 @@ simulateBotResponse(`[切换GPT版本](./chatgpt.html)`)
 	
 		location.href = reurl;
 	}
+	
+	//载入历史
+	setTimeout(loadHistory,1000)
 </script>
 </body>
 		<!-- 百度统计 -->
