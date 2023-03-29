@@ -1,478 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-		<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-		<meta name="viewport"
-			content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
-		
-		<title>chatGPT-AI畅聊</title>
-	</head>
-	<script src="https://cdn.bootcss.com/sockjs-client/1.1.4/sockjs.min.js"></script>
-	<script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
-
-	<style>
-		* {
-			padding: 0;
-			margin: 0;
-		}
-
-		.chat_commento {
-			width: 450px;
-			height: 650px;
-			margin: auto;
-			border-radius: 10px;
-			border: 2px solid #f4f5f7;
-		}
-
-		.clearfix::after {
-			content: "";
-			display: block;
-			clear: both;
-			width: 0;
-			height: 0;
-			line-height: 0;
-			visibility: hidden;
-		}
-
-		/* top */
-		.chat_top {
-			width: 100%;
-			height: 50px;
-			border-top-left-radius: 10px;
-			border-top-right-radius: 10px;
-			padding-left: 20px;
-			font-size: 20px;
-			line-height: 50px;
-			box-sizing: border-box;
-			font-weight: 550;
-			border-width: 0px;
-		}
-
-		/* middle */
-		/* 左边 */
-		.chat_middle {
-			width: 450px;
-			height: 455px;
-			position: relative;
-			box-sizing: border-box;
-			overflow: auto;
-			border-width: 0px;
-		}
-
-		.chat_left {
-			width: 100%;
-			height: 120px;
-			margin-top: 20px;
-		}
-
-		.chat_left_item_1 {
-			width: 50px;
-			height: 50px;
-			background-color: #4459AB;
-			float: left;
-			margin-top: 10px;
-			margin-left: 10px;
-			margin-right: 10px;
-			text-align: center;
-			line-height: 50px;
-			color: white;
-			border-radius: 25px;
-		}
-
-		.chat_left_item_2 {
-			width: 55%;
-			height: 100px;
-			float: left;
-			margin-top: 10px;
-		}
-
-		.chat_left_item_2 .chat_left_chat {
-			float: left;
-		}
-
-		.chat_left_item_2 .chat_left_content {
-			padding: 15px;
-			margin-top: 10px;
-			background-color: #f4f5f7;
-			display: inline-block;
-			border-radius: 10px;
-			border-top-left-radius: 0px;
-		}
-
-		/* 右边 */
-		.chat_right {
-			width: 100%;
-			height: 120px;
-			margin-top: 20px;
-		}
-
-		.chat_right_item_1 {
-			width: 50px;
-			height: 50px;
-			background-color: #4459AB;
-			float: right;
-			margin-top: 10px;
-			margin-left: 10px;
-			margin-right: 10px;
-			text-align: center;
-			line-height: 50px;
-			color: white;
-			border-radius: 25px;
-		}
-
-		.chat_right_item_2 {
-			width: 55%;
-			height: 100px;
-			float: right;
-			margin-top: 10px;
-		}
-
-		.chat_right_time {
-			width: 100%;
-			text-align: right;
-		}
-
-		.chat_right_content {
-			float: right;
-			padding: 15px;
-			border-radius: 10px;
-			margin-top: 10px;
-			border-top-right-radius: 0px;
-			background-color: #4F7cff;
-			color: white;
-		}
-
-		/* foot */
-		.chat_foot {
-			width: 400px;
-			height: 130px;
-			border-bottom-left-radius: 10px;
-			border-bottom-right-radius: 10px;
-			position: relative;
-		}
-
-		.chat_context {
-			width: 100%;
-			height: 100%;
-			font-size: 17px;
-			box-sizing: border-box;
-			outline: none;
-			border-bottom-left-radius: 10px;
-			border-bottom-right-radius: 10px;
-			border-width: 0px;
-			padding: 16px;
-		}
-
-		.chat_commit {
-			width: 80px;
-			height: 30px;
-			color: white;
-			background-color: #4F7cff;
-			line-height: 30px;
-			text-align: center;
-			border-radius: 5px;
-			position: absolute;
-			right: 10px;
-			bottom: 20px;
-			margin-right: 10px;
-		}
-
-		.chat_context {
-			resize: none;
-		}
-
-		.chat_context::placeholder {
-			color: black;
-			font-weight: 500k;
-		}
-
-		.line {
-			width: 100%;
-			border-top: 1px;
-			border-color: #f4f5f7;
-			border-style: solid;
-		}
-	</style>
-	<body>
-		<!-- entry -->
-		<div class="chat_commento">
-			<!-- top -->
-			<div id="msg_status" class="chat_top">
-				AI畅聊-OpenAI版 
-			</div>
-			
-			<!-- line -->
-			<div class="line"></div>
-			<!-- middle -->
-			<div class="chat_middle" id="chat_middle_item">
-				<!-- 左边 -->
-				<div class="chat_left clearfix">
-					<div class="chat_left_item_1 ">AI</div>
-					<div class="chat_left_item_2">
-						<div class="chat_time">00:00</div>
-						<div class="chat_left_content">
-							<a style="color: red;" href="./chatgpt.html" >切换CHATGPT版本</a>
-						</div>
-						<div class="chat_left_content">
-							<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=2vgWmjWLhgdReOjn3phDklRq4Tq_m8Xe&jump_from=webapi&authKey=4pYhD2LEICv8SZkuK0OliI9cWxitAHmIjDT5xGTAYG2hChaZ4cYvjsxmztje3dYT"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="高级AI研究所" title="高级AI研究所"></a>
-						</div>
-						
-					</div>
-				</div>
-				<!-- 左边 -->
-				<div class="chat_left clearfix">
-					<div class="chat_left_item_1 ">AI</div>
-					<div class="chat_left_item_2">
-						<div class="chat_time">00:00</div>
-						<div class="chat_left_content">
-							<a target="_blank"
-								href="https://greasyfork.org/zh-CN/scripts/459997">已集成搜索引擎电脑插件(油猴tampermonkey)</a>
-
-						</div>
-					</div>
-				</div>
+<head>
+  <meta charset="UTF-8">
+  <title>AI Chat</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.css"">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+  <style>
+    body {
+      background-color: #f7f9ff;
+      font-family: Arial, sans-serif;
+    }
+    
+    #chat-container {
+      width: 80%; /* 在移动设备上，聊天框应该填满屏幕 */
+      margin: 50px auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    #chat-header {
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      border-bottom: 1px solid #e6e6e6;
+    }
+    
+    #chat-messages {
+      height: 300px;
+      overflow-y: scroll;
+      padding: 20px;
+    }
+    
+    .message {
+      margin-bottom: 20px;
+    }
+    
+    .message.from-user {
+      text-align: right;
+    }
+    
+    .message.from-bot {
+      text-align: left;
+    }
+    
+    .message-content {
+      display: inline-block;
+      max-width: 80%;
+      padding: 10px;
+      border-radius: 5px;
+      color: #ffffff;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    
+    .from-user .message-content {
+      background-color: #007aff;
+    }
+    
+    .from-bot .message-content {
+      background-color: #000000;
+    }
+    
+    #input-container {
+      padding: 20px;
+      border-top: 1px solid #e6e6e6;
+    }
+    
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    
+    button {
+      width: 18%;
+      padding: 10px;
+      margin-left: 2%;
+      background-color: #007aff;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    
+    /* 媒体查询：在600像素以下的屏幕上，聊天框和输入框将占据100%宽度，并删除边距 */
+    @media only screen and (max-width: 600px) {
+      #chat-container {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+      }
+      
+      #chat-header, #input-container {
+        padding: 10px;
+      }
+      
+      input[type="text"] {
+        width: 70%;
+      }
+      
+      button {
+        width: 28%;
+        margin-left: 2%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-container">
+    <div id="chat-header">AI Chat</div>
+    <div id="chat-messages"></div>
+    <div id="input-container">
+      <input type="text" placeholder="请输入问题...">
+	  <hr>
+  <button id="send-button">接口1</button>  <button id="send-button2">接口2</button>
+</div>
+</div>
+	<footer style="text-align: center;"><a target="_blank" href="https://greasyfork.org/zh-CN/scripts/462092">@夜雨-2020-2023</a></footer>
+<script src="//cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/marked@4.2.3/marked.min.js"></script>
 
 
-				<!--右边 -->
-				<div class="chat_right">
-					<div class="chat_right_item_1 ">人类</div>
-					<div class="chat_right_item_2 ">
-						<div class="chat_right_time">00:00</div>
-						<div class="chat_right_content">
-							<a href="javascript:gg();" >欢迎提问,点击这里刷新缓存</a>
-						</div>
-					</div>
-				</div>
 
-			</div>
-			<!-- line -->
-			<div class="line"></div>
-			<!-- foot -->
-			<div class="chat_foot">
-				<!-- context -->
-				<textarea class="chat_context" id="chat_context_item" cols="30" rows="10" placeholder="请输入"></textarea>
-				<div style="top: 10px;display: none;" class="chat_commit" id="jk2">接口2</div>
-				<div style="top: 45px;" class="chat_commit" id="jk3">接口3</div>
-				<div style="display: ;" class="chat_commit" id="jk1">接口1</div>
-			</div>
-		</div>
-		<footer style="text-align: center;"><a target="_blank" href="https://greasyfork.org/zh-CN/scripts/462092">文心一言去水印插件</a></footer>
-		<script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
-		<script>
-			
-			//偷代码是不对的，小老弟！！！
-			function humanMsg(message) {
-				// 成功发送
-				var send_message = document.getElementById("chat_middle_item");
-				// 发送内容
-				var str = message;
-				var date = new Date();
-				var hour = date.getHours();
-				var mm = date.getMinutes();
-				var time = hour + ':' + mm;
-				var ans = '<div class="chat_right_item_1 clearfix">人类</div>' +
-					'<div class="chat_right_item_2">' +
-					'<div class="chat_right_time clearfix">' + time + '</div>' +
-					'<div class="chat_right_content clearfix">' + str + '</div>' +
-					'</div>';
-				var oLi = document.createElement("div");
-				oLi.setAttribute("class", "chat_right");
-				oLi.innerHTML = ans;
-				send_message.append(oLi);
-				send_message.scrollTop = send_message.scrollHeight;
-				//send_message.scrollIntoView()
-				//message.value = "";
+<script>
+const messagesContainer = document.getElementById("chat-messages");
+const sendButton = document.getElementById("send-button");
+const inputField = document.querySelector("#input-container input[type='text']");
+
+
+
+function handleBot(question,type){
+	let q = question;
+	$("#chat-header").html("思考中，请稍后...")
+	
+	if(type == 1){
+		$.ajax({
+			method: "GET",
+			url: "https://wenxin110.top/api/chat_gpt?text=" + encodeURI(q+" 以markdown返回结果"),
+			headers: {
+			},
+			success: function(res) {
+				simulateBotResponse(res.text)
+				
+				$("#chat-header").html("AI Chat")
+			},
+			error:function(res){
+				simulateBotResponse("未知错误...")
 			}
+		});
+	}
+	
+	
+}
 
 
+// 模拟机器人回复
+function simulateBotResponse(restMessage) {
+  
+  const newMessage = document.createElement("div");
+  const messageContent = document.createElement("article");
+//  console.log(restMessage)
+  newMessage.classList.add("message", "from-bot");
+  messageContent.classList.add("message-content");
+  messageContent.classList.add("markdown-body");
+  messageContent.innerHTML = `${mdConverter(restMessage.replaceAll(/\\n+/g,"\n"))}`;
+  newMessage.appendChild(messageContent);
+  messagesContainer.appendChild(newMessage);
+  
+  // 初始化highlight.js
+  hljs.initHighlightingOnLoad();
+  for (let i = 0; i <= document.getElementsByTagName("code").length -1; i++) {
+  	//document.getElementsByTagName("code")[i].setAttribute("class",
+  	//	"language-javascript hljs");
+	document.getElementsByTagName("code")[i].classList.add("hljs");
+  	hljs.highlightAll() 
+  }
+  
+  
+  // 将消息框滚动到底部，以便用户看到最新的回复
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
 
-			function AiMsg(message) {
-				// 成功发送
-				var send_message = document.getElementById("chat_middle_item");
-				// 发送内容
+// 处理用户输入的消息
+function handleUserInput(type) {
+  const messageText = inputField.value.trim();
+  if (messageText) {
+    const newMessage = document.createElement("div");
+    const messageContent = document.createElement("div");
+    
+    newMessage.classList.add("message", "from-user");
+    messageContent.classList.add("message-content");
+    messageContent.textContent = messageText;
+    
+    newMessage.appendChild(messageContent);
+    messagesContainer.appendChild(newMessage);
+    
+    //simulateBotResponse(messageText);
+	handleBot(messageText,type);
+    
+    // 清空输入框，准备下一次输入
+    inputField.value = "";
+    
+    // 将消息框滚动到底部，以便用户看到最新的回复
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+}
 
+// 当用户按下回车键时，模拟点击发送按钮
+inputField.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    sendButton.click();
+  }
+});
 
-				var str = message;
-				var date = new Date();
-				var hour = date.getHours();
-				var mm = date.getMinutes();
-				var time = hour + ':' + mm;
-				var ans = '<div class="chat_left_item_1 ">AI</div>' +
-					'<div class="chat_left_item_2">' +
-					'<div class="chat_time">' + time + '</div>' +
-					'<div class="chat_left_content">' + str + '</div>' +
-					'</div>';
-				var oLi = document.createElement("div");
-				oLi.setAttribute("class", "chat_left");
-				oLi.innerHTML = ans;
-				send_message.append(oLi);
-				send_message.scrollTop = send_message.scrollHeight;
-				//send_message.scrollIntoView(true)
-				//message.value = "";
-			}
+// 当用户点击发送按钮时，处理用户输入的消息
+sendButton.addEventListener("click", ()=>{
+	handleUserInput(1)
+});
 
+//md start
+function Uint8ArrayToString(fileData) {
+		var dataString = "";
+		for (var i = 0; i < fileData.length; i++) {
+			dataString += String.fromCharCode(fileData[i]);
+		}
 
-			var jk1btn = document.getElementById("jk1");
-			var jk2btn = document.getElementById("jk2");
-			var jk3btn = document.getElementById("jk3");
-			var messageInput = document.getElementById("chat_context_item");
-			jk1btn.addEventListener("click", function() {
-				let q = messageInput.value;
-				messageInput.value = ""
-				humanMsg(q);
-				//AiMsg(messageInput.value)
-				$("#msg_status").html("分析中，请稍后...")
-				$.ajax({
-					method: "POST",
-					url: "https://api.forchange.cn",
-					headers: {
-						"Content-Type": "application/json",
-						Authorization: `Bearer `,
-					},
-					data: JSON.stringify({
-						prompt: "Human:" + q + "\nAI:",
-						tokensLength: q.length
-					}),
-					success: function(res) {
-					
-						try{
-							AiMsg(res.choices[0].text.replaceAll("\n","</br>"))
-						}catch(e){
-							//TODO handle the exception
-							res = JSON.parse(res)
-							AiMsg(res.choices[0].text)
-						}
-						$("#msg_status").html("AI畅聊-OpenAI版")
-					},
-					error:function(res){
-						AiMsg("未知错误...")
-					}
-				})
-			});
-		
-			jk2btn.addEventListener("click", function() {
-				let q = messageInput.value;
-				messageInput.value = ""
-				humanMsg(q);
-				//AiMsg(messageInput.value)
-				$("#msg_status").html("分析中，请稍后...")
-				$.ajax({
-					method: "POST",
-					url: "https://kt.hptap.com/v1/question/createApi",
-					headers: {
-						"token": `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOTIiLCJleHAiOjE2NzkyMzQzNjR9.x5WnAgD4k-CIOUTuPT9mhkAr30F1M-FW_RflU6q6jc8`,
-					},
-					data: {
-						text: q,
-						type: 0
-					},
-					success: function(res) {
-					
-						try{
-							AiMsg(res.data.answer.replaceAll("\n","</br>"))
-						}catch(e){
-							AiMsg(res.data.answer)
-						}
-						$("#msg_status").html("AI畅聊-OpenAI版")
-					},
-					error:function(res){
-						AiMsg("未知错误...")
-					}
-				})
-			});
-			
-			
-			jk3btn.addEventListener("click", function() {
-				
-				let q = messageInput.value;
-				messageInput.value = ""
-				humanMsg(q);
-				//AiMsg(messageInput.value)
-				$("#msg_status").html("分析中，请稍后...")
-				$.ajax({
-					method: "GET",
-					url: "https://wenxin110.top/api/chat_gpt?text=" + encodeURI(q),
-					headers: {
-						// "User-Agent": "apifox/1.0.0 (https://www.apifox.cn)",
-						// "Accpet-Type": "application/json, text/plain, */*",
-						//"Content-Type": "application/json"
-					},
-					// data: JSON.stringify({
-					// 	prompt: q,
-					// 	options: {}
-					// }),
-					success: function(res) {
-					
-					
-						try{
-							AiMsg(res.text.replaceAll("\n","</br>"))
-						}catch(e){
-							AiMsg(res.text)
-						}
-						$("#msg_status").html("AI畅聊-OpenAI版")
-					},
-					error:function(res){
-						AiMsg("未知错误...")
-					}
-				});
-				
-				
-				// 		const xhr = new XMLHttpRequest();
-				
-					
-				// 		// 监听 readystatechange 事件
-				// 		xhr.onreadystatechange = function() {
-				// 			if (xhr.readyState === XMLHttpRequest.DONE) {
-				// 				if (xhr.status === 200) {
-				// 					console.log(xhr.responseText);
-				
-				// 				} else {
-				// 					console.error('请求失败：' + xhr.status);
-				// 				}
-				// 			}
-				// 		};
-						
-				
-				// 		// 发送请求
-				// 		xhr.open('POST', "http://c.tazhidao.cn/api/", false);
-				// 		xhr.setRequestHeader("content-type","application/json")
-				// 		xhr.setRequestHeader("Referer","http://c.tazhidao.cn/")
-				// 		xhr.send(JSON.stringify({
-				// 		prompt: q,
-				// 		options: {}
-				// 	}));
-					
-			});
-			
-			//刷新
-			function gg() {
-			
-				var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
-				//刷新缓存
-			
-				location.href = reurl;
-			
-			}
-			if (!(location.href.indexOf("random") != -1)) {
-				var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
-				//刷新缓存
-			
-				location.href = reurl;
-			}
-			
-			let msgInput = document.getElementById("chat_context_item");
-			msgInput.addEventListener("keydown",function(ev){
-				//console.log(ev.keyCode)
-				if(ev.keyCode == 13){
-					let jk3btn = document.getElementById("jk3");
-					jk3btn.click()
-				}
-			})
-			
-		</script>
+		return dataString
+	}
+
+	function decodeUnicode(str) {
+		str = str.replace(/\\/g, "%");
+		//转换中文
+		str = unescape(str);
+		//将其他受影响的转换回原来
+		str = str.replace(/%/g, "\\");
+		//对网址的链接进行处理
+		str = str.replace(/\\/g, "");
+		return str;
+	}
+
+	function mdConverter(rawData) {
+		var converter = new showdown.Converter(); //增加拓展table
+		converter.setOption('tables',
+			true); //启用表格选项。从showdown 1.2.0版开始，表支持已作为可选功能移入核心拓展，showdown.table.min.js扩展已被弃用
+		var view = converter.makeHtml(rawData);
+		return view;
+	}
+//md end
+
+simulateBotResponse(`[油猴搜索插件](https://greasyfork.org/zh-CN/scripts/459997)`)
+simulateBotResponse(`[加群:710808464](https://jq.qq.com/?_wv=1027&k=3AjxazNg)`)
+simulateBotResponse(`[切换GPT版本](./chatgpt.html)`)
+</script>
+</body>
 		<!-- 百度统计 -->
 		<script>
 			var _hmt = _hmt || [];
@@ -483,5 +272,4 @@
 				s.parentNode.insertBefore(hm, s);
 			})();
 		</script>
-	</body>
 </html>
