@@ -192,7 +192,11 @@ function handleBot(question,type){
 			},
 			success: function(res) {
 				//Save History
-				saveHistory(question,res.text)
+				try{
+					saveHistory(question,res.text)
+				}catch(e){
+					//TODO handle the exception
+				}
 				simulateBotResponse(res.text)
 				$("#chat-header").html("AI Chat")
 			},
@@ -215,7 +219,11 @@ function handleBot(question,type){
 			success: function(res) {
 			
 				//Save History
-				saveHistory(question,res.choices[0].text)
+				try{
+					saveHistory(question,res.choices[0].text)
+				}catch(e){
+					//TODO handle the exception
+				}
 				simulateBotResponse(res.choices[0].text)
 				
 				$("#chat-header").html("AI Chat")
