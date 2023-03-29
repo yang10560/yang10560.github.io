@@ -60,7 +60,7 @@
     }
     
     .from-bot .message-content {
-      background-color: #000000;
+      background-color: #6a6a6a;
     }
     
     #input-container {
@@ -133,6 +133,7 @@
 <script>
 const messagesContainer = document.getElementById("chat-messages");
 const sendButton = document.getElementById("send-button");
+const sendButton2 = document.getElementById("send-button2");
 const inputField = document.querySelector("#input-container input[type='text']");
 
 
@@ -156,6 +157,29 @@ function handleBot(question,type){
 				simulateBotResponse("未知错误...")
 			}
 		});
+	}else if(type == 2){
+		$.ajax({
+			method: "POST",
+			url: "https://api.forchange.cn",
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer `,
+			},
+			data: JSON.stringify({
+				prompt: "Human:" + q + "\nAI:",
+				tokensLength: q.length
+			}),
+			success: function(res) {
+			
+				simulateBotResponse(res.choices[0].text)
+				
+				$("#chat-header").html("AI Chat")
+					
+			},
+			error:function(res){
+				simulateBotResponse("未知错误...")
+			}
+		})
 	}
 	
 	
@@ -169,7 +193,7 @@ function simulateBotResponse(restMessage) {
   const messageContent = document.createElement("article");
 //  console.log(restMessage)
   newMessage.classList.add("message", "from-bot");
-  messageContent.classList.add("message-content");
+ // messageContent.classList.add("message-content");
   messageContent.classList.add("markdown-body");
   messageContent.innerHTML = `${mdConverter(restMessage.replaceAll(/\\n+/g,"\n"))}`;
   newMessage.appendChild(messageContent);
@@ -226,6 +250,11 @@ inputField.addEventListener("keyup", function(event) {
 sendButton.addEventListener("click", ()=>{
 	handleUserInput(1)
 });
+
+sendButton2.addEventListener("click", ()=>{
+	handleUserInput(2)
+});
+
 
 //md start
 function Uint8ArrayToString(fileData) {
