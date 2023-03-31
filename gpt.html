@@ -68,6 +68,32 @@
     .from-bot .message-content {
       background-color: #1a1a1a;
     }
+	
+	
+	.message-avatar {
+	  display: inline-block;
+	  width: 40px;
+	  height: 40px;
+	  border-radius: 50%;
+	  margin-right: 10px;
+	}
+	
+	.from-user .message-avatar {
+	  background-image: url("http://pic.imeitou.com/uploads/allimg/230331/7-230331094257.jpg");
+	}
+	
+	.from-bot .message-avatar {
+	  background-image: url("http://pic.imeitou.com/uploads/allimg/230331/7-230331094043.jpg");
+	}
+	
+	.from-user .message-content {
+	  background-color: #283f57;
+	}
+	
+	.from-bot .message-content {
+	  background-color: #1a1a1a;
+	}
+	
     
     #input-container {
       padding: 20px;
@@ -198,9 +224,12 @@ function loadHistory(){
 		  //human
 		  const newMessage = document.createElement("div");
 		  const messageContent = document.createElement("div");
+		  const useravatar = document.createElement("div");
+		  useravatar.classList.add("message-avatar");
 		  newMessage.classList.add("message", "from-user");
 		  messageContent.classList.add("message-content");
 		  messageContent.textContent = item.human;
+		  newMessage.appendChild(useravatar)
 		  newMessage.appendChild(messageContent);
 		  messagesContainer.appendChild(newMessage);
 		  
@@ -274,11 +303,14 @@ function simulateBotResponse(restMessage) {
   
   const newMessage = document.createElement("div");
   const messageContent = document.createElement("article");
+  const botavatar = document.createElement("div");
+  botavatar.classList.add("message-avatar");
 //  console.log(restMessage)
   newMessage.classList.add("message", "from-bot");
   messageContent.classList.add("message-content");
   messageContent.classList.add("markdown-body");
   messageContent.innerHTML = `${mdConverter(restMessage.replace(/\\n+/g,"\n"))}`;
+  newMessage.appendChild(botavatar);
   newMessage.appendChild(messageContent);
   messagesContainer.appendChild(newMessage);
   
@@ -302,11 +334,12 @@ function handleUserInput(type) {
   if (messageText) {
     const newMessage = document.createElement("div");
     const messageContent = document.createElement("div");
-    
+    const useravatar = document.createElement("div");
+    useravatar.classList.add("message-avatar");
     newMessage.classList.add("message", "from-user");
     messageContent.classList.add("message-content");
     messageContent.textContent = messageText;
-    
+    newMessage.appendChild(useravatar)
     newMessage.appendChild(messageContent);
     messagesContainer.appendChild(newMessage);
     
