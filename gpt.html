@@ -241,7 +241,12 @@
     <div id="input-container">
       <input type="text" placeholder="请输入问题...">
 	  <hr>
-  <button id="send-button">接口1</button>  <button id="send-button2">接口2</button><button id="clearBtn">清空历史</button>
+  <button id="send-button">接口1</button> 
+<button id="send-button2">接口2</button>
+<button id="clearBtn">清空历史</button>
+<button id="saveBtn">下载记录</button>
+<button id="importBtn">导入记录</button>
+<input style="display: none;" type="file" id="importFile">
 </div>
 </div>
 	<footer style="text-align: center;"><a target="_blank" href="https://greasyfork.org/zh-CN/scripts/459997">@夜雨-2020-2023</a></footer>
@@ -280,8 +285,8 @@ function saveHistory(humanMsg,botMsg){
 	}
 }
 
-function loadHistory(){
-	var chatList =  localStorage.getItem("chatList")
+function loadHistory(data){
+	var chatList =  data ? data: localStorage.getItem("chatList")
 	if(chatList){
 		chatList = JSON.parse(chatList)
 		chatList.forEach(function(item) {
@@ -462,6 +467,22 @@ document.getElementById("clearBtn").addEventListener("click",()=>{
 	location.reload()
 })
 
+document.getElementById("saveBtn").addEventListener("click",()=>{
+	console.log("----sava-----")
+	const data = JSON.stringify(JSON.parse(localStorage.getItem("chatList")));
+	const blob = new Blob([data], { type: 'application/json' });
+	const url = window.URL.createObjectURL(blob);
+	const link = document.createElement('a');
+	link.href = url;
+	link.download = 'chatList.json';
+	link.click();
+	window.URL.revokeObjectURL(url);
+	
+})
+
+document.getElementById("importBtn").addEventListener("click",()=>{
+	document.getElementById("importFile").click()
+})
 
 //md start
 function Uint8ArrayToString(fileData) {
@@ -496,6 +517,35 @@ function Uint8ArrayToString(fileData) {
 simulateBotResponse(`[油猴搜索插件](https://greasyfork.org/zh-CN/scripts/459997)`)
 simulateBotResponse(`[加群:710808464](https://jq.qq.com/?_wv=1027&k=3AjxazNg)`)
 simulateBotResponse(`[切换GPT版本](./chatgpt.html)`)
+</script>
+
+<script>
+const importFile = document.getElementById('importFile');
+
+importFile.addEventListener('change', (event) => {
+  const file = event.target.files[0];
+
+  const reader = new FileReader();
+
+  reader.onload = (event) => {
+    const data = event.target.result;
+	let newChatList = JSON.parse(data)
+
+    // 在这里处理解析后的数据
+
+    console.log(data);
+	loadHistory(data)
+	//合并
+	let oldChatList = JSON.parse(localStorage.getItem("chatList"))
+	if(!oldChatList){
+		localStorage.setItem("chatList",data)
+	}else{
+		localStorage.setItem("chatList",JSON.stringify(oldChatList.concat(newChatList)))
+	}
+  };
+
+  reader.readAsText(file);
+});
 </script>
 
 
