@@ -93,6 +93,23 @@
 	#chat-messages::-webkit-scrollbar-thumb:hover {
 	  background-color: #555;
 	}
+	
+	textarea::-webkit-scrollbar {
+	  width: 8px;
+	}
+	
+	textarea::-webkit-scrollbar-track {
+	  background-color: #f1f1f1;
+	}
+	
+	textarea::-webkit-scrollbar-thumb {
+	  background-color: #888;
+	  border-radius: 5px;
+	}
+	
+	textarea::-webkit-scrollbar-thumb:hover {
+	  background-color: #555;
+	}
     
     .message {
       margin-bottom: 20px;
@@ -165,6 +182,16 @@
       font-size: 14px;
 	
     }
+	
+	textarea {
+	  width: 98%;
+	  padding: 10px;
+	  border: 1px solid gray;
+	  border-radius: 5px;
+	  font-size: 14px;
+	
+	}
+	
     
     button {
       width: 18%;
@@ -193,6 +220,10 @@
       input[type="text"] {
         width: 70%;
       }
+	  
+	  textarea {
+	    width: 70%;
+	  }
       
       button {
         width: 28%;
@@ -210,7 +241,7 @@
         }
   
         /* 设置背景颜色和文本颜色 */
-        body,div,input {
+        body,div,input,textarea {
           background-color: var(--bg-color);
           color: var(--text-color);
         }
@@ -239,7 +270,8 @@
     <div id="chat-header">AI Chat</div>
     <div id="chat-messages"></div>
     <div id="input-container">
-      <input type="text" placeholder="请输入问题...">
+      <input style="display: none;" type="text" placeholder="请输入问题...">
+	  <textarea  placeholder="请输入问题..."></textarea>
 	  <hr>
   <button id="send-button">接口1</button> 
 <button id="send-button2">接口2</button>
@@ -264,8 +296,8 @@
 const messagesContainer = document.getElementById("chat-messages");
 const sendButton = document.getElementById("send-button");
 const sendButton2 = document.getElementById("send-button2");
-const inputField = document.querySelector("#input-container input[type='text']");
-
+//const inputField = document.querySelector("#input-container input[type='text']");
+const inputField = document.querySelector("#input-container textarea");
 
 
 function saveHistory(humanMsg,botMsg){
@@ -382,7 +414,7 @@ function handleBot(question,type){
 
 // 模拟机器人回复
 function simulateBotResponse(restMessage) {
-  
+  if(!restMessage) return
   const newMessage = document.createElement("div");
   const messageContent = document.createElement("article");
   const botavatar = document.createElement("div");
@@ -438,10 +470,11 @@ function handleUserInput(type) {
 
 // 当用户按下回车键时，模拟点击发送按钮
 inputField.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
+   if (event.keyCode === 13) {
     event.preventDefault();
     sendButton.click();
-  }
+  };
+
 });
 
 function showWait(){
