@@ -266,7 +266,7 @@ function handleBot(question,type){
 	if(type == 1){
 		$.ajax({
 			method: "GET",
-			url: "https://wenxin110.top/api/chat_gpt?text=" + encodeURI(q+" 以markdown返回结果"),
+			url: "https://wenxin110.top/api/chat_gpt?text=" + encodeURI(q),
 			headers: {
 			},
 			success: function(res) {
