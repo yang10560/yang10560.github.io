@@ -511,7 +511,10 @@ document.getElementById("saveBtn").addEventListener("click",()=>{
 	link.href = url;
 	link.download = 'chatList.json';
 	link.click();
-	window.URL.revokeObjectURL(url);
+	setTimeout(() => {
+	  console.log("revoke")
+	  window.URL.revokeObjectURL(url);
+	},10000);
 	
 })
 
