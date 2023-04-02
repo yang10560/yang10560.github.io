@@ -387,13 +387,14 @@ function handleBot(question,type){
 			}),
 			success: function(res) {
 			
+				let ans = res.choices[0].text.replace(/您当前访问的网页.*?的app/gi,"")
 				//Save History
 				try{
-					saveHistory(question,res.choices[0].text)
+					saveHistory(question,ans)
 				}catch(e){
 					//TODO handle the exception
 				}
-				simulateBotResponse(res.choices[0].text)
+				simulateBotResponse(ans)
 				
 				$("#chat-header").html("AI Chat")
 				hideWait()	
