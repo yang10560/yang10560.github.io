@@ -388,6 +388,7 @@ function handleBot(question,type){
 			success: function(res) {
 			
 				let ans = res.choices[0].text.replace(/您当前访问的网页.*?的app/gi,"")
+				.replace(/若您是站长.*?服务/gi,"")
 				//Save History
 				try{
 					saveHistory(question,ans)
