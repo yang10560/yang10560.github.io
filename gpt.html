@@ -478,6 +478,11 @@ function handleUserInput(type) {
 inputField.addEventListener("keyup", function(event) {
    if (event.keyCode === 13) {
     event.preventDefault();
+	let chatX = document.getElementById("chatX")
+	if(chatX){
+		chatX.click()
+		return
+	}
     sendButton2.click();
   };
 
