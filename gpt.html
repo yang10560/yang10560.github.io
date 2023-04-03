@@ -273,7 +273,7 @@
       <input style="display: none;" type="text" placeholder="请输入问题...">
 	  <textarea  placeholder="请输入问题..."></textarea>
 	  <hr>
-  <button id="send-button">接口1</button> 
+  <button style="display: none;" id="send-button">接口1</button> 
 <button id="send-button2">接口2</button>
 <button id="clearBtn">清空历史</button>
 <button id="saveBtn">下载记录</button>
@@ -283,8 +283,8 @@
 </div>
 <footer style="text-align: center;"><a target="_blank" href="https://greasyfork.org/zh-CN/scripts/459997">@夜雨-2020-2023</a></footer>
 </br>
-<footer style="text-align: center;"><a target="_blank" href="https://wwcl.lanzouw.com/iK8Kh0rsxigd">APP下载</a></footer>
-<footer style="text-align: center;"><a target="_blank" href="https://blog.yeyusmile.top/webPlus.txt?v=1.0">脚本增加</a></footer>
+<footer style="text-align: center;display: none;"><a target="_blank" href="https://wwcl.lanzouw.com/iK8Kh0rsxigd">APP下载</a></footer>
+<footer style="text-align: center;"><a target="_blank" href="https://greasyfork.org/zh-CN/scripts/463138">脚本增强更新至v1.1</a></footer>
 <script src="//cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js"></script>
@@ -610,17 +610,20 @@ importFile.addEventListener('change', (event) => {
 	//载入历史
 	setTimeout(loadHistory,1000)
 	
-	// setTimeout(()=>{
-	// 		let chatX = document.getElementById("chatX")
-	// 		if(!chatX){
-	// 			let manualInput = confirm("检测到未使用油猴增加,是否使用增加?");
-	// 			if (manualInput) {
-	// 				alert("使用方法：安装油猴=>复制跳转脚本=>新建脚本=>保存即可")
-	// 			    location.href = "https://blog.yeyusmile.top/webPlus.txt?time="+Math.random()
-	// 			}
-	// 		}
+	setTimeout(()=>{
+			let chatX = document.getElementById("chatX")
+			
+			if(!chatX && !localStorage.getItem("wtips")){
+				let manualInput = confirm("检测到未使用油猴增加,是否使用增强?");
+				if (manualInput) {
+					localStorage.setItem("wtips",true)
+				    location.href = "https://greasyfork.org/zh-CN/scripts/463138"
+				}else{
+					localStorage.setItem("wtips",true)
+				}
+			}
 				
-	// },3000)
+	},3000)
 </script>
 </body>
 		<!-- 百度统计 -->
