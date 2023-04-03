@@ -478,9 +478,9 @@ function handleUserInput(type) {
 inputField.addEventListener("keyup", function(event) {
    if (event.keyCode === 13) {
     event.preventDefault();
-	let ltxuk = document.getElementById("ltxuk")
-	if(ltxuk){
-		ltxuk.click()
+	let defaultbtn = document.getElementById("chatX")
+	if(defaultbtn){
+		defaultbtn.click()
 		return
 	}
     sendButton2.click();
