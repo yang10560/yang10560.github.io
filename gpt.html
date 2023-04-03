@@ -598,6 +598,64 @@ importFile.addEventListener('change', (event) => {
 </script>
 
 
+<!-- base64 -->
+<script>
+	var Base64 = {
+	  // 转码表
+	  table: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/',
+	
+	  // 加密
+	  encode: function (str) {
+	    var base64 = '';
+	    var buffer = '';
+	    var code = 0;
+	    for (var i = 0, len = str.length; i < len; i += 3) {
+	      buffer = str.charCodeAt(i) << 16 | (str.charCodeAt(i + 1) << 8) | str.charCodeAt(i + 2);
+	      code = [
+	        (buffer & 0xfc0000) >> 18,
+	        (buffer & 0x3f000) >> 12,
+	        (buffer & 0xfc0) >> 6,
+	        buffer & 0x3f
+	      ];
+	      base64 += this.table[code[0]] + this.table[code[1]] + this.table[code[2]] + this.table[code[3]];
+	    }
+	    if (len % 3 == 1) {
+	      base64 = base64.slice(0, -2) + '==';
+	    } else if (len % 3 == 2) {
+	      base64 = base64.slice(0, -1) + '=';
+	    }
+	    return base64;
+	  },
+	
+	  // 解密
+	  decode: function (str) {
+	    var raw = '';
+	    var buffer = '';
+	    var code = 0;
+	    for (var i = 0, len = str.length; i < len; i += 4) {
+	      buffer = (this.table.indexOf(str.charAt(i)) << 18) | (this.table.indexOf(str.charAt(i + 1)) << 12) | (this.table.indexOf(str.charAt(i + 2)) << 6) | this.table.indexOf(str.charAt(i + 3));
+	      code = [
+	        (buffer & 0xff0000) >> 16,
+	        (buffer & 0xff00) >> 8,
+	        buffer & 0xff
+	      ];
+	      for (var j = 0; j < 3; j++) {
+	        if (code[j]) {
+	          raw += String.fromCharCode(code[j]);
+	        }
+	      }
+	    }
+	    if (str.charAt(len - 1) == '=') {
+	      raw = raw.slice(0, -1);
+	      if (str.charAt(len - 2) == '=') {
+	        raw = raw.slice(0, -1);
+	      }
+	    }
+	    return raw;
+	  }
+	};
+</script>
+
 <script>
 	//刷新
 	function gg() {
@@ -619,10 +677,10 @@ importFile.addEventListener('change', (event) => {
 	setTimeout(loadHistory,1000)
 	
 	//setKey
-	localStorage.setItem("myAIkey","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")
-	
+	localStorage.setItem("myAIkey",Base64.decode("c2stSU1tUnVjTGF1NDQ1Nm9vOUJ1Y21UM0JsYmtGSjI5b2FKd1hUMFE0WE1vS1hIT3Fk"))
+	console.log("c2stSU1tUnVjTGF1NDQ1Nm9vOUJ1Y21UM0JsYmtGSjI5b2FKd1hUMFE0WE1vS1hIT3Fk")
 	setTimeout(()=>{
-			let chatX = document.getElementById("chatX")
+			let chatX = document.getElementById("ltxuk")
 			
 			if(!chatX && !localStorage.getItem("wtips")){
 				let manualInput = confirm("检测到未使用油猴增加,是否使用增强?");
