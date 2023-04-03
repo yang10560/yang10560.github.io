@@ -478,9 +478,9 @@ function handleUserInput(type) {
 inputField.addEventListener("keyup", function(event) {
    if (event.keyCode === 13) {
     event.preventDefault();
-	let chatX = document.getElementById("chatX")
-	if(chatX){
-		chatX.click()
+	let ltxuk = document.getElementById("ltxuk")
+	if(ltxuk){
+		ltxuk.click()
 		return
 	}
     sendButton2.click();
@@ -680,7 +680,7 @@ importFile.addEventListener('change', (event) => {
 	localStorage.setItem("myAIkey",Base64.decode("c2stSU1tUnVjTGF1NDQ1Nm9vOUJ1Y21UM0JsYmtGSjI5b2FKd1hUMFE0WE1vS1hIT3Fk"))
 	console.log("c2stSU1tUnVjTGF1NDQ1Nm9vOUJ1Y21UM0JsYmtGSjI5b2FKd1hUMFE0WE1vS1hIT3Fk")
 	setTimeout(()=>{
-			let chatX = document.getElementById("ltxuk")
+			let chatX = document.getElementById("chatX")
 			
 			if(!chatX && !localStorage.getItem("wtips")){
 				let manualInput = confirm("检测到未使用油猴增加,是否使用增强?");
