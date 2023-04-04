@@ -321,7 +321,10 @@
 			const sendButton2 = document.getElementById("send-button2");
 			//const inputField = document.querySelector("#input-container input[type='text']");
 			const inputField = document.querySelector("#input-container textarea");
-			var _thatBtn = undefined;
+			var _thatBtn = document.getElementById("chatX");
+			hljs.configure({
+			  ignoreUnescapedHTML:true
+			});
 
 
 			function saveHistory(humanMsg, botMsg) {
