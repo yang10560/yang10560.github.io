@@ -303,7 +303,7 @@
 		<footer style="text-align: center;display: none;"><a target="_blank"
 				href="https://wwcl.lanzouw.com/iK8Kh0rsxigd">APP下载</a></footer>
 		<footer style="text-align: center;"><a target="_blank"
-				href="https://greasyfork.org/zh-CN/scripts/463138">脚本增强更新至v1.5 >新增接口</a></footer>
+				href="https://greasyfork.org/zh-CN/scripts/463138">脚本增强更新至v1.6 >新增接口</a></footer>
 		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 		<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script> -->
 		<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js"></script> -->
@@ -315,13 +315,14 @@
 
 
 
+
 		<script>
 			const messagesContainer = document.getElementById("chat-messages");
 			const sendButton = document.getElementById("send-button");
 			const sendButton2 = document.getElementById("send-button2");
 			//const inputField = document.querySelector("#input-container input[type='text']");
 			const inputField = document.querySelector("#input-container textarea");
-			var _thatBtn = document.getElementById("chatX");
+			
 			hljs.configure({
 			  ignoreUnescapedHTML:true
 			});
@@ -468,6 +469,10 @@
 
 							$("#chat-header").html("AI Chat")
 							hideWait()
+							if(ans.indexOf("次数已达上限")!=-1){
+								localStorage.removeItem("useKeyTime")
+								updateAigcfunKey()
+							}
 						},
 						error: function(res) {
 							hideWait()
@@ -548,9 +553,11 @@
 					// 	defaultbtn.click()
 					// 	return
 					// }
+					let _thatBtn = document.getElementById("chatX");
 					if(!_thatBtn){
 						console.log("sendButton2")
 						sendButton2.click();
+						return
 					}
 					console.log(_thatBtn)
 					_thatBtn.click();
