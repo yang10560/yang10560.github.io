@@ -371,7 +371,7 @@
 				let useKeyTime = localStorage.getItem("useKeyTime") ? localStorage.getItem("useKeyTime") : 0;
 				console.log(useKeyTime)
 
-				if (useKeyTime > 8 || !localStorage.getItem("useKeyTime")) {
+				if (useKeyTime > 8 || !localStorage.getItem("useKeyTime") || !localStorage.getItem("aigcfunkey")) {
 					console.log("update aigcfunkey")
 					localStorage.setItem("useKeyTime", 0)
 
