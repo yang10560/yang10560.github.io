@@ -357,6 +357,7 @@
 						simulateBotResponse(item.bot)
 					})
 				}
+				
 			}
 
 			function updateAigcfunKey() {
@@ -732,7 +733,8 @@
 			}
 
 			//载入历史
-			setTimeout(loadHistory, 1000)
+			loadHistory()
+			//setTimeout(loadHistory, 200)
 
 			//setKey
 			localStorage.setItem("myAIkey", Base64.decode(
