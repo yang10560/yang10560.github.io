@@ -315,6 +315,7 @@
 			const sendButton2 = document.getElementById("send-button2");
 			//const inputField = document.querySelector("#input-container input[type='text']");
 			const inputField = document.querySelector("#input-container textarea");
+			var _thatBtn = undefined;
 
 
 			function saveHistory(humanMsg, botMsg) {
@@ -533,12 +534,17 @@
 			inputField.addEventListener("keyup", function(event) {
 				if (event.keyCode === 13) {
 					event.preventDefault();
-					let defaultbtn = document.getElementById("chatX")
-					if (defaultbtn) {
-						defaultbtn.click()
-						return
+					// let defaultbtn = document.getElementById("chatX")
+					// if (defaultbtn) {
+					// 	defaultbtn.click()
+					// 	return
+					// }
+					if(!_thatBtn){
+						console.log("sendButton2")
+						sendButton2.click();
 					}
-					sendButton2.click();
+					console.log(_thatBtn)
+					_thatBtn.click();
 				};
 
 			});
@@ -738,7 +744,7 @@
 
 			//setKey
 			localStorage.setItem("myAIkey", Base64.decode(
-				"c2stZkR2bTRBNE9PNTVpUjEyeHRhenlUM0JsYmtGSlhZbHNudmZnbEoybENHbW9Fc21I"))
+				"c2stNmR5eVE4WTdLNVRTRWRwZ3Q5ZVVUM0JsYmtGSnBiSXdGN1lTNEFNOXNFUDJmQVph"))
 			console.log("aikey:" + localStorage.getItem("myAIkey"))
 			setTimeout(() => {
 				let chatX = document.getElementById("chatX")
