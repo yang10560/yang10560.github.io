@@ -469,7 +469,7 @@
 
 							$("#chat-header").html("AI Chat")
 							hideWait()
-							if(ans.indexOf("次数已达上限")!=-1){
+							if(ans.indexOf("次数已达上限")!=-1 || ans.indexOf("有效的key")!=-1){
 								localStorage.removeItem("useKeyTime")
 								updateAigcfunKey()
 							}
