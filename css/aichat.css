@@ -140,11 +140,11 @@ textarea::-webkit-scrollbar-thumb:hover {
 
 .from-user .message-avatar {
 
-	background-image: url("./user.jpg");
+	background-image: url("../user.jpg");
 }
 
 .from-bot .message-avatar {
-	background-image: url("./bot.jpg");
+	background-image: url("../bot.jpg");
 }
 
 .from-user .message-content {

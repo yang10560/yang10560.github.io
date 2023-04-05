@@ -169,6 +169,18 @@ function handleBot(question, type) {
 }
 
 
+function katexTohtml(rawHtml){
+	let renderedHtml = rawHtml.replace(/<em>/g,"").replace(/<\/em>/g,"").replace(/\$\$(.*?)\$\$/g, (_, tex) => {
+		 //debugger
+	  return katex.renderToString(tex, { displayMode: false,throwOnError: false });
+	});
+	renderedHtml = renderedHtml.replace(/\$(.*?)\$/g, (_, tex) => {
+		 //debugger
+	  return katex.renderToString(tex, { displayMode: false,throwOnError: false });
+	});			
+	return renderedHtml;
+}
+
 // 模拟机器人回复
 function simulateBotResponse(restMessage) {
 	if (!restMessage) return
@@ -180,7 +192,7 @@ function simulateBotResponse(restMessage) {
 	newMessage.classList.add("message", "from-bot");
 	messageContent.classList.add("message-content");
 	messageContent.classList.add("markdown-body");
-	messageContent.innerHTML = `${mdConverter(restMessage.replace(/\\n+/g,"\n"))}`;
+	messageContent.innerHTML = `${katexTohtml(mdConverter(restMessage.replace(/\\n+/g,"\n")))}`;
 	newMessage.appendChild(botavatar);
 	newMessage.appendChild(messageContent);
 	messagesContainer.appendChild(newMessage);
