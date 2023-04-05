@@ -453,7 +453,7 @@ loadHistory()
 
 //setKey
 localStorage.setItem("myAIkey", Base64.decode(
-	"c2stYjBYUjhHTVdOWFliZGVoUGZNVFlUM0JsYmtGSkpCS0oxYUxPdEhIR3NFUlBUUXFp"))
+	"c2stZmI1eWNTWTFUZ0NBMG1KSVVNOVdUM0JsYmtGSlpLYjFGbUhaRGZKTVkwVlB6MkQ5"))
 console.log("aikey:" + localStorage.getItem("myAIkey"))
 setTimeout(() => {
 	let chatX = document.getElementById("chatX")
