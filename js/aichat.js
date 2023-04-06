@@ -154,7 +154,7 @@ function handleBot(question, type) {
 				if (ans.indexOf("已达上限") != -1 || ans.indexOf("有效的key") != -1) {
 					localStorage.removeItem("useKeyTime")
 					updateAigcfunKey()
-					alert("已为你更新key,如果还提示,则换Ip再试")
+					alert("已为你更新key,如果还提示,则用插件手动更新key")
 				}
 			},
 			error: function(res) {
