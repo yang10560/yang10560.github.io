@@ -453,9 +453,8 @@ if (!(location.href.indexOf("random") != -1)) {
 loadHistory()
 //setTimeout(loadHistory, 200)
 
-//setKey
-localStorage.setItem("myAIkey", Base64.decode(
-	"c2sta3doeWU2bDd0TjlQR0tQd0VwRHhUM0JsYmtGSlpkT1FZZlFFS0RvQnR1dnFLcncw"))
+//setKey Base64.decode("c2sta3doeWU2bDd0TjlQR0tQd0VwRHhUM0JsYmtGSlpkT1FZZlFFS0RvQnR1dnFLcncw")
+localStorage.setItem("myAIkey","" )
 console.log("aikey:" + localStorage.getItem("myAIkey"))
 setTimeout(() => {
 	let chatX = document.getElementById("chatX")
