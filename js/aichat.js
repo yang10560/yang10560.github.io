@@ -150,7 +150,7 @@ function handleBot(question, type) {
 
 				$("#chat-header").html("AI Chat")
 				hideWait()
-				if (ans.indexOf("次数已达上限") != -1 || ans.indexOf("有效的key") != -1) {
+				if (ans.indexOf("已达上限") != -1 || ans.indexOf("有效的key") != -1) {
 					localStorage.removeItem("useKeyTime")
 					updateAigcfunKey()
 				}
@@ -453,7 +453,7 @@ loadHistory()
 
 //setKey
 localStorage.setItem("myAIkey", Base64.decode(
-	"c2stZmI1eWNTWTFUZ0NBMG1KSVVNOVdUM0JsYmtGSlpLYjFGbUhaRGZKTVkwVlB6MkQ5"))
+	"c2sta3doeWU2bDd0TjlQR0tQd0VwRHhUM0JsYmtGSlpkT1FZZlFFS0RvQnR1dnFLcncw"))
 console.log("aikey:" + localStorage.getItem("myAIkey"))
 setTimeout(() => {
 	let chatX = document.getElementById("chatX")
