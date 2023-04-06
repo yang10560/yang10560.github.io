@@ -67,10 +67,11 @@ function updateAigcfunKey() {
 				"Content-Type": "application/json"
 			},
 			success: function(response) {
-				console.log("aigcfunkey:" + response.data);
+				console.log(response);
 				let resp = response.data;
 				let aigcfunkey = resp;
 				if (!aigcfunkey) {
+					alert("更新key失败")
 					return
 				}
 
@@ -153,6 +154,7 @@ function handleBot(question, type) {
 				if (ans.indexOf("已达上限") != -1 || ans.indexOf("有效的key") != -1) {
 					localStorage.removeItem("useKeyTime")
 					updateAigcfunKey()
+					alert("已为你更新key,如果还提示,则换Ip再试")
 				}
 			},
 			error: function(res) {
