@@ -336,7 +336,7 @@ function mdConverter(rawData) {
 //md end
 
 simulateBotResponse(`[油猴搜索插件](https://greasyfork.org/zh-CN/scripts/459997)`)
-simulateBotResponse(`[加群:734403992](https://jq.qq.com/?_wv=1027&k=ggnUQKEn)`)
+simulateBotResponse(`[加群:177193765](https://jq.qq.com/?_wv=1027&k=ATOfebCv)`)
 //simulateBotResponse(`[切换GPT版本](./chatgpt.html)`)
 
 
