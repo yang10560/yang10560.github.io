@@ -248,7 +248,7 @@ inputField.addEventListener("keyup", function(event) {
 		// 	defaultbtn.click()
 		// 	return
 		// }
-		let _thatBtn = document.getElementById("chatX");
+		let _thatBtn =!1;
 		if (!_thatBtn) {
 			console.log("sendButton2")
 			sendButton2.click();
