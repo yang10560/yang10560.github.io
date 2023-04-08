@@ -89,16 +89,23 @@ function handleBot(question, type) {
 	$("#chat-header").html("思考中，请稍后...")
 
 	if (type == 1) {
+		
 		//安卓接口 start
-		if(!window.AndroidTEST){
-			 alert("请在app中使用")
-			 hideWait()
-			 return
+		// if(!window.AndroidTEST){
+		// 	 alert("请在app中使用")
+		// 	 simulateBotResponse("请在app中使用")
+		// 	 hideWait()
+		// 	 return
+		// }
+		try{
+			simulateBotResponse(window.AndroidAIGCFUN.aigcfun(question))
+			//window.AndroidTest.showToast("hello toast")
+		}catch(e){
+			hideWait()
+		}finally{
+			hideWait()
 		}
 		
-		alert(window.AndroidAIGCFUN.aigcfun(question))
-		window.AndroidTEST.showToast("hello toast")
-		hideWait()
 		//Save History
 		/* try {
 			saveHistory(question, res.text)
