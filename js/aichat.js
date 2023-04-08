@@ -92,6 +92,7 @@ function handleBot(question, type) {
 		//安卓接口 start
 		window.AndroidAPI.showToast("hello toast")
 		window.AndroidAPI.aigcfun(question)
+		
 		//Save History
 		/* try {
 			saveHistory(question, res.text)
