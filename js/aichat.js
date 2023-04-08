@@ -91,7 +91,7 @@ function handleBot(question, type) {
 	if (type == 1) {
 		//安卓接口 start
 		window.AndroidAPI.showToast("hello toast")
-		window.AndroidAPI.aigcfun(question)
+		console.log(window.AndroidAPI.aigcfun(question))
 		
 		//Save History
 		/* try {
