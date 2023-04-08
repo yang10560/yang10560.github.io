@@ -90,8 +90,14 @@ function handleBot(question, type) {
 
 	if (type == 1) {
 		//安卓接口 start
-		alert(window.AndroidAPI.aigcfun(question))
-		window.AndroidAPI.showToast("hello toast")
+		if(!window.AndroidTEST){
+			 alert("请在app中使用")
+			 hideWait()
+			 return
+		}
+		
+		alert(window.AndroidAIGCFUN.aigcfun(question))
+		window.AndroidTEST.showToast("hello toast")
 		hideWait()
 		//Save History
 		/* try {
