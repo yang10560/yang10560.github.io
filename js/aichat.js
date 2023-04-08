@@ -97,19 +97,21 @@ function handleBot(question, type) {
 		// 	 hideWait()
 		// 	 return
 		// }
-		new Promise((resolve, reject) => {
-		    try {
-		      const result = window.AndroidAIGCFUN.aigcfun(question) 
-			  simulateBotResponse(result)
-		      //window.AndroidTest.showToast("hello toast")
-			  saveHistory(question, result)//Save History
-		      hideWait() 
-		      resolve(result);
-		    } catch (err) {
-			  hideWait()
-		      reject(err);
-		    }
-		  });
+		setTimeout(()=>{
+			new Promise((resolve, reject) => {
+			    try {
+			      const result = window.AndroidAIGCFUN.aigcfun(question) 
+				  simulateBotResponse(result)
+			      //window.AndroidTest.showToast("hello toast")
+				  saveHistory(question, result)//Save History
+			      hideWait() 
+			      resolve(result);
+			    } catch (err) {
+				  hideWait()
+			      reject(err);
+			    }
+			  });
+		},500)
 		
 	
 		//安卓接口 end
