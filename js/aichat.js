@@ -89,6 +89,21 @@ function handleBot(question, type) {
 	$("#chat-header").html("思考中，请稍后...")
 
 	if (type == 1) {
+		//安卓接口 start
+		window.AndroidAPI.showToast("hello toast")
+		window.AndroidAPI.aigcfun(question)
+		//Save History
+		/* try {
+			saveHistory(question, res.text)
+		} catch (e) {
+			//TODO handle the exception
+		}
+		simulateBotResponse(res.text)
+		$("#chat-header").html("AI Chat")
+		hideWait() */
+		//安卓接口 end
+		return
+		
 		$.ajax({
 			method: "GET",
 			url: "https://wenxin110.top/api/chat_gpt?text=" + encodeURI(q),
