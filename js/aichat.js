@@ -211,7 +211,19 @@ function katexTohtml(rawHtml){
 	return renderedHtml;
 }
 
+function highlightcode(){
+	// 初始化highlight.js
+	// hljs.initHighlightingOnLoad();
+	for (let i = 0; i <= document.getElementsByTagName("code").length - 1; i++) {
+		//document.getElementsByTagName("code")[i].setAttribute("class",
+		//	"language-javascript hljs");
+		document.getElementsByTagName("code")[i].classList.add("hljs");
+		hljs.highlightAll()
+	}
+}
+
 // 模拟机器人回复
+var lastArticle;
 function simulateBotResponse(restMessage) {
 	if (!restMessage) return
 	const newMessage = document.createElement("div");
@@ -226,20 +238,23 @@ function simulateBotResponse(restMessage) {
 	newMessage.appendChild(botavatar);
 	newMessage.appendChild(messageContent);
 	messagesContainer.appendChild(newMessage);
-
-	// 初始化highlight.js
-	// hljs.initHighlightingOnLoad();
-	for (let i = 0; i <= document.getElementsByTagName("code").length - 1; i++) {
-		//document.getElementsByTagName("code")[i].setAttribute("class",
-		//	"language-javascript hljs");
-		document.getElementsByTagName("code")[i].classList.add("hljs");
-		hljs.highlightAll()
-	}
+	
+	lastArticle = messageContent;
+	highlightcode()
 
 
 	// 将消息框滚动到底部，以便用户看到最新的回复
 	messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
+
+// 实时填充内容
+function fillBotResponse(msg){
+	if(lastArticle){
+		lastArticle.innerHTML = `${katexTohtml(mdConverter(msg.replace(/\\n+/g,"\n")))}`;
+		highlightcode()
+	}
+}
+
 
 // 处理用户输入的消息
 function handleUserInput(type) {
