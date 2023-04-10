@@ -211,15 +211,26 @@ function katexTohtml(rawHtml){
 	return renderedHtml;
 }
 
-function highlightcode(){
-	// 初始化highlight.js
-	// hljs.initHighlightingOnLoad();
-	for (let i = 0; i <= document.getElementsByTagName("code").length - 1; i++) {
-		//document.getElementsByTagName("code")[i].setAttribute("class",
-		//	"language-javascript hljs");
-		document.getElementsByTagName("code")[i].classList.add("hljs");
-		hljs.highlightAll()
+function highlightcode(dom){
+	if(!dom){
+		// 初始化highlight.js
+		// hljs.initHighlightingOnLoad();
+		for (let i = 0; i <= document.getElementsByTagName("code").length - 1; i++) {
+			//document.getElementsByTagName("code")[i].setAttribute("class",
+			//	"language-javascript hljs");
+			document.getElementsByTagName("code")[i].classList.add("hljs");
+		}
+	}else{
+		// 初始化highlight.js
+		// hljs.initHighlightingOnLoad();
+		for (let i = 0; i <= dom.getElementsByTagName("code").length - 1; i++) {
+			//document.getElementsByTagName("code")[i].setAttribute("class",
+			//	"language-javascript hljs");
+			dom.getElementsByTagName("code")[i].classList.add("hljs");
+			
+		}
 	}
+	hljs.highlightAll()
 }
 
 // 模拟机器人回复
@@ -251,7 +262,7 @@ function simulateBotResponse(restMessage) {
 function fillBotResponse(msg){
 	if(lastArticle){
 		lastArticle.innerHTML = `${katexTohtml(mdConverter(msg.replace(/\\n+/g,"\n")))}`;
-		highlightcode()
+		highlightcode(lastArticle)
 	}
 }
 
