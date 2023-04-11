@@ -393,7 +393,7 @@ function mdConverter(rawData) {
 
 simulateBotResponse(`[油猴搜索插件](https://greasyfork.org/zh-CN/scripts/459997)`)
 simulateBotResponse(`[AI交流群4:177193765](https://jq.qq.com/?_wv=1027&k=Gor8MP9l)`)
-//simulateBotResponse(`[切换GPT版本](./chatgpt.html)`)
+simulateBotResponse(`尽量选择tampermonkey管理脚本，其他可能存在不兼容等问题。手机端推荐用kiwi，狐猴浏览器安装tampermonkey油猴扩展`)
 
 
 
