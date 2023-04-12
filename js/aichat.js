@@ -302,7 +302,7 @@ inputField.addEventListener("keyup", function(event) {
 		// 	defaultbtn.click()
 		// 	return
 		// }
-		let _thatBtn =!1;
+		let _thatBtn = document.getElementById("aiJKbtn");
 		if (!_thatBtn) {
 			console.log("sendButton2")
 			sendButton2.click();
