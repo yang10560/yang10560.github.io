@@ -511,7 +511,7 @@ loadHistory()
 localStorage.setItem("myAIkey","" )
 console.log("aikey:" + localStorage.getItem("myAIkey"))
 setTimeout(() => {
-	let chatX = document.getElementById("chatX")
+	let chatX = document.getElementById("aiJKbtn")
 
 	if (!chatX && !localStorage.getItem("wtips")) {
 		let manualInput = confirm("检测到未使用油猴增加,是否使用增强?");
