@@ -242,7 +242,7 @@ function simulateBotResponse(restMessage) {
 			restMessage = "系统异常,请更换线路再试"
 		}
 		if(restMessage.indexOf("hello-ai.anzz")>-1){
-			restMessage = restMessage.replace(/hello-ai.anzz/,"")
+			restMessage = restMessage.replace(/hello-ai/,"")
 		}
 		
 	}catch(e){
