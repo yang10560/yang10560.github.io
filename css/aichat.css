@@ -3,6 +3,10 @@ body {
 	font-family: Arial, sans-serif;
 }
 
+*::selection{
+	background-color: #55aa00 !important;
+}
+
 .modal {
 	display: none;
 	position: fixed;
