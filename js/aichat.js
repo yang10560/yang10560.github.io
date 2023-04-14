@@ -550,5 +550,10 @@ setTimeout(() => {
 			localStorage.setItem("wtips", true)
 		}
 	}
+	
+	if(!localStorage.getItem("mxy")){
+		alert("使用即同意协议：换线路，哪个能用用哪个，有的需要梯子，所以不要问为什么用不了。线路的区别是来自不同的网站接口，意思是各线路是不同的服务的，一个挂了不影响其他线路。插件免费。不要点击来自答案中的第三方网站，收费行为与本站无关，被骗自行负责。")
+		localStorage.setItem("mxy",true)
+	}
 
 }, 3000)
