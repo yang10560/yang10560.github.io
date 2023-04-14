@@ -246,7 +246,11 @@ function simulateBotResponse(restMessage) {
 	newMessage.classList.add("message", "from-bot");
 	messageContent.classList.add("message-content");
 	messageContent.classList.add("markdown-body");
-	messageContent.innerHTML = `${katexTohtml(mdConverter(restMessage.replace(/\\n+/g,"\n")))}`;
+	try{
+		messageContent.innerHTML = `${katexTohtml(mdConverter(restMessage.replace(/\\n+/g,"\n")))}`;
+	}catch(e){
+		console.log(e);
+	}
 	newMessage.appendChild(botavatar);
 	newMessage.appendChild(messageContent);
 	messagesContainer.appendChild(newMessage);
