@@ -276,6 +276,18 @@ function simulateBotResponse(restMessage) {
 
 // 实时填充内容
 function fillBotResponse(msg){
+	try{
+		if(restMessage.indexOf("chatai.to")>-1){
+			msg = "系统异常,请更换线路再试"
+		}
+		if(restMessage.indexOf("hello-ai.anzz")>-1){
+			msg = msg.replace(/hello-ai/,"")
+		}
+		
+	}catch(e){
+		//TODO handle the exception
+	}
+	
 	if(lastArticle){
 		lastArticle.innerHTML = `${katexTohtml(mdConverter(msg.replace(/\\n+/g,"\n")))}`;
 		highlightcode(lastArticle)
