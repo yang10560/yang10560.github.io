@@ -238,7 +238,7 @@ function highlightcode(dom){
 var lastArticle;
 function simulateBotResponse(restMessage) {
 	try{
-		if(restMessage.indexOf("chatai.to")>-1){
+		if(restMessage.indexOf("chatai")>-1){
 			restMessage = "系统异常,请更换线路再试"
 		}
 		if(restMessage.indexOf("hello-ai.anzz")>-1){
@@ -277,7 +277,7 @@ function simulateBotResponse(restMessage) {
 // 实时填充内容
 function fillBotResponse(msg){
 	try{
-		if(restMessage.indexOf("chatai.to")>-1){
+		if(restMessage.indexOf("chatai")>-1){
 			msg = "系统异常,请更换线路再试"
 		}
 		if(restMessage.indexOf("hello-ai.anzz")>-1){
