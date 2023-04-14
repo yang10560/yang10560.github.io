@@ -237,6 +237,13 @@ function highlightcode(dom){
 // 模拟机器人回复
 var lastArticle;
 function simulateBotResponse(restMessage) {
+	try{
+		if(restMessage.indexOf("chatai.to")>-1){
+			restMessage = "系统异常,请更换线路再试"
+		}
+	}catch(e){
+		//TODO handle the exception
+	}
 	if (!restMessage) return
 	const newMessage = document.createElement("div");
 	const messageContent = document.createElement("article");
