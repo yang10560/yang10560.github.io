@@ -241,6 +241,10 @@ function simulateBotResponse(restMessage) {
 		if(restMessage.indexOf("chatai.to")>-1){
 			restMessage = "系统异常,请更换线路再试"
 		}
+		if(restMessage.indexOf("hello-ai.anzz")>-1){
+			restMessage = restMessage.replace(/hello-ai.anzz/,"")
+		}
+		
 	}catch(e){
 		//TODO handle the exception
 	}
