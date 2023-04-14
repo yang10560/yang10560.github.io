@@ -3,7 +3,7 @@ const sendButton = document.getElementById("send-button");
 const sendButton2 = document.getElementById("send-button2");
 //const inputField = document.querySelector("#input-container input[type='text']");
 const inputField = document.querySelector("#input-container textarea");
-var defualtAPIPUBKEY = "7hVW63Mdcnu9";//默认1
+var defualtAPIPUBKEY = "h4oMQ3N93R";//默认1
 
 hljs.configure({
 	ignoreUnescapedHTML: true
