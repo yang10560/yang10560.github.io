@@ -3,7 +3,7 @@ const sendButton = document.getElementById("send-button");
 const sendButton2 = document.getElementById("send-button2");
 //const inputField = document.querySelector("#input-container input[type='text']");
 const inputField = document.querySelector("#input-container textarea");
-var defualtAPIPUBKEY = "h4oMQ3N93R";//默认1
+var defualtAPIPUBKEY = "M7EaRJ8s36Yv";//默认1
 
 hljs.configure({
 	ignoreUnescapedHTML: true
@@ -323,7 +323,10 @@ function handleUserInput(type) {
 
 // 当用户按下回车键时，模拟点击发送按钮
 inputField.addEventListener("keyup", function(event) {
-	if (event.keyCode === 13) {
+	if (event.ctrlKey && event.keyCode === 13) {
+		this.value += "\n";
+		return
+	}else if (event.keyCode === 13) {
 		event.preventDefault();
 		// let defaultbtn = document.getElementById("chatX")
 		// if (defaultbtn) {
@@ -340,6 +343,7 @@ inputField.addEventListener("keyup", function(event) {
 		_thatBtn.click();
 	};
 
+	
 });
 
 function showWait() {
