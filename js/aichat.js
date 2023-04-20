@@ -9,6 +9,11 @@ hljs.configure({
 	ignoreUnescapedHTML: true
 });
 
+if(navigator.userAgent.match(/MQQBrowser/gi)){
+	alert("请不要在QQ内部打开，https://yeyu1024.xyz/gpt.html")
+	window.close()
+}
+
 
 function saveHistory(humanMsg, botMsg) {
 	var chatList = localStorage.getItem("chatList")
