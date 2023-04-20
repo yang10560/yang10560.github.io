@@ -11,7 +11,8 @@ hljs.configure({
 
 if(navigator.userAgent.match(/MQQBrowser/gi)){
 	alert("请不要在QQ内部打开，https://yeyu1024.xyz/gpt.html")
-	window.close()
+	document.body.innerHTML ="请不要在QQ内部打开,请复制到其他浏览器打开，https://yeyu1024.xyz/gpt.html"
+	//window.close()
 }
 
 
