@@ -72,7 +72,11 @@
 	<!-- <script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.4/contrib/auto-render.min.js"></script> -->
 	<script src="./js/aichat.js?v=37"></script>
 	<script src="https://cdn.staticfile.org/eruda/3.0.0/eruda.min.js"></script>
-	<script>eruda.init()</script>
+	<script>
+		if(location.hash.includes("debug")){
+			eruda.init()
+		}
+	</script>
 	<script id="_waur74">var _wau = _wau || []; _wau.push(["dynamic", "cvh5d9vpzr", "r74", "434343ffffff", "small"]);</script><script async src="//waust.at/d.js"></script>
 	
 	<script>
