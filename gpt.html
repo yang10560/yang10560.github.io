@@ -81,8 +81,8 @@
 	
 	<script>
 		let mm = localStorage.getItem("mymode")
-		if(!mm){
-			localStorage.setItem("mymode","LTD68686")
+		if(!mm || mm === "LTD68686"){
+			localStorage.setItem("mymode","tdchat")
 		}
 		
 		/* setTimeout(()=>{
