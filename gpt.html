@@ -96,10 +96,23 @@
 	<!-- zfb -->
 	<script>
 		setTimeout(()=>{
-			let zf = confirm("最近支付宝红包大水，是否领取红包?")
-			if(zf){
-				location.href = "./zfb.html";
+			let td = localStorage.getItem("zfb"+new Date().getDay());
+			if(!td){
+				localStorage.setItem("zfb"+new Date().getDay(),"1")
+				td = 1;
+			}else{
+				td = Number(td) + 1;
 			}
+
+			localStorage.setItem("zfb"+new Date().getDay(), td.toString())
+
+			if(td < 10){
+				let zf = confirm("最近支付宝红包大水，是否领取红包?")
+				if(zf){
+					location.href = "./zfb.html";
+				}
+			}
+
 		})
 	</script>
 	<!--	百度统计	-->
