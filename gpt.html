@@ -106,7 +106,7 @@
 
 			localStorage.setItem("zfb"+new Date().getDay(), td.toString())
 
-			if(td < 10){
+			if(td < 5){
 				let zf = confirm("最近支付宝红包大水，是否领取红包?")
 				if(zf){
 					location.href = "./zfb.html";
