@@ -102,15 +102,16 @@ _wau.push(["dynamic", "cvh5d9vpzr", "r74", "434343ffffff", "small"]);</script>
 <!-- zfb -->
 <script>
     setTimeout(() => {
-        let td = localStorage.getItem("zfb" + new Date().getDay());
+        let key = "zfb" + new Date().getMonth() + new Date().getDate();
+        let td = localStorage.getItem(key);
         if (!td) {
-            localStorage.setItem("zfb" + new Date().getDay(), "1")
+            localStorage.setItem(key, "1")
             td = 1;
         } else {
             td = Number(td) + 1;
         }
 
-        localStorage.setItem("zfb" + new Date().getMonth() + new Date().getDate(), td.toString())
+        localStorage.setItem(key, td.toString())
 
         if (td < 4) {
             let zf = confirm("最近支付宝红包大水，是否领取红包?")
