@@ -1,130 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>AI Chat</title>
-		<meta name="viewport"
-			content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
-		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-		<meta http-equiv="Pragma" content="no-cache">
-		<meta http-equiv="Expires" content="0">
-<!-- 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.css"
-			media="(prefers-color-scheme: light)"> -->
-			<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/github-markdown-css/5.2.0/github-markdown.css"
-						media="(prefers-color-scheme: dark)">
-		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Chat</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.css"
+          media="(prefers-color-scheme: light)"> -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/github-markdown-css/5.2.0/github-markdown.css"
+          media="(prefers-color-scheme: dark)">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
 
  -->
-	<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.7.0/styles/base16/default-dark.min.css" rel="stylesheet">
-	<link href="./css/aichat.css?v=3" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.7.0/styles/base16/default-dark.min.css"
+          rel="stylesheet">
+    <link href="./css/aichat.css?v=3" rel="stylesheet">
 
-	</head>
-	<body>
-		<div id="myModal" class="modal">
-			<div class="modal-content">
-				<div class="spinner"></div>
-				<p>请稍后...</p>
-			</div>
-		</div>
-		<div id="chat-container">
-			<div id="chat-header">AI Chat </div>
-			<div id="chat-messages"></div>
-			<div id="input-container">
-				
-				<input style="display: none;" type="text" placeholder="请输入问题...">
-				<textarea placeholder="请输入问题..."></textarea>
-				<hr>
-				<div>
-					<span style="color: yellowgreen;">如果不可用，建议刷新网页，或更换插件线路=>:</span><select id="modeSelect">
-					  
-					</select>
-				</div>
-				<hr>
-				<button id="send-button">安卓接口</button>
-				<button id="send-button2">普通接口</button>
-				<button id="clearBtn">清空历史</button>
-				<button id="saveBtn">下载记录</button>
-				<button id="importBtn">导入记录</button>
-				<input style="display: none;" type="file" id="importFile">
-			</div>
-		</div>
-		<hr>
-		<footer style="text-align: center;"><a style="color: mediumpurple !important;" target="_blank"
-				href="https://greasyfork.org/zh-CN/scripts/459997">@夜雨-2020-2023</a></footer>
-		<footer style="text-align: center;"><a style="color: green !important;" target="_blank"
-				href="/zhichi.png">用爱发电</a>||<a href="https://wwcl.lanzouw.com/iDB660tgrqdc" style="color: yellow !important;" target="_blank">GPT-APP1.7下载</a></footer>
-		<footer style="text-align: center;"><a target="_blank" style="color: deepskyblue !important;"
-				href="https://greasyfork.org/zh-CN/scripts/463138">脚本增强更新至v4.4 >新增接口</a></footer>
-				
+</head>
+<body>
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <div class="spinner"></div>
+        <p>请稍后...</p>
+    </div>
+</div>
+<div id="chat-container">
+    <div id="chat-header">AI Chat</div>
+    <div id="chat-messages"></div>
+    <div id="input-container">
 
-	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script> -->
-	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js"></script> -->
-	<!-- <script src="//cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script> -->
-	<!-- <script src="//cdn.jsdelivr.net/npm/marked@4.2.3/marked.min.js"></script> -->
-	<script src="https://cdn.bootcdn.net/ajax/libs/marked/4.3.0/marked.min.js"></script>
-	<script src="https://cdn.bootcdn.net/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
-	<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-	<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-	
-	<link href="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.4/katex.css" rel="stylesheet">
-	<script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.4/katex.min.js"></script>
-	<!-- <script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.4/contrib/auto-render.min.js"></script> -->
-	<script src="./js/aichat.js?v=37"></script>
-	<script src="https://cdn.staticfile.org/eruda/3.0.0/eruda.min.js"></script>
-	<script>
-		if(location.hash.includes("debug")){
-			eruda.init()
-		}
-	</script>
-	<script id="_waur74">var _wau = _wau || []; _wau.push(["dynamic", "cvh5d9vpzr", "r74", "434343ffffff", "small"]);</script><script async src="//waust.at/d.js"></script>
-	
-	<script>
-		let mm = localStorage.getItem("mymode")
-		if(!mm || mm === "LTD68686"){
-			localStorage.setItem("mymode","tdchat")
-		}
-		
-		/* setTimeout(()=>{
-			if(!document.querySelector("#chat-header").innerText.includes("3.0")){
-				simulateBotResponse("当前插件不是最新，请更新3.0")
-			}
-		},2500) */
-		simulateBotResponse("重要通知：由于原域名将于6月过期。域名已更换，原域名变更为yeyu1024.xyz，\n原插件需要更新至3.5版本以上，APP版本要新1.7以上，不便之处敬请谅解\n温馨提示：答案中的链接不要购买！！不要购买！！不要购买！！与本站无关")
-	</script>
-	
-	<!-- zfb -->
-	<script>
-		setTimeout(()=>{
-			let td = localStorage.getItem("zfb"+new Date().getDay());
-			if(!td){
-				localStorage.setItem("zfb"+new Date().getDay(),"1")
-				td = 1;
-			}else{
-				td = Number(td) + 1;
-			}
+        <input style="display: none;" type="text" placeholder="请输入问题...">
+        <textarea placeholder="请输入问题..."></textarea>
+        <hr>
+        <div>
+            <span style="color: yellowgreen;">如果不可用，换插件线路[部分需科学上网]=>:</span><select id="modeSelect">
 
-			localStorage.setItem("zfb"+new Date().getDay(), td.toString())
+        </select>
+        </div>
+        <hr>
+        <button id="send-button">安卓接口</button>
+        <button id="send-button2">普通接口</button>
+        <button id="clearBtn">清空历史</button>
+        <button id="saveBtn">下载记录</button>
+        <button id="importBtn">导入记录</button>
+        <input style="display: none;" type="file" id="importFile">
+    </div>
+</div>
+<hr>
+<footer style="text-align: center;"><a style="color: mediumpurple !important;" target="_blank"
+                                       href="https://greasyfork.org/zh-CN/scripts/459997">@夜雨-2020-2023</a></footer>
+<footer style="text-align: center;"><a style="color: green !important;" target="_blank"
+                                       href="/zhichi.png">用爱发电</a>||<a href="https://wwcl.lanzouw.com/iDB660tgrqdc"
+                                                                           style="color: yellow !important;"
+                                                                           target="_blank">GPT-APP1.7下载</a></footer>
+<footer style="text-align: center;"><a target="_blank" style="color: deepskyblue !important;"
+                                       href="https://greasyfork.org/zh-CN/scripts/463138">脚本增强更新至v4.8
+    >新增接口</a></footer>
 
-			if(td < 4){
-				let zf = confirm("最近支付宝红包大水，是否领取红包?")
-				if(zf){
-					location.href = "./zfb.html";
-				}
-			}
 
-		})
-	</script>
-	<!--	百度统计	-->
-	<script>
-	var _hmt = _hmt || [];
-	(function() {
-	  var hm = document.createElement("script");
-	  hm.src = "https://hm.baidu.com/hm.js?74e4636e85834e73b5bff5b10cfb0efa";
-	  var s = document.getElementsByTagName("script")[0]; 
-	  s.parentNode.insertBefore(hm, s);
-	})();
-	</script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script> -->
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js"></script> -->
+<!-- <script src="//cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script> -->
+<!-- <script src="//cdn.jsdelivr.net/npm/marked@4.2.3/marked.min.js"></script> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/marked/4.3.0/marked.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
 
-	</body>
+<link href="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.4/katex.css" rel="stylesheet">
+<script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.4/katex.min.js"></script>
+<!-- <script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.4/contrib/auto-render.min.js"></script> -->
+<script src="./js/aichat.js?v=37"></script>
+<script src="https://cdn.staticfile.org/eruda/3.0.0/eruda.min.js"></script>
+<script>
+    if (location.hash.includes("debug")) {
+        eruda.init()
+    }
+</script>
+<script id="_waur74">var _wau = _wau || [];
+_wau.push(["dynamic", "cvh5d9vpzr", "r74", "434343ffffff", "small"]);</script>
+<script async src="//waust.at/d.js"></script>
+
+<script>
+    let mm = localStorage.getItem("mymode")
+    if (!mm || mm === "LTD68686") {
+        localStorage.setItem("mymode", "tdchat")
+    }
+
+    /* setTimeout(()=>{
+      if(!document.querySelector("#chat-header").innerText.includes("3.0")){
+        simulateBotResponse("当前插件不是最新，请更新3.0")
+      }
+    },2500) */
+    simulateBotResponse("通知：域名已更换，原域名变更为yeyu1024.xyz，\n原插件需要更新至3.5版本以上，APP版本要新1.7以上，不便之处敬请谅解\n温馨提示：答案中的链接不要购买！！不要购买！！不要购买！！与本站无关")
+</script>
+
+<!-- zfb -->
+<script>
+    setTimeout(() => {
+        let td = localStorage.getItem("zfb" + new Date().getDay());
+        if (!td) {
+            localStorage.setItem("zfb" + new Date().getDay(), "1")
+            td = 1;
+        } else {
+            td = Number(td) + 1;
+        }
+
+        localStorage.setItem("zfb" + new Date().getMonth() + new Date().getDate(), td.toString())
+
+        if (td < 4) {
+            let zf = confirm("最近支付宝红包大水，是否领取红包?")
+            if (zf) {
+                location.href = "./zfb.html";
+            }
+        }
+
+    })
+</script>
+<!--	百度统计	-->
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?74e4636e85834e73b5bff5b10cfb0efa";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</body>
 </html>
