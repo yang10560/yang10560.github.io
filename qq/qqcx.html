@@ -30,9 +30,9 @@
 
 <script>
     (function () {
-        var ua = navigator.userAgent.toLowerCase();
+        let ua = navigator.userAgent.toLowerCase();
         //alert(ua)
-        var isWeixin = ua.indexOf('micromessenger') !== -1;
+        let isWeixin = ua.indexOf('micromessenger') !== -1;
         if (isWeixin) {
             //alert('非法来源,已经禁止访问.地区:'+returnCitySN["cname"]+'IP为:'+returnCitySN["cip"]);
             location.href = '/';
@@ -46,7 +46,7 @@
     (function leleua() {
         var sUserAgent = navigator.userAgent.toLowerCase();
 //	alert(sUserAgent)
-        if (sUserAgent.match(/QQ/i) === 'qq') {
+        if (sUserAgent.match(/QQ/i)) {
             window.location.href = "https://www.baidu.com/s?ie=utf-8&wd=%E5%A4%9C%E9%9B%A8%E5%B0%8F%E5%B1%8B";
         } else {
 
