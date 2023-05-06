@@ -1,0 +1,521 @@
+/**
+ * reset.less
+ * 每个页面都应该引入一份
+ * 建议实际项目中定义my-reset.less，里面import本reset.less
+ * Created by Chenjr on 2016/5/7.
+ */
+/* reset */
+html,
+body {
+	overflow-x: hidden;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+	margin: 0;
+	padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+fieldset,
+img,
+iframe {
+	border: 0 none;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+	font-style: normal;
+	font-weight: 400;
+}
+
+ol,
+ul,
+li {
+	list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 100%;
+	font-weight: 400;
+}
+
+button,
+input,
+select,
+textarea {
+	font-size: 100%;
+}
+
+q:before,
+q:after {
+	content: '';
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+/* custom */
+body {
+	font: 14px/1.5 Microsoft YaHei, Arial, sans-serif;
+}
+
+img {
+	vertical-align: top;
+}
+/**
+ * mixin.less
+ * 常用的LESS类库
+ * Created by Chenjr on 2016/5/7.
+ */
+/* 文字排版 */
+/* 定位 */
+.clearfix:after {
+	content: '';
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+/* 长度高度 */
+/* 边距 */
+/* 单行显示点点点 */
+/* 多行显示点点点 */
+/* 去掉点击后出现的蓝色背景 */
+/***** absolute *****/
+/* 水平居中 */
+/* 垂直居中 */
+/* 垂直居中 fix定位写法*/
+/* 圆角 ps：这里加上top-left等的规则是为了解决Android2.x某些机型下border-radius不生效的问题 */
+/* 旋转 */
+body {
+	overflow-x: hidden;
+}
+
+.wrap {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.container {
+	width: 1102px;
+	margin: 0 auto;
+}
+
+.header {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	height: 80px;
+	line-height: 80px;
+	font-size: 0;
+	background: url(//img.ucdl.pp.uc.cn/upload_files/pp-web-pro/images/ppcnpc/bg-re.png) repeat;
+}
+
+.header .header-logo {
+	margin-top: 21px;
+	width: 158px;
+	height: 38px;
+	background: url(//img.ucdl.pp.uc.cn/upload_files/pp-web-pro/images/ppcnpc/logo.png) no-repeat;
+	float: left;
+	vertical-align: middle;
+}
+
+.header .header-menu {
+	margin-top: 15px;
+	width: 50px;
+	height: 50px;
+	float: right;
+	cursor: pointer;
+	background: url(//img.ucdl.pp.uc.cn/upload_files/pp-web-pro/images/ppcnpc/menu.png) center center no-repeat;
+	vertical-align: middle;
+}
+
+.banner {
+	position: relative;
+	height: 720px;
+	background: url(//img.ucdl.pp.uc.cn/upload_files/pp-web-pro/images/ppcnpc/new_banner_pc5.jpg) center center no-repeat;
+}
+
+.banner .left-img {
+	margin-top: 130px;
+	margin-left: 100px;
+	display: inline-block;
+	width: 654px;
+	height: 460px;
+	
+}
+
+.banner .right-part {
+	margin-top: 200px;
+	text-align: center;
+	float: right;
+	width: 500px;
+	margin-right: 45px;
+}
+
+.banner .banner-info {
+	color: #bfe0ff;
+	font-size: 32px;
+	line-height: 45px;
+}
+
+.banner .banner-title {
+	color: #fff;
+	font-size: 62px;
+	line-height: 90px;
+}
+
+.banner .banner-download {
+	margin-top: 50px;
+	background: url(//img.ucdl.pp.uc.cn/upload_files/pp-web-pro/images/ppcnpc/banner_button.png) center center no-repeat;
+	width: 251px;
+	height: 65px;
+	display: inline-block;
+}
+
+.banner .banner-download:hover {
+	filter: brightness(1.05);
+}
+
+.down-part {
+	height: 190px;
+	background: #fff;
+}
+
+.down-part .cont-item {
+	float: left;
+	width: 180px;
+	margin: 52px 20px 0;
+	text-align: center;
+	position: relative;
+}
+
+.down-part .cont-item:hover .item-hover {
+	opacity: 1;
+	top: 0;
+}
+
+.down-part .item-icon {
+	width: 56px;
+	height: 48px;
+	display: inline-block;
+}
+
+.down-part .item-name {
+	color: #333333;
+	font-size: 14px;
+	text-align: center;
+	line-height: 24px;
+}
+
+.down-part #item-pc {
+	background: url(//img.ucdl.pp.uc.cn/upload_files/pp-web-pro/images/ppcnpc/download_web_ios.png) center center no-repeat;
+}
+
+.down-part #item-jb {
+	background: url(//img.ucdl.pp.uc.cn/upload_files/pp-web-pro/images/ppcnpc/download_ppjb.png) center center no-repeat;
+}
+
+.down-part #item-ios {
+	background: url(//img.ucdl.pp.uc.cn/upload_files/pp-web-pro/images/ppcnpc/download_wap_ios.png) center center no-repeat;
+}
+
+.down-part #item-and {
+	background: url(//img.ucdl.pp.uc.cn/upload_files/pp-web-pro/images/ppcnpc/download_wap.png) center center no-repeat;
+}
+
+.down-part .and-cord {
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	background: url(../imgs/appdl.png) center center no-repeat;
+	background-size: 100% 100%;
+}
+
+.down-part .and-name {
+	color: #999999;
+	font-size: 12px;
+	line-height: 24px;
+}
+
+.down-part .pre {
+	width: 1px;
+	height: 80px;
+	margin-top: 55px;
+	float: left;
+	display: inline-block;
+	background: url(//img.ucdl.pp.uc.cn/upload_files/pp-web-pro/images/ppcnpc/icon_line.png) center center no-repeat;
+	vertical-align: middle;
+}
+
+.down-part .item-hover {
+	width: 180px;
+	text-align: center;
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	top: 75px;
+	opacity: 0;
+	background: #fff;
+	transition: all 0.2s ease-out;
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-ms-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+}
+
+.down-part .download-btn {
+	display: inline-block;
+	text-align: center;
+	color: #43b1fa;
+	margin-bottom: 16px;
+	width: 120px;
+	height: 32px;
+	border: 1px solid #43b1fa;
+	-webkit-border-radius: 16px;
+	-ms-border-radius: 16px;
+	-o-border-radius: 16px;
+	-moz-border-radius: 16px;
+	line-height: 32px;
+}
+
+.down-part .download-btn:hover {
+	background: #43b1fa;
+	color: #fff;
+}
+
+.down-part .and-btn {
+	color: #00c57e;
+	border: 1px solid #00c57e;
+}
+
+.down-part .and-btn:hover {
+	background: #00c57e;
+	color: #fff;
+}
+
+.down-part .download-det {
+	color: #00c57e;
+	display: inline-block;
+	line-height: 32px;
+}
+
+.menu-list {
+	position: fixed;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 0px;
+	background-color: #fff;
+}
+
+.menu-list .menu-close {
+	left: 30px;
+	top: 30px;
+	position: absolute;
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+	background: url(//img.ucdl.pp.uc.cn/upload_files/pp-web-pro/images/ppcnpc/menu_close.jpg) center center no-repeat;
+}
+
+.menu-list .nav-list {
+	width: 95px;
+	margin-top: 210px;
+	margin-left: 75px;
+}
+
+.menu-list .nav-item {
+	display: block;
+	color: #555555;
+	height: 36px;
+	line-height: 36px;
+	margin-bottom: 20px;
+}
+
+.menu-list .nav-item:hover {
+	color: #169ef5;
+}
+
+.menu-list .nav-item:hover .nav-pre {
+	display: inline-block;
+}
+
+.menu-list .nav-pre {
+	float: left;
+	margin-left: -50px;
+	margin-top: 20px;
+	width: 24px;
+	height: 2px;
+	display: none;
+	background-color: #169ef5;
+}
+
+.footer {
+	padding: 26px 0;
+	background-color: #262627;
+	text-align: center;
+}
+
+.footer .footer-info {
+	color: #999999;
+	font-size: 12px;
+	line-height: 24px;
+}
+
+.footer a {
+	color: #999;
+}
+
+.footer .network-report {
+	position: relative;
+	top: 3px;
+	display: inline-block;
+	height: 30px;
+	vertical-align: middle;
+}
+
+.footer .network-report .network-report-icon {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url("//img.ucdl.pp.uc.cn/upload_files/pp-web-pro/images/ppcnpc/network-report-icon.png") no-repeat;
+	background-size: 100%;
+}
+
+.footer .network-report .network-report-text {
+	vertical-align: top;
+	display: inline-block;
+	line-height: 20px;
+	height: 20px;
+}
+
+.pop-part {
+	position: fixed;
+	top: 0;
+	height: 100%;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 100;
+	display: none;
+}
+
+.pop-part .pop-up {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 640px;
+	height: 340px;
+	margin-left: -320px;
+	margin-top: -170px;
+	background: url(//img.ucdl.pp.uc.cn/upload_files/pp-web-pro/images/ppcnpc/pop_up.png);
+}
+
+.pop-part .pop-title {
+	margin: 26px 0;
+	line-height: 34px;
+	text-align: center;
+	font-size: 16px;
+	color: #444444;
+}
+
+.pop-part .title-color {
+	color: #0dcdb3;
+}
+
+.pop-part .pop-info {
+	width: 250px;
+	padding: 5px 30px 36px;
+	float: right;
+}
+
+.pop-part .pop-step {
+	color: #444;
+	font-size: 14px;
+	line-height: 26px;
+	margin-top: 6px;
+}
+
+.pop-part .pop-btn {
+	font-size: 16px;
+	color: #fff;
+	display: inline-block;
+	width: 150px;
+	height: 44px;
+	margin: 40px 0 14px;
+	line-height: 44px;
+	text-align: center;
+	border-radius: 4px;
+	background: #0dcdb3;
+}
+
+.pop-part .pop-btn:hover {
+	background: #0ad7bc;
+}
+
+.pop-part .pop-link {
+	font-size: 14px;
+	color: #0dcdb3;
+}
+
+.pop-part .pop-close {
+	top: -16px;
+	right: -16px;
+	position: absolute;
+	width: 32px;
+	height: 32px;
+	background: url(//img.ucdl.pp.uc.cn/upload_files/pp-web-pro/images/ppcnpc/pop_close.png) 100% 100% no-repeat;
+	cursor: pointer;
+	background-size: 100% 100%;
+}
+
+.pop-part .pop-close:hover {
+	background: url(//img.ucdl.pp.uc.cn/upload_files/pp-web-pro/images/ppcnpc/pop_close.png) 100% 100% no-repeat;
+	background-size: 100% 100%;
+}
+

@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>隐藏查找</title>
+    <link rel="stylesheet" href="./css/fqq.css">
+</head>
+<body>
+<div class="box02">
+    <h1>QQ隐藏号码查找</h1>
+</div>
+<br>
+<div target="myframe">
+    <div class="form-group">
+        <input class="form-field" placeholder='输入QQ号' required id="qq" name="qq" type='text' maxLength=10>
+        <button onclick="fqq()">查找</button>
+    </div>
+    <div class="form-group">
+        <div class="form-field" style="line-height: 12px;">接口：https://yeyu1024.xyz/qq/fqq.htm?qq=</div>
+        <span class="mmcopy" data-clipboard-text="https://yeyu1024.xyz/qq/fqq.htm?qq=QQ号">复制</span>
+    </div>
+
+    <br><br>
+    <div style="text-align: center;">
+        <span style="color: #1E90FF;">
+            本站已运行
+            <span id="t_d">天</span>
+            <span id="t_h">时</span>
+            <span id="t_m">分</span>
+            <span id="t_s">秒</span>
+        </span>
+        <br>
+        <a href="https://jq.qq.com/?_wv=1027&k=FMxgDgyV" style="margin-top: 10px ">
+            <span color="#00ff00">点击链接加入群聊:249733992</span></a>
+    </div>
+    <br>
+    <div style="text-align: center;"><span><a target="_blank" href="https://yeyu1024.xyz">Copyright ©夜雨小屋2021-2022</a></span></div>
+
+    <script>
+
+        function fqq() {
+            location.href = "mqq://card/show_pslcard?src_type=internal&version=1&uin=" + document.getElementById("qq").value + "&card_type=person&source=sharecard";
+
+            location.replace("tencent://ContactInfo/?subcmd=ViewInfo&puin=0&uin=" + document.getElementById("qq").value)
+        }
+
+        (function () {
+            let param = location.href;
+            if (param.indexOf("qq=") !== -1) {
+                //console.log(param.split("qq=")[1])
+                location.href = "mqq://card/show_pslcard?src_type=internal&version=1&uin=" + param.split("qq=")[1] + "&card_type=person&source=sharecard";
+                location.replace("tencent://ContactInfo/?subcmd=ViewInfo&puin=0&uin=" + param.split("qq=")[1])
+            }
+
+        })();
+
+
+    </script>
+
+
+    <script src="./js/copy1.js"></script>
+    <script src="./js/copy2.js"></script>
+    <script src="./js/copy3.js"></script>
+    <script>
+        let clipboard = new Clipboard(".mmcopy");
+        clipboard.on("success", function (e) {
+            layer.msg("复制成功")
+        });
+        clipboard.on("error", function (e) {
+            layer.msg("复制失败，请长按链接后手动复制")
+        });
+    </script>
+    <script type="text/javascript"> function getRTime() {
+        var OverTime = new Date('2021/6/25 00:00:00');
+        var CurrentTime = new Date();
+        var t = CurrentTime.getTime() - OverTime.getTime();
+        var d = Math.floor(t / 1000 / 60 / 60 / 24);
+        var h = Math.floor(t / 1000 / 60 / 60 % 24);
+        var m = Math.floor(t / 1000 / 60 % 60);
+        var s = Math.floor(t / 1000 % 60);
+        document.getElementById("t_d").innerHTML = d + " 天";
+        document.getElementById("t_h").innerHTML = h + " 时";
+        document.getElementById("t_m").innerHTML = m + " 分";
+        document.getElementById("t_s").innerHTML = s + " 秒";
+    }
+
+    setInterval(getRTime, 1000);
+    </script>
+
+    <!--	百度统计	-->
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?74e4636e85834e73b5bff5b10cfb0efa";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</div>
+</body>
+</html>
