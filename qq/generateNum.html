@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>在线号码生成</title>
+    <link href="https://lib.baomitu.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://lib.baomitu.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://lib.baomitu.com/layer/3.1.1/layer.js"></script>
+    <link rel="stylesheet" href="https://lib.baomitu.com/layer/3.1.1/theme/default/layer.css?v=3.1.1"
+          id="layuicss-layer">
+
+<body background="https://www.cnblogs.com/skins/moonlightink/images/top.jpg">
+<div class="container">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 center-block" style="float: none;">
+        <br>
+        <div class="panel panel-primary">
+            <div class="panel-heading" style="background: linear-gradient(to right,#b221ff,#14b7ff,#8ae68a);">
+                <h3 class="panel-title">在线手机号码生成</h3>
+            </div>
+            <div class="panel-body" style="text-align: center;">
+                <div class="list-group">
+
+                    <div class="list-group-item list-group-item-info" style="font-weight: bold;">
+                        <label for="phonePre">格式：一行一个手机号段(前7位)</label>
+                        <textarea id="phonePre" name="phonePre" class="form-control" rows="5"></textarea>
+                        <label for="last2">最后两位</label>
+                        <input id="last2" name="last2" class="form-control" value=""/>
+                    </div>
+                    <div class="list-group-item">
+                        <a onclick="genPhoneNum()" class="btn btn-block btn-primary"
+                           style="background: linear-gradient(to right,#b221ff,#14b7ff);">生成</a>
+                    </div>
+
+                    <label>生成的手机号：</label>
+                    <textarea id="nums" class="form-control" rows="10"></textarea>
+                </div>
+
+                <div class="list-group-item">
+                    <a onclick="vcard()" class="btn btn-block btn-primary"
+                       style="background: linear-gradient(to right,#b221ff,#14b7ff);">将结果生成通讯录格式(.vcf)</a>
+                </div>
+
+                <label>请将以下复制到txt文件，并保存为.vcf格式：</label>
+                <label>然后即可导入通讯录</label>
+                <textarea id="vcf" class="form-control" rows="10"></textarea>
+            </div>
+            <a href="https://www.chahaoba.com/" target="_blank" class="btn btn-block btn-primary"
+               style="background: linear-gradient(to right,#b221ff,#14b7ff);">查号网</a>
+            <a href="./qqcx.html" class="btn btn-block btn-primary"
+               style="background: linear-gradient(to right,#b221ff,#14b7ff);">返回Q信查</a>
+        </div>
+
+
+    </div>
+</div>
+<div class="panel panel-default text-center">
+    <div class="panel-body">
+        <a target="_blank" href="http://yeyu1024.xyz/">Copyright © 夜雨小屋2021-2023</a>
+    </div>
+</div>
+
+<script>
+
+
+    function genPhoneNum() {
+        let phonePrestr = $('#phonePre').val();
+        if (phonePrestr == undefined || phonePrestr == '') {
+            layer.msg('请输入内容', {icon: 5});
+            return
+        }
+        let prexs = phonePrestr.split("\n");
+        let suffix = $('#last2').val();
+        let nums = "";
+
+        for (let i = 0; i < prexs.length; i++) {
+            let px = prexs[i];
+
+            for (let m = 0; m <= 9; m++) {
+                for (let n = 0; n <= 9; n++) {
+                    nums += px + m + n + suffix + "\n";
+                }
+            }
+        }
+        //console.log(nums)
+        $("#nums").text(nums)
+    }
+
+    //生成vcf
+    function vcard() {
+        let vs = $('#nums').val();
+        if (vs === undefined || vs === '') {
+            layer.msg('结果内容不能为空', {icon: 5});
+            return
+        }
+
+        let vcfs = vs.split("\n");
+
+        let res_vcf = "";
+
+        /* BEGIN:VCARD
+        VERSION:3.0
+        FN:张三600
+        N:;张三600;
+        TEL:xxxxx
+        END:VCARD */
+        for (let i = 0; i < vcfs.length; i++) {
+            let phoneNum = vcfs[i];
+            let startv = "BEGIN:VCARD\nVERSION:3.0\n"
+            let fn = "FN:" + phoneNum + "\n";
+            let n = "N:;" + phoneNum + ";\n";
+            let tel = "TEL:" + phoneNum + "\n";
+            let endv = "END:VCARD\n";
+            res_vcf += startv + fn + n + tel + endv;
+        }
+        //console.log(nums)
+        $("#vcf").text(res_vcf)
+
+
+    }
+
+
+</script>
+
+
+
+</body>
+</html>
