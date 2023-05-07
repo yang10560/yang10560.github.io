@@ -218,6 +218,23 @@ function katexTohtml(rawHtml){
 	return renderedHtml;
 }
 
+
+function copyToClipboard(text) {
+	// 创建一个临时的input元素
+	const input = document.createElement('textarea');
+	input.innerText = text
+	document.body.appendChild(input);
+
+	// 选中input元素中的文本内容
+	input.select();
+
+	// 执行复制命令
+	document.execCommand('copy');
+
+	// 删除创建的input元素
+	document.body.removeChild(input);
+}
+
 function highlightcode(dom){
 	if(!dom){
 		// 初始化highlight.js
@@ -238,6 +255,35 @@ function highlightcode(dom){
 		}
 	}
 	hljs.highlightAll()
+	//添加代码复制按钮 start
+	let preList =  document.querySelectorAll("pre")
+	preList.forEach((pre)=>{
+		try{
+			if(!pre.querySelector(".btn-pre-copy")){
+				//<span class=\"btn-pre-copy\" onclick='preCopy(this)'>复制代码</span>
+				let copyBtn = document.createElement("span");
+				copyBtn.setAttribute("class","btn-pre-copy");
+				copyBtn.addEventListener("click",(event)=>{
+					let _this = event.target
+					console.log(_this)
+					let pre = _this.parentNode;
+					console.log(pre.innerText)
+					_this.innerText = '';
+					copyToClipboard(pre.innerText);
+					_this.innerText = '复制成功'
+					setTimeout(() =>{
+						_this.innerText = '复制代码'
+					},2000)
+				})
+				copyBtn.innerText = '复制代码'
+				pre.insertBefore(copyBtn, pre.firstChild)
+			}
+		}catch (e) {
+			console.log(e)
+		}
+	})
+	//添加代码复制按钮 end
+
 }
 
 // 模拟机器人回复

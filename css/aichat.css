@@ -254,3 +254,12 @@ button {
 	background-color: #444;
 	color: #fff;
 }
+
+pre .btn-pre-copy{
+	text-align: right;
+	display: block;
+}
+
+pre .btn-pre-copy:hover{
+	cursor: pointer;
+}
