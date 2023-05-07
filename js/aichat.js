@@ -47,6 +47,14 @@ function loadHistory(data) {
 			useravatar.classList.add("message-avatar");
 			newMessage.classList.add("message", "from-user");
 			messageContent.classList.add("message-content");
+			messageContent.addEventListener("click",(ev)=>{
+				let ques = ev.target;
+				console.log(ques)
+				if(inputField){
+					inputField.value = ques.innerText;
+				}
+
+			})
 			messageContent.textContent = item.human;
 			newMessage.appendChild(useravatar)
 			newMessage.appendChild(messageContent);
@@ -95,7 +103,7 @@ function handleBot(question, type) {
 	let q = question;
 	$("#chat-header").html("思考中，请稍后...")
 
-	if (type == 1) {
+	if (type === 1) {
 		
 		//安卓接口 start
 		// if(!window.AndroidTEST){
@@ -122,33 +130,9 @@ function handleBot(question, type) {
 		
 	
 		//安卓接口 end
-		return
-		
-		$.ajax({
-			method: "GET",
-			url: "https://wenxin110.top/api/chat_gpt?text=" + encodeURI(q),
-			headers: {},
-			success: function(res) {
-				//Save History
-				try {
-					saveHistory(question, res.text)
-				} catch (e) {
-					//TODO handle the exception
-				}
-				simulateBotResponse(res.text)
-				$("#chat-header").html("AI Chat")
-				hideWait()
-			},
-			error: function(res) {
-				simulateBotResponse("未知错误...")
-				hideWait()
-			},
-			timeout: (res) => {
-				hideWait()
-				simulateBotResponse("超时...")
-			}
-		});
-	} else if (type == 2) {
+
+
+	} else if (type === 2) {
 		updateAigcfunKey();
 		let useKeyTime = localStorage.getItem("useKeyTime") ? localStorage.getItem("useKeyTime") : 0;
 
@@ -186,7 +170,7 @@ function handleBot(question, type) {
 
 				$("#chat-header").html("AI Chat")
 				hideWait()
-				if (ans.indexOf("已达上限") != -1 || ans.indexOf("有效的key") != -1) {
+				if (ans.indexOf("已达上限") !== -1 || ans.indexOf("有效的key") != -1) {
 					localStorage.removeItem("useKeyTime")
 					updateAigcfunKey()
 					alert("已为你更新key,如果还提示,则用插件手动更新key")
@@ -358,6 +342,14 @@ function handleUserInput(type) {
 		newMessage.classList.add("message", "from-user");
 		messageContent.classList.add("message-content");
 		messageContent.textContent = messageText;
+		messageContent.addEventListener("click",(ev)=>{
+			let ques = ev.target;
+			console.log(ques)
+			if(inputField){
+				inputField.value = ques.innerText;
+			}
+
+		})
 		newMessage.appendChild(useravatar)
 		newMessage.appendChild(messageContent);
 		messagesContainer.appendChild(newMessage);

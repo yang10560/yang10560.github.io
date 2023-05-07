@@ -263,3 +263,7 @@ pre .btn-pre-copy{
 pre .btn-pre-copy:hover{
 	cursor: pointer;
 }
+
+.from-user .message-content{
+	cursor: pointer;
+}
