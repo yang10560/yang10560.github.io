@@ -325,7 +325,11 @@ function fillBotResponse(msg){
 	}
 	
 	if(lastArticle){
-		lastArticle.innerHTML = `${katexTohtml(mdConverter(msg.replace(/\\n+/g,"\n")))}`;
+		try{
+			lastArticle.innerHTML = `${katexTohtml(mdConverter(msg.replace(/\\n+/g,"\n")))}`;
+		}catch (e) {
+			console.log(e)
+		}
 		highlightcode(lastArticle)
 	}
 }
