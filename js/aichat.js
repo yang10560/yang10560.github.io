@@ -170,7 +170,7 @@ function handleBot(question, type) {
 
 				$("#chat-header").html("AI Chat")
 				hideWait()
-				if (ans.indexOf("已达上限") !== -1 || ans.indexOf("有效的key") != -1) {
+				if (ans.indexOf("已达上限") !== -1 || ans.indexOf("有效的key") !== -1) {
 					localStorage.removeItem("useKeyTime")
 					updateAigcfunKey()
 					alert("已为你更新key,如果还提示,则用插件手动更新key")
@@ -336,6 +336,9 @@ function fillBotResponse(msg){
 		}
 		if(restMessage.indexOf("hello-ai.anzz")>-1){
 			msg = msg.replace(/hello-ai/,"")
+		}
+		if(restMessage.indexOf("muspimerol.site")>-1){
+			msg = msg.replace(/muspimerol.site/,"")
 		}
 		
 	}catch(e){
