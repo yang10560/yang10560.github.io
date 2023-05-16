@@ -296,10 +296,10 @@ function simulateBotResponse(restMessage) {
 			restMessage = "系统异常,请更换线路再试"
 		}
 		if(restMessage.indexOf("hello-ai.anzz")>-1){
-			restMessage = restMessage.replace(/hello-ai/,"")
+			restMessage = restMessage.replace(/hello-ai/gi,"")
 		}
 		if(restMessage.indexOf("muspimerol.site")>-1){
-			restMessage = restMessage.replace(/muspimerol.site/,"")
+			restMessage = restMessage.replace(/muspimerol.site/gi,"")
 		}
 		
 	}catch(e){
@@ -338,10 +338,10 @@ function fillBotResponse(msg){
 			msg = "系统异常,请更换线路再试"
 		}
 		if(restMessage.indexOf("hello-ai.anzz")>-1){
-			msg = msg.replace(/hello-ai/,"")
+			msg = msg.replace(/hello-ai/gi,"")
 		}
 		if(restMessage.indexOf("muspimerol.site")>-1){
-			msg = msg.replace(/muspimerol.site/,"")
+			msg = msg.replace(/muspimerol.site/gi,"")
 		}
 		
 	}catch(e){
