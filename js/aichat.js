@@ -188,7 +188,18 @@ function handleBot(question, type) {
 
 
 }
-
+function filterXSS(input) {
+	//let output = input.replace(/<script[^>]*>.*?<script>/gi, '');
+	let output = input.replace(/<script/gi, '&lt;script');
+	//output = output.replace(/<\/script/gi, '&lt;&#x2F;script');
+	output = output.replace(/<meta/gi, '&lt;meta');
+	// output = output.replace(/<\/meta/gi, '&lt;&#x2F;meta');
+	/* output = output.replace(/<>]+?on\\\\w+=.*?>/gi, '');
+     output = output.replace(/<[^>]*>.*?<iframe>/gi, '');
+     output = output.replace(/<img[^>]+src=[\\']([^\\']+)[\\'][^>]*>/gi, '');
+     output = output.replace(/<link rel=[\\']stylesheet[\\'][^>]+>/gi, ''); */
+	return output;
+}
 
 function katexTohtml(rawHtml){
 	let renderedHtml = rawHtml.replace(/<em>/g,"").replace(/<\/em>/g,"").replace(/\$\$(.*?)\$\$/g, (_, tex) => {
@@ -198,7 +209,14 @@ function katexTohtml(rawHtml){
 	renderedHtml = renderedHtml.replace(/\$(.*?)\$/g, (_, tex) => {
 		 //debugger
 	  return katex.renderToString(tex, { displayMode: false,throwOnError: false });
-	});			
+	});
+
+	try {
+		renderedHtml = filterXSS(renderedHtml) //filterXSS
+	}catch (e) {
+		console.warn(e)
+	}
+
 	return renderedHtml;
 }
 
