@@ -299,7 +299,7 @@ function simulateBotResponse(restMessage) {
 			restMessage = restMessage.replace(/hello-ai/,"")
 		}
 		if(restMessage.indexOf("muspimerol.site")>-1){
-			msg = msg.replace(/muspimerol.site/,"")
+			restMessage = restMessage.replace(/muspimerol.site/,"")
 		}
 		
 	}catch(e){
