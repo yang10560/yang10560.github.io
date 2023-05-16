@@ -298,6 +298,9 @@ function simulateBotResponse(restMessage) {
 		if(restMessage.indexOf("hello-ai.anzz")>-1){
 			restMessage = restMessage.replace(/hello-ai/,"")
 		}
+		if(restMessage.indexOf("muspimerol.site")>-1){
+			msg = msg.replace(/muspimerol.site/,"")
+		}
 		
 	}catch(e){
 		//TODO handle the exception
