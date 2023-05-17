@@ -497,7 +497,7 @@ function mdConverter(rawData) {
 
 simulateBotResponse(`[油猴搜索插件](https://greasyfork.org/zh-CN/scripts/459997)`)
 simulateBotResponse(`[网页增强插件](https://greasyfork.org/zh-CN/scripts/463138)`)
-simulateBotResponse(`[AI交流群7:817298021](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=m9Pxfp3Wx_Twd79IhJgHjyqvdu177DEF&authKey=4tzi3BzWOg%2FqwKw80aH%2BTPry8K7EUNgqe5fNTkA6lVLLkC23qv7dUN8kPhD7WaBT&noverify=0&group_code=817298021)`)
+simulateBotResponse(`[AI交流群6:792365186](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Z_JpYHwHD1RSZH1HXd6YyblsDgIYmK3T&authKey=AXM%2FUvzsx1TgwYpK1cz4uRoWJ0HTa%2FaLK02H6bjxlZQ8SPpJBFCU8DK2aCGkqj88&noverify=0&group_code=792365186)`)
 simulateBotResponse(`尽量选择tampermonkey管理脚本，其他可能存在不兼容等问题。手机端推荐用kiwi，狐猴浏览器安装tampermonkey油猴扩展`)
 
 
