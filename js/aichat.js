@@ -55,7 +55,12 @@ function loadHistory(data) {
 				}
 
 			})
-			messageContent.textContent = item.human;
+			//messageContent.textContent = item.human;
+			try{
+				messageContent.innerHTML = `${katexTohtml(mdConverter(item.human.replace(/\\n+/g,"\n")))}`;
+			}catch(e){
+				console.log(e);
+			}
 			newMessage.appendChild(useravatar)
 			newMessage.appendChild(messageContent);
 			messagesContainer.appendChild(newMessage);
@@ -368,7 +373,7 @@ function fillBotResponse(msg){
 
 // 处理用户输入的消息
 function handleUserInput(type) {
-	const messageText = inputField.value.trim();
+	const messageText = inputField.value;
 	if (messageText) {
 		const newMessage = document.createElement("div");
 		const messageContent = document.createElement("div");
@@ -376,7 +381,11 @@ function handleUserInput(type) {
 		useravatar.classList.add("message-avatar");
 		newMessage.classList.add("message", "from-user");
 		messageContent.classList.add("message-content");
-		messageContent.innerHTML = messageText;
+		try{
+			messageContent.innerHTML = `${katexTohtml(mdConverter(messageText.replace(/\\n+/g,"\n")))}`;
+		}catch(e){
+			console.log(e);
+		}
 		messageContent.addEventListener("click",(ev)=>{
 			let ques = ev.target;
 			console.log(ques)
