@@ -48,18 +48,18 @@ body {
 #chat-container {
 	width: 80%;
 	/* 在移动设备上，聊天框应该填满屏幕 */
-	margin: 50px auto;
+	margin: 1px auto;
 	background-color: #ffffff;
 	border-radius: 10px;
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 #chat-header {
-	padding: 20px;
+	padding: 5px;
 	text-align: center;
 	font-size: 24px;
 	font-weight: bold;
-	border-bottom: 1px solid #e6e6e6;
+	border-bottom: 1px dashed #e6e6e6;
 }
 
 #chat-messages {
@@ -107,7 +107,7 @@ textarea::-webkit-scrollbar-thumb:hover {
 }
 
 .message.from-user {
-	text-align: right;
+	text-align: left;
 }
 
 .message.from-bot {
