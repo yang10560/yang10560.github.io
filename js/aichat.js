@@ -17,7 +17,7 @@ if(navigator.userAgent.match(/MQQBrowser/gi)){
 
 
 function saveHistory(humanMsg, botMsg) {
-	var chatList = localStorage.getItem("chatList")
+	let chatList = localStorage.getItem("chatList")
 	if (chatList) {
 		chatList = JSON.parse(chatList)
 		chatList.push({
@@ -36,7 +36,7 @@ function saveHistory(humanMsg, botMsg) {
 }
 
 function loadHistory(data) {
-	var chatList = data ? data : localStorage.getItem("chatList")
+	let chatList = data ? data : localStorage.getItem("chatList")
 	if (chatList) {
 		chatList = JSON.parse(chatList)
 		chatList.forEach(function(item) {
@@ -83,8 +83,7 @@ function updateAigcfunKey() {
 			},
 			success: function(response) {
 				console.log(response);
-				let resp = response.data;
-				let aigcfunkey = resp;
+				let aigcfunkey = response.data;
 				if (!aigcfunkey) {
 					alert("更新key失败")
 					return
@@ -221,14 +220,22 @@ function katexTohtml(rawHtml){
 }
 
 
-function copyToClipboard(text) {
+async function copyToClipboard(text) {
+	try {
+		await navigator.clipboard.writeText(text);
+		console.log('Text copied to clipboard');
+	} catch (err) {
+		console.error('Error copying text: ', err);
+	}
+
 	// 创建一个临时的input元素
 	const input = document.createElement('textarea');
-	input.innerText = text
+	input.innerHTML = text
 	document.body.appendChild(input);
 
 	// 选中input元素中的文本内容
 	input.select();
+
 
 	// 执行复制命令
 	document.execCommand('copy');
@@ -397,7 +404,6 @@ function handleUserInput(type) {
 inputField.addEventListener("keyup", function(event) {
 	if (event.ctrlKey && event.keyCode === 13) {
 		this.value += "\n";
-		return
 	}else if (event.keyCode === 13) {
 		event.preventDefault();
 		// let defaultbtn = document.getElementById("chatX")
@@ -413,7 +419,7 @@ inputField.addEventListener("keyup", function(event) {
 		}
 		console.log(_thatBtn)
 		_thatBtn.click();
-	};
+	}
 
 	
 });
@@ -467,8 +473,8 @@ document.getElementById("importBtn").addEventListener("click", () => {
 
 //md start
 function Uint8ArrayToString(fileData) {
-	var dataString = "";
-	for (var i = 0; i < fileData.length; i++) {
+	let dataString = "";
+	for (let i = 0; i < fileData.length; i++) {
 		dataString += String.fromCharCode(fileData[i]);
 	}
 
@@ -487,11 +493,10 @@ function decodeUnicode(str) {
 }
 
 function mdConverter(rawData) {
-	var converter = new showdown.Converter(); //增加拓展table
+	let converter = new showdown.Converter(); //增加拓展table
 	converter.setOption('tables',
 		true); //启用表格选项。从showdown 1.2.0版开始，表支持已作为可选功能移入核心拓展，showdown.table.min.js扩展已被弃用
-	var view = converter.makeHtml(rawData);
-	return view;
+	return converter.makeHtml(rawData);
 }
 //md end
 
@@ -539,10 +544,10 @@ var Base64 = {
 
 	// 加密
 	encode: function(str) {
-		var base64 = '';
-		var buffer = '';
-		var code = 0;
-		for (var i = 0, len = str.length; i < len; i += 3) {
+		let base64 = '';
+		let buffer = '';
+		let code = 0;
+		for (let i = 0, len = str.length; i < len; i += 3) {
 			buffer = str.charCodeAt(i) << 16 | (str.charCodeAt(i + 1) << 8) | str.charCodeAt(i + 2);
 			code = [
 				(buffer & 0xfc0000) >> 18,
@@ -552,9 +557,9 @@ var Base64 = {
 			];
 			base64 += this.table[code[0]] + this.table[code[1]] + this.table[code[2]] + this.table[code[3]];
 		}
-		if (len % 3 == 1) {
+		if (len % 3 === 1) {
 			base64 = base64.slice(0, -2) + '==';
-		} else if (len % 3 == 2) {
+		} else if (len % 3 === 2) {
 			base64 = base64.slice(0, -1) + '=';
 		}
 		return base64;
@@ -562,10 +567,10 @@ var Base64 = {
 
 	// 解密
 	decode: function(str) {
-		var raw = '';
-		var buffer = '';
-		var code = 0;
-		for (var i = 0, len = str.length; i < len; i += 4) {
+		let raw = '';
+		let buffer = '';
+		let code = 0;
+		for (let i = 0, len = str.length; i < len; i += 4) {
 			buffer = (this.table.indexOf(str.charAt(i)) << 18) | (this.table.indexOf(str.charAt(i + 1)) <<
 				12) | (this.table.indexOf(str.charAt(i + 2)) << 6) | this.table.indexOf(str.charAt(i +
 				3));
@@ -574,15 +579,15 @@ var Base64 = {
 				(buffer & 0xff00) >> 8,
 				buffer & 0xff
 			];
-			for (var j = 0; j < 3; j++) {
+			for (let j = 0; j < 3; j++) {
 				if (code[j]) {
 					raw += String.fromCharCode(code[j]);
 				}
 			}
 		}
-		if (str.charAt(len - 1) == '=') {
+		if (str.charAt(len - 1) === '=') {
 			raw = raw.slice(0, -1);
-			if (str.charAt(len - 2) == '=') {
+			if (str.charAt(len - 2) === '=') {
 				raw = raw.slice(0, -1);
 			}
 		}
@@ -595,17 +600,14 @@ var Base64 = {
 //刷新
 function gg() {
 
-	var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
 	//刷新缓存
 
-	location.href = reurl;
+	location.href = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
 
 }
-if (!(location.href.indexOf("random") != -1)) {
-	var reurl = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
+if (!location.href.includes("random")) {
 	//刷新缓存
-
-	location.href = reurl;
+	location.href = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
 }
 
 //载入历史
