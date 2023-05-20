@@ -376,7 +376,7 @@ function handleUserInput(type) {
 		useravatar.classList.add("message-avatar");
 		newMessage.classList.add("message", "from-user");
 		messageContent.classList.add("message-content");
-		messageContent.textContent = messageText;
+		messageContent.innerHTML = messageText;
 		messageContent.addEventListener("click",(ev)=>{
 			let ques = ev.target;
 			console.log(ques)
