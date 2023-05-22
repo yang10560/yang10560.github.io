@@ -544,68 +544,6 @@ importFile.addEventListener('change', (event) => {
 });
 
 
-
-
-
-var Base64 = {
-	// 转码表
-	table: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/',
-
-	// 加密
-	encode: function(str) {
-		let base64 = '';
-		let buffer = '';
-		let code = 0;
-		for (let i = 0, len = str.length; i < len; i += 3) {
-			buffer = str.charCodeAt(i) << 16 | (str.charCodeAt(i + 1) << 8) | str.charCodeAt(i + 2);
-			code = [
-				(buffer & 0xfc0000) >> 18,
-				(buffer & 0x3f000) >> 12,
-				(buffer & 0xfc0) >> 6,
-				buffer & 0x3f
-			];
-			base64 += this.table[code[0]] + this.table[code[1]] + this.table[code[2]] + this.table[code[3]];
-		}
-		if (len % 3 === 1) {
-			base64 = base64.slice(0, -2) + '==';
-		} else if (len % 3 === 2) {
-			base64 = base64.slice(0, -1) + '=';
-		}
-		return base64;
-	},
-
-	// 解密
-	decode: function(str) {
-		let raw = '';
-		let buffer = '';
-		let code = 0;
-		for (let i = 0, len = str.length; i < len; i += 4) {
-			buffer = (this.table.indexOf(str.charAt(i)) << 18) | (this.table.indexOf(str.charAt(i + 1)) <<
-				12) | (this.table.indexOf(str.charAt(i + 2)) << 6) | this.table.indexOf(str.charAt(i +
-				3));
-			code = [
-				(buffer & 0xff0000) >> 16,
-				(buffer & 0xff00) >> 8,
-				buffer & 0xff
-			];
-			for (let j = 0; j < 3; j++) {
-				if (code[j]) {
-					raw += String.fromCharCode(code[j]);
-				}
-			}
-		}
-		if (str.charAt(len - 1) === '=') {
-			raw = raw.slice(0, -1);
-			if (str.charAt(len - 2) === '=') {
-				raw = raw.slice(0, -1);
-			}
-		}
-		return raw;
-	}
-};
-
-
-
 //刷新
 function gg() {
 
