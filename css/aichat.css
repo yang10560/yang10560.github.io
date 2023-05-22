@@ -230,7 +230,8 @@ button {
 body,
 div,
 input,
-textarea {
+textarea,
+select{
 	background-color: var(--bg-color);
 	color: var(--text-color);
 	font-family: Arial, sans-serif;
