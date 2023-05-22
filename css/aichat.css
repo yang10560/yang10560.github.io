@@ -107,7 +107,7 @@ textarea::-webkit-scrollbar-thumb:hover {
 }
 
 .message-content {
-	display: inline-block;
+	display: block;
 	max-width: 80%;
 	padding: 10px;
 	border-radius: 5px;
