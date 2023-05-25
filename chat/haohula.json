@@ -17,6 +17,7 @@
   },
   "ptrboom": {
     "token": "i_know_who_you_are_gwj",
-    "did": "dd633043916550bea93f56e1af08debd"
+    "did": "dd633043916550bea93f56e1af08debd",
+    "url": "https://api2.promptboom.com/cfdoctetstream"
   }
 }
