@@ -258,6 +258,11 @@ function highlightcode(dom){
 			//	"language-javascript hljs");
 			document.getElementsByTagName("code")[i].classList.add("hljs");
 		}
+
+		dom.querySelectorAll('pre code').forEach((el) => {
+			hljs.highlightElement(el);
+		});
+
 	}else{
 		// 初始化highlight.js
 		// hljs.initHighlightingOnLoad();
@@ -267,8 +272,9 @@ function highlightcode(dom){
 			dom.getElementsByTagName("code")[i].classList.add("hljs");
 			
 		}
+		hljs.highlightAll()
 	}
-	hljs.highlightAll()
+
 	//添加代码复制按钮 start
 	let preList =  document.querySelectorAll("pre")
 	preList.forEach((pre)=>{
