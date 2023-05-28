@@ -268,8 +268,9 @@ function highlightcode(dom){
 			dom.getElementsByTagName("code")[i].classList.add("hljs");
 			
 		}
-		hljs.highlightAll()
+
 	}
+	hljs.highlightAll()
 
 	//添加代码复制按钮 start
 	let preList =  document.querySelectorAll("pre")
