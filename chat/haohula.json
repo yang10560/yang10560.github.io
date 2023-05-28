@@ -31,16 +31,16 @@
     "list": [
       {
         "url": "https://chat.0.bnu120.space/",
-        "key": "c"
+        "key": "thisisnotgood"
       },{
         "url": "https://chat.1.bnu120.space/",
-        "key": "c"
+        "key": "thisisnotgood"
       },{
         "url": "https://chat.2.bnu120.space/",
-        "key": "c"
+        "key": "thisisnotgood"
       },{
         "url": "https://chat.3.bnu120.space/",
-        "key": "c"
+        "key": "thisisnotgood"
       },{
         "url": "https://chat.4.bnu120.space/",
         "key": "c"
@@ -49,10 +49,10 @@
         "key": "c"
       },{
         "url": "https://chat.6.bnu120.space/",
-        "key": "c"
+        "key": "ok"
       }
     ],
-    "bnuInt": 1,
-    "bnukey": "c"
+    "bnuInt": 3,
+    "bnukey": "thisisnotgood"
   }
 }
