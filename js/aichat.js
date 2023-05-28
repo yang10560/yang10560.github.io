@@ -259,10 +259,6 @@ function highlightcode(dom){
 			document.getElementsByTagName("code")[i].classList.add("hljs");
 		}
 
-		dom.querySelectorAll('pre code').forEach((el) => {
-			hljs.highlightElement(el);
-		});
-
 	}else{
 		// 初始化highlight.js
 		// hljs.initHighlightingOnLoad();
