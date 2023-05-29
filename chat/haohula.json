@@ -1,13 +1,13 @@
 {
   "haohula": {
     "token": [
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NWUzZjdkOTQ4YjE5OTRhMDNiYWRmZSIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4NTE1MjgxMSwiZXhwIjoxNjg1MzI1NjExfQ.e0i1dJMJGu1vv9_g3vPLO4Rw6IdFucu0bWO2lAs4qV4",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NWUzZjdkOTQ4YjE5OTRhMDNiYWRmZSIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4NTMyNTYxNiwiZXhwIjoxNjg1NDk4NDE2fQ.m58mTtO02b-PIuPVX4B2jLOGUw7Nn6pUic44ZHNsOHo",
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlOWE0YTFkZThjYTRjMzgzNDM2NyIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4NTMyMjM2NiwiZXhwIjoxNjg1NDk1MTY2fQ.88XoByIediLmEtpMMamWr31ZeaL71ZxPhH4uXcsssfk",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlMzg2M2YxMzIzNzY3MTRmZjdhZSIsInZlcnNpb24iOjEsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4NTE1NzM3MiwiZXhwIjoxNjg1MzMwMTcyfQ.XGXuukO_CDwVgF-mC16fejIXzDO-fK-pBVlM-Fyhvgk"
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlMzg2M2YxMzIzNzY3MTRmZjdhZSIsInZlcnNpb24iOjEsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4NTM0MTMxMSwiZXhwIjoxNjg1NTE0MTExfQ.0bGM4XXrfvIi857S58xaPf29YSRjO5GiUuCSoAG6FzM"
     ]
   },
   "xiami": {
-    "token": "5dWkz7DrWFyEqpZyHQTET3BlbkFJq53hcwy6JzCW7kh7BHik"
+    "token": "Kml2a1nFZzvZhpo8JxbaT3BlbkFJyNK07ArM4JGssrQg2ich"
   },
   "ails": {
     "clientv": "0.1.117"
