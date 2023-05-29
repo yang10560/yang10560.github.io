@@ -349,15 +349,13 @@ function simulateBotResponse(restMessage) {
 // 实时填充内容
 function fillBotResponse(msg){
 	try{
-		if(restMessage.indexOf("chatai")>-1){
+		if(restMessage.includes("chatai")){
 			msg = "系统异常,请更换线路再试"
 		}
-		if(restMessage.indexOf("hello-ai.anzz")>-1){
-			msg = msg.replace(/hello-ai/gi,"")
-		}
-		if(restMessage.indexOf("muspimerol.site")>-1){
-			msg = msg.replace(/muspimerol.site/gi,"")
-		}
+
+		msg = msg.replace(/hello-ai/gi,"")
+		msg = msg.replace(/muspimerol/gi,"")
+		msg = msg.replace(/fx.*?ai/gi,"")
 		
 	}catch(e){
 		//TODO handle the exception
