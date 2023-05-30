@@ -369,6 +369,8 @@ function fillBotResponse(msg){
 		}
 		highlightcode(lastArticle)
 	}
+	// 将消息框滚动到底部，以便用户看到最新的回复
+	messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
 
 

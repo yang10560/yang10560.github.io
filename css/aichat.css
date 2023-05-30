@@ -252,3 +252,8 @@ pre .btn-pre-copy:hover{
 .from-user .message-content{
 	cursor: pointer;
 }
+
+footer {
+	display: flex;
+	justify-content: center;
+}
