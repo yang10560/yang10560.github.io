@@ -54,5 +54,8 @@
     ],
     "bnuInt": 4,
     "bnukey": "you ain't see me!"
+  },
+  "pizza": {
+    "secret": "salame"
   }
 }
