@@ -3,14 +3,14 @@
     "token": [
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NWUzZjdkOTQ4YjE5OTRhMDNiYWRmZSIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4NjEwMDM2NSwiZXhwIjoxNjg2MjczMTY1fQ.22aq49vYudJBKT9_5JaKxgLCZjGuwd2ypqVYsPopEhs",
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlOWE0YTFkZThjYTRjMzgzNDM2NyIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4NjEwMDU4MCwiZXhwIjoxNjg2MjczMzgwfQ.v23RDazN2jAYnMDShkRq3nmD8ZNpNAVCzDTpMmdz-nM",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlMzg2M2YxMzIzNzY3MTRmZjdhZSIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4NTkyODU5NiwiZXhwIjoxNjg2MTAxMzk2fQ.6vYxlTaDuG_aH61lo6TXoUDUWEyihfgpXG54hmlBHRg"
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlMzg2M2YxMzIzNzY3MTRmZjdhZSIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4NjEyMDM5OSwiZXhwIjoxNjg2MjkzMTk5fQ.zy_l9mmKZZMiarg77mNfZjAdGCxkZJGZe9tIF-B0uWU"
     ]
   },
   "xiami": {
     "token": "Pk8QG0HoLBh4lLpnquSrT3BlbkFJrDDEz6qukgvMtbKcHUEE"
   },
   "ails": {
-    "clientv": "0.1.172"
+    "clientv": "0.1.173"
   },
   "eso": {
     "accesscode": "586-484-535D"
@@ -43,17 +43,17 @@
         "key": "thisisnotgood"
       },{
         "url": "https://chat.4.bnu120.space/",
-        "key": "you ain't see me!"
+        "key": "you ain't see me **"
       },{
         "url": "https://chat.5.bnu120.space/",
-        "key": "you ain't see me!"
+        "key": "you ain't see me **"
       },{
         "url": "https://chat.6.bnu120.space/",
         "key": "thisisnotgood"
       }
     ],
     "bnuInt": 4,
-    "bnukey": "you ain't see me!"
+    "bnukey": "you ain't see me **"
   },
   "pizza": {
     "secret": "salame"
