@@ -1,8 +1,8 @@
 {
   "haohula": {
     "token": [
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NWUzZjdkOTQ4YjE5OTRhMDNiYWRmZSIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4NTg0ODE3OSwiZXhwIjoxNjg2MDIwOTc5fQ.0hfgznkvqMlyO5wnRoUOX7EFmsSbrAQ7eBaMYZBZAnI",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlOWE0YTFkZThjYTRjMzgzNDM2NyIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4NTg0NjA5NCwiZXhwIjoxNjg2MDE4ODk0fQ.CxAdVn5feWx9DX0uBWoiheSuy-2fWYn0Qjxj4TROCWA",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NWUzZjdkOTQ4YjE5OTRhMDNiYWRmZSIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4NjEwMDM2NSwiZXhwIjoxNjg2MjczMTY1fQ.22aq49vYudJBKT9_5JaKxgLCZjGuwd2ypqVYsPopEhs",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlOWE0YTFkZThjYTRjMzgzNDM2NyIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4NjEwMDU4MCwiZXhwIjoxNjg2MjczMzgwfQ.v23RDazN2jAYnMDShkRq3nmD8ZNpNAVCzDTpMmdz-nM",
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlMzg2M2YxMzIzNzY3MTRmZjdhZSIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4NTkyODU5NiwiZXhwIjoxNjg2MTAxMzk2fQ.6vYxlTaDuG_aH61lo6TXoUDUWEyihfgpXG54hmlBHRg"
     ]
   },
@@ -10,7 +10,7 @@
     "token": "Pk8QG0HoLBh4lLpnquSrT3BlbkFJrDDEz6qukgvMtbKcHUEE"
   },
   "ails": {
-    "clientv": "0.1.168"
+    "clientv": "0.1.172"
   },
   "eso": {
     "accesscode": "586-484-535D"
