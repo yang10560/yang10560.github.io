@@ -58,7 +58,7 @@
 }
 
 #chat-messages {
-	height: 350px;
+	height: 50vh;
 	overflow-y: scroll;
 	padding: 5px;
 }
