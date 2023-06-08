@@ -230,7 +230,9 @@ select{
 	font-family: Arial, sans-serif;
 }
 
-
+body {
+	overflow:hidden;
+}
 
 
 pre .btn-pre-copy{
