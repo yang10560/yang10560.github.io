@@ -3,14 +3,14 @@
     "token": [
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NWUzZjdkOTQ4YjE5OTRhMDNiYWRmZSIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4NjI3Njc2OCwiZXhwIjoxNjg2NDQ5NTY4fQ.yDQB0GeyIsFNQByjQSYv-6m69O94jOQFoSz-LedgGYk",
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlOWE0YTFkZThjYTRjMzgzNDM2NyIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4NjI3Njc4OSwiZXhwIjoxNjg2NDQ5NTg5fQ.9b6buwmCzihw_z0bziSRuMW_imMqqy7GTS5Khzbtdyw",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlMzg2M2YxMzIzNzY3MTRmZjdhZSIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4NjEyMDM5OSwiZXhwIjoxNjg2MjkzMTk5fQ.zy_l9mmKZZMiarg77mNfZjAdGCxkZJGZe9tIF-B0uWU"
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlMzg2M2YxMzIzNzY3MTRmZjdhZSIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4NjMxMjkxOSwiZXhwIjoxNjg2NDg1NzE5fQ.Y5i-IkKDRzQ17KzNvlyKyX7jU9pgW0k7qgRj3LX4xnA"
     ]
   },
   "xiami": {
     "token": "Pk8QG0HoLBh4lLpnquSrT3BlbkFJrDDEz6qukgvMtbKcHUEE"
   },
   "ails": {
-    "clientv": "0.1.177"
+    "clientv": "0.1.178"
   },
   "eso": {
     "accesscode": "586-484-535D"
