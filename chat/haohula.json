@@ -10,7 +10,7 @@
     "token": "Pk8QG0HoLBh4lLpnquSrT3BlbkFJrDDEz6qukgvMtbKcHUEE"
   },
   "ails": {
-    "clientv": "0.1.178"
+    "clientv": "0.1.179"
   },
   "eso": {
     "accesscode": "586-484-535D"
@@ -31,13 +31,13 @@
     "list": [
       {
         "url": "https://chat.0.bnu120.space/",
-        "key": "bad"
+        "key": "do_not_do_this"
       },{
         "url": "https://chat.1.bnu120.space/",
-        "key": "bad"
+        "key": "do_not_do_this"
       },{
         "url": "https://chat.2.bnu120.space/",
-        "key": "bad"
+        "key": "do_not_do_this"
       },{
         "url": "https://chat.3.bnu120.space/",
         "key": "thisisnotgood"
