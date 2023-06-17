@@ -523,6 +523,17 @@ function mdConverter(rawData) {
 	let converter = new showdown.Converter(); //增加拓展table
 	converter.setOption('tables',
 		true); //启用表格选项。从showdown 1.2.0版开始，表支持已作为可选功能移入核心拓展，showdown.table.min.js扩展已被弃用
+	converter.setOption('openLinksInNewWindow',true) //链接在新窗口打开
+	converter.setOption('strikethrough', true) //删除线
+	converter.setOption('emoji', true) //开启emoji
+
+	/***
+	 * original: John Gruber 规范中的原始 Markdown 风格
+	 * vanilla：对决基础风味（v1.3.1 起）
+	 * github: GitHub 风格的 Markdown，或 GFM
+	 */
+	showdown.setFlavor('github');
+
 	return converter.makeHtml(rawData);
 }
 //md end
@@ -600,7 +611,7 @@ setTimeout(() => {
 	
 	if(!localStorage.getItem("mxy")){
 		try{
-			toastr.warning("使用即同意协议：换线路，哪个能用用哪个，有的需要梯子，所以不要问为什么用不了。线路的区别是来自不同的网站接口，意思是各线路是不同的服务的，一个挂了不影响其他线路。插件免费。不要点击来自答案中的第三方网站，收费行为与本站无关，被骗自行负责。","",{"timeOut": "3000"})
+			toastr.warning("使用即同意协议：换线路，哪个能用用哪个，有的需要梯子。插件免费。不要点击来自答案中的第三方网站，收费行为与本站无关，被骗自行负责。","",{"timeOut": "10000"})
 		}catch (ex) {
 			console.error(ex)
 		}

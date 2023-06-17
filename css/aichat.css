@@ -45,7 +45,7 @@
 	width: 95%;
 	/* 在移动设备上，聊天框应该填满屏幕 */
 	margin: 1px auto;
-	background-color: #ffffff;
+	background-color: transparent;
 	border-radius: 10px;
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -226,7 +226,6 @@ button {
 
 /* 设置背景颜色和文本颜色 */
 body,
-div,
 input,
 textarea,
 select{
