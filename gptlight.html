@@ -32,6 +32,9 @@
 
         gtag('config', 'G-WLF02TJZ8Z');
     </script>
+
+    <!--    提示框 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
 </head>
 <body>
 <div id="myModal" class="modal">
@@ -81,7 +84,7 @@
 
 <script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.6/katex.min.js"></script>
 <!-- <script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.6/contrib/auto-render.min.js"></script> -->
-<script src="./js/aichat.js?v=53"></script>
+
 <script src="https://cdn.staticfile.org/eruda/3.0.0/eruda.min.js"></script>
 <script>
     if (location.hash.includes("debug")) {
@@ -91,6 +94,28 @@
 <script id="_waur74">var _wau = _wau || [];
 _wau.push(["dynamic", "cvh5d9vpzr", "r74", "434343ffffff", "small"]);</script>
 <script async src="//waust.at/d.js"></script>
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+<script>
+    toastr.options = {
+        // "closeButton": false,
+        // "debug": false,
+        // "newestOnTop": false,
+        // "progressBar": false,
+        "positionClass": "toast-top-right", // 提示框位置，这里填类名
+        // "preventDuplicates": false,
+        // "onclick": null,
+        "showDuration": "300",              // 提示框渐显所用时间
+        "hideDuration": "300",              // 提示框隐藏渐隐时间
+        "timeOut": "3000",                  // 提示框持续时间
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+</script>
 
 <script>
     let mm = localStorage.getItem("mymode")
@@ -103,8 +128,10 @@ _wau.push(["dynamic", "cvh5d9vpzr", "r74", "434343ffffff", "small"]);</script>
         simulateBotResponse("当前插件不是最新，请更新3.0")
       }
     },2500) */
-    simulateBotResponse("温馨提示：答案中的链接不要购买！！与本站无关!打不开可以尝试切换线路或科学上网")
+    toastr.warning("温馨提示：答案中的链接不要购买！！与本站无关!打不开可以尝试切换线路或科学上网","",{"timeOut": "10000"})
 </script>
+
+<script src="./js/aichat.js?v=53"></script>
 
 <!-- zfb -->
 <script>

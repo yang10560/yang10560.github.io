@@ -10,8 +10,15 @@ hljs.configure({
 });
 
 if(navigator.userAgent.match(/MQQBrowser/gi)){
-	alert("请不要在QQ内部打开，https://yeyu1024.xyz/gpt.html")
-	document.body.innerHTML ="请不要在QQ内部打开,请复制到其他浏览器打开，https://yeyu1024.xyz/gpt.html"
+	try{
+		toastr.error("请不要在QQ内部打开，https://yeyu1024.xyz/gpt.html","")
+	}catch (ex) {
+		console.error(ex)
+	}
+	setTimeout(()=>{
+		document.body.innerHTML ="请不要在QQ内部打开,请复制到其他浏览器打开，https://yeyu1024.xyz/gpt.html"
+	},1000)
+
 	//window.close()
 }
 
@@ -90,7 +97,11 @@ function updateAigcfunKey() {
 				console.log(response);
 				let aigcfunkey = response.data;
 				if (!aigcfunkey) {
-					alert("更新key失败")
+					try{
+						toastr.error("更新key失败!","",{"timeOut": "3000"})
+					}catch (ex) {
+						console.error(ex)
+					}
 					return
 				}
 
@@ -111,7 +122,6 @@ function handleBot(question, type) {
 		
 		//安卓接口 start
 		// if(!window.AndroidTEST){
-		// 	 alert("请在app中使用")
 		// 	 simulateBotResponse("请在app中使用")
 		// 	 hideWait()
 		// 	 return
@@ -177,7 +187,11 @@ function handleBot(question, type) {
 				if (ans.indexOf("已达上限") !== -1 || ans.indexOf("有效的key") !== -1) {
 					localStorage.removeItem("useKeyTime")
 					updateAigcfunKey()
-					alert("已为你更新key,如果还提示,则用插件手动更新key")
+					try{
+						toastr.info("已为你更新key,如果还提示,则用插件手动更新key","",{"timeOut": "3000"})
+					}catch (ex) {
+						console.error(ex)
+					}
 				}
 			},
 			error: function(res) {
@@ -280,17 +294,18 @@ function highlightcode(dom){
 				//<span class=\"btn-pre-copy\" onclick='preCopy(this)'>复制代码</span>
 				let copyBtn = document.createElement("span");
 				copyBtn.setAttribute("class","btn-pre-copy");
-				copyBtn.addEventListener("click",(event)=>{
+				copyBtn.addEventListener("click",async (event) => {
 					let _this = event.target
 					console.log(_this)
 					let pre = _this.parentNode;
 					console.log(pre.innerText)
 					_this.innerText = '';
-					copyToClipboard(pre.innerText);
+					await copyToClipboard(pre.innerText);
 					_this.innerText = '复制成功'
-					setTimeout(() =>{
+					toastr.success("复制成功!", "")
+					setTimeout(() => {
 						_this.innerText = '复制代码'
-					},2000)
+					}, 2000)
 				})
 				copyBtn.innerText = '复制代码'
 				pre.insertBefore(copyBtn, pre.firstChild)
@@ -515,8 +530,11 @@ function mdConverter(rawData) {
 simulateBotResponse(`[油猴搜索插件](https://greasyfork.org/zh-CN/scripts/459997)`)
 simulateBotResponse(`[网页增强插件](https://greasyfork.org/zh-CN/scripts/463138)`)
 simulateBotResponse(`[AI交流群:249733992](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=gwrwhtWe-670WyxWHByAo0zs4fKC016C&authKey=ZJGQAMvKol5PIEaRVbfBFreQnzor100Gb6P7FViMn0kD2hnpax5fls17UXjnZXS1&noverify=0&group_code=249733992)`)
-simulateBotResponse(`尽量选择tampermonkey管理脚本，其他可能存在不兼容等问题。手机端推荐用kiwi，狐猴浏览器安装tampermonkey油猴扩展`)
-
+try{
+	toastr.warning(`尽量选择tampermonkey管理脚本，其他可能存在不兼容等问题。手机端推荐用kiwi，狐猴浏览器安装tampermonkey油猴扩展`,"",{"timeOut": "10000"})
+}catch (ex) {
+	console.error(ex)
+}
 
 
 const importFile = document.getElementById('importFile');
@@ -581,7 +599,11 @@ setTimeout(() => {
 	}
 	
 	if(!localStorage.getItem("mxy")){
-		alert("使用即同意协议：换线路，哪个能用用哪个，有的需要梯子，所以不要问为什么用不了。线路的区别是来自不同的网站接口，意思是各线路是不同的服务的，一个挂了不影响其他线路。插件免费。不要点击来自答案中的第三方网站，收费行为与本站无关，被骗自行负责。")
+		try{
+			toastr.warning("使用即同意协议：换线路，哪个能用用哪个，有的需要梯子，所以不要问为什么用不了。线路的区别是来自不同的网站接口，意思是各线路是不同的服务的，一个挂了不影响其他线路。插件免费。不要点击来自答案中的第三方网站，收费行为与本站无关，被骗自行负责。","",{"timeOut": "3000"})
+		}catch (ex) {
+			console.error(ex)
+		}
 		localStorage.setItem("mxy",true)
 	}
 
