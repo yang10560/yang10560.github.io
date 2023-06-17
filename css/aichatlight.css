@@ -108,7 +108,8 @@ textarea::-webkit-scrollbar-thumb:hover {
 
 .message-content {
 	display: block;
-	max-width: 80%;
+	max-width: 90%;
+	margin-left: 40px;
 	padding: 10px;
 	border-radius: 5px;
 	color: #000000;
