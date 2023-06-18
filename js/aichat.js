@@ -223,6 +223,7 @@ function toRawText(exp){
 	//处理html标签
 	try {
 		exp =  exp.replace(/\&amp;/gi, "&").replace(/<br>/g,"\n").replace(/<br \/>/g,"\n")
+			.replace(/\&gt;/g,">").replace(/\&lt;/g,"<")
 		// 处理矩阵
 		exp = exp.replace(/\\begin\{bmatrix\}(.*?)\\end\{bmatrix\}/g, (_, tex) => {
 			//debugger
@@ -286,9 +287,9 @@ async function copyToClipboard(text) {
 	// 删除创建的input元素
 	document.body.removeChild(input);
 }
-
+let firstLoad = true;
 function highlightcode(dom){
-	if(!dom){
+	if(!dom && firstLoad){
 		// 初始化highlight.js
 		// hljs.initHighlightingOnLoad();
 		for (let i = 0; i <= document.getElementsByTagName("code").length - 1; i++) {
@@ -296,8 +297,9 @@ function highlightcode(dom){
 			//	"language-javascript hljs");
 			document.getElementsByTagName("code")[i].classList.add("hljs");
 		}
-
-	}else{
+		firstLoad = false;
+		hljs.highlightAll()
+	}else if(dom){
 		// 初始化highlight.js
 		// hljs.initHighlightingOnLoad();
 		for (let i = 0; i <= dom.getElementsByTagName("code").length - 1; i++) {
@@ -306,9 +308,11 @@ function highlightcode(dom){
 			dom.getElementsByTagName("code")[i].classList.add("hljs");
 			
 		}
-
+		dom.querySelectorAll('pre code').forEach((el) => {
+			hljs.highlightElement(el);
+		});
 	}
-	hljs.highlightAll()
+
 
 	//添加代码复制按钮 start
 	let preList =  document.querySelectorAll("pre")
@@ -376,9 +380,10 @@ function simulateBotResponse(restMessage) {
 	newMessage.appendChild(botavatar);
 	newMessage.appendChild(messageContent);
 	messagesContainer.appendChild(newMessage);
-	
+
+	highlightcode(lastArticle)
 	lastArticle = messageContent;
-	highlightcode()
+
 
 
 	// 将消息框滚动到底部，以便用户看到最新的回复
@@ -404,7 +409,7 @@ function fillBotResponse(msg){
 		try{
 			lastArticle.innerHTML = `${katexTohtml(mdConverter(msg.replace(/\\n+/g,"\n")))}`;
 		}catch (e) {
-			console.log(e)
+			console.error(e)
 		}
 		highlightcode(lastArticle)
 	}
