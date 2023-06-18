@@ -218,16 +218,40 @@ function filterXSS(input) {
      output = output.replace(/<link rel=[\\']stylesheet[\\'][^>]+>/gi, ''); */
 	return output;
 }
+const katex_options = {displayMode: false, throwOnError: false}
+function toRawText(exp){
+	//处理html标签
+	try {
+		exp =  exp.replace(/\&amp;/gi, "&").replace(/<br>/g,"\n").replace(/<br \/>/g,"\n")
+		// 处理矩阵
+		exp = exp.replace(/\\begin\{bmatrix\}(.*?)\\end\{bmatrix\}/g, (_, tex) => {
+			//debugger
+			return `\\begin\{bmatrix\}${tex.replace(/\\/g,"\\\\")}\\end\{bmatrix\}`;
+		})
+		exp = exp.replace(/\\begin\{pmatrix\}(.*?)\\end\{pmatrix\}/g, (_, tex) => {
+			//debugger
+			return `\\begin\{pmatrix\}${tex.replace(/\\/g,"\\\\")}\\end\{pmatrix\}`;
+		})
+	}catch (e) { }
+
+	return exp;
+}
 
 function katexTohtml(rawHtml){
-	let renderedHtml = rawHtml.replace(/<em>/g,"").replace(/<\/em>/g,"").replace(/\$\$(.*?)\$\$/g, (_, tex) => {
-		 //debugger
-	  return katex.renderToString(tex, { displayMode: false,throwOnError: false });
-	});
-	renderedHtml = renderedHtml.replace(/\$(.*?)\$/g, (_, tex) => {
-		 //debugger
-	  return katex.renderToString(tex, { displayMode: false,throwOnError: false });
-	});
+	let renderedHtml = rawHtml;
+	try {
+		renderedHtml = rawHtml.replace(/<em>/g, "").replace(/<\/em>/g, "").
+		replace(/\$\$(.*?)\$\$/g, (_, tex) => {
+			//debugger
+			return katex.renderToString(toRawText(tex), katex_options);
+		});
+		renderedHtml = renderedHtml.replace(/\$(.*?)\$/g, (_, tex) => {
+			//debugger
+			return katex.renderToString(toRawText(tex), katex_options);
+		});
+	}catch (ex) {
+		console.error(ex)
+	}
 
 	try {
 		renderedHtml = filterXSS(renderedHtml) //filterXSS
