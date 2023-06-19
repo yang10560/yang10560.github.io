@@ -36,6 +36,18 @@
     <!--    提示框-->
     <link href="https://cdn.bootcdn.net/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
 
+    <style>
+        .as-buttonSection {
+            justify-content: space-around;
+
+        }
+        .as-cancelButton,.as-okButton {
+
+            width: 60px;
+
+        }
+    </style>
+
 
 </head>
 <body>
@@ -103,10 +115,10 @@
             脚本增强v4.59
         </a>
 
-        <span px-1="">|</span>
-        <a target="_blank" style="color: #00f83d !important;" href="https://xn--30rs3bu7r87f.com/#/register?code=iUJSBUjN">
+<!--        <span px-1="">|</span>
+        <a target="_blank" style="color: #00f83d !important;" href="https://xn&#45;&#45;30rs3bu7r87f.com/#/register?code=iUJSBUjN">
             科学上网工具[慈善机]
-        </a>
+        </a>-->
 
 
     </p>
@@ -139,6 +151,11 @@ _wau.push(["dynamic", "cvh5d9vpzr", "r74", "434343ffffff", "small"]);</script>
 
 <!--提示-->
 <script src="https://cdn.bootcdn.net/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+
+
+
+<script src="./js/asteroid-alert.js"></script>
+
 <script>
     toastr.options = {
         // "closeButton": false,
@@ -175,6 +192,7 @@ _wau.push(["dynamic", "cvh5d9vpzr", "r74", "434343ffffff", "small"]);</script>
 
 <script src="./js/aichat.js?v=61"></script>
 
+
 <!-- zfb -->
 <script>
     setTimeout(() => {
@@ -190,11 +208,15 @@ _wau.push(["dynamic", "cvh5d9vpzr", "r74", "434343ffffff", "small"]);</script>
         localStorage.setItem(key, td.toString())
 
         if (td < 3) {
-            let zf = confirm("最近支付宝红包大水，是否领取红包?")
-            if (zf) {
-                location.href = "./zfb.html";
-            }
+            $confirm("最近支付宝红包大水，是否领取红包?","#E74C3C")
+                .then(() =>{
+                    /*$toast("","#E74C3C");*/
+                    location.href = "./zfb.html";
+                })
         }
+
+
+
 
     })
 </script>
