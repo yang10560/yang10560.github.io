@@ -64,7 +64,7 @@ function loadHistory(data) {
 			})
 			//messageContent.textContent = item.human;
 			try{
-				messageContent.innerHTML = `${katexTohtml(mdConverter(item.human.replace(/\\n+/g,"\n")))}`;
+				messageContent.innerHTML = mdConverter(item.human)
 			}catch(e){
 				console.log(e);
 			}
@@ -292,22 +292,22 @@ function highlightcode(dom){
 	if(!dom && firstLoad){
 		// 初始化highlight.js
 		// hljs.initHighlightingOnLoad();
-		for (let i = 0; i <= document.getElementsByTagName("code").length - 1; i++) {
+		/*for (let i = 0; i <= document.getElementsByTagName("code").length - 1; i++) {
 			//document.getElementsByTagName("code")[i].setAttribute("class",
 			//	"language-javascript hljs");
 			document.getElementsByTagName("code")[i].classList.add("hljs");
-		}
+		}*/
 		firstLoad = false;
 		hljs.highlightAll()
 	}else if(dom){
 		// 初始化highlight.js
 		// hljs.initHighlightingOnLoad();
-		for (let i = 0; i <= dom.getElementsByTagName("code").length - 1; i++) {
+		/*for (let i = 0; i <= dom.getElementsByTagName("code").length - 1; i++) {
 			//document.getElementsByTagName("code")[i].setAttribute("class",
 			//	"language-javascript hljs");
 			dom.getElementsByTagName("code")[i].classList.add("hljs");
 			
-		}
+		}*/
 		dom.querySelectorAll('pre code').forEach((el) => {
 			hljs.highlightElement(el);
 		});
@@ -373,7 +373,7 @@ function simulateBotResponse(restMessage) {
 	messageContent.classList.add("message-content");
 	messageContent.classList.add("markdown-body");
 	try{
-		messageContent.innerHTML = `${katexTohtml(mdConverter(restMessage.replace(/\\n+/g,"\n")))}`;
+		messageContent.innerHTML = mdConverter(restMessage);
 	}catch(e){
 		console.log(e);
 	}
@@ -407,7 +407,7 @@ function fillBotResponse(msg){
 	
 	if(lastArticle){
 		try{
-			lastArticle.innerHTML = `${katexTohtml(mdConverter(msg.replace(/\\n+/g,"\n")))}`;
+			lastArticle.innerHTML = mdConverter(msg)
 		}catch (e) {
 			console.error(e)
 		}
@@ -429,7 +429,7 @@ function handleUserInput(type) {
 		newMessage.classList.add("message", "from-user");
 		messageContent.classList.add("message-content");
 		try{
-			messageContent.innerHTML = `${katexTohtml(mdConverter(messageText.replace(/\\n+/g,"\n")))}`;
+			messageContent.innerHTML =  mdConverter(messageText)
 		}catch(e){
 			console.log(e);
 		}
@@ -548,8 +548,102 @@ function decodeUnicode(str) {
 	return str;
 }
 
+(function (extension) {
+	if (typeof showdown !== 'undefined') {
+		// global (browser or node.js global)
+		extension(showdown);
+	} else if (typeof define === 'function' && define.amd) {
+		// AMD
+		define(['showdown'], extension);
+	} else if (typeof exports === 'object') {
+		// Node, CommonJS-like
+		module.exports = extension(require('showdown'));
+	} else {
+		// showdown was not found so an error is thrown
+		throw Error('Could not find showdown library');
+	}
+}(function (showdown) {
+	// loading extension into showdown
+	showdown.extension('myext', function () {
+		return [
+			//to katex
+			{
+				type:   'output',
+				filter: function (source, converter, options) {
+					//debugger
+					return katexTohtml(source);
+				}
+			},
+			// filter xss
+			{
+				type:  'output',
+				filter: function (source, converter, options) {
+					//debugger
+					return  source.replace(/<script/gi, '&lt;script').replace(/<meta/gi, '&lt;meta');
+				}
+			},
+			//Adds simple footnotes
+
+			{
+				type: 'output',
+				filter: text => text.replace(
+					/^\[\^([\d\w]+)\]:\s*((\n+(\s{2,4}|\t).+)+)$/mg,
+					(str, name, rawContent, _, padding) => {
+						const content = converter.makeHtml(rawContent.replace(new RegExp(`^${padding}`, 'gm'), ''))
+						return `<div class="footnote" id="footnote-${name}"><a href="#footnote-${name}"><sup>[${name}]</sup></a>:${content}</div>`
+					}
+				)
+			},
+			{
+				type: 'lang',
+				filter: text => text.replace(
+					/^\[\^([\d\w]+)\]:( |\n)((.+\n)*.+)$/mg,
+					(str, name, _, content) =>
+						`<small class="footnote" id="footnote-${name}"><a href="#footnote-${name}"><sup>[${name}]</sup></a>: ${content}</small>`
+				)
+			},
+			{
+				type: 'lang',
+				filter: text => text.replace(
+					/\[\^([\d\w]+)\]/m,
+					(str, name) => `<a href="#footnote-${name}"><sup>[${name}]</sup></a>`
+				)
+			},
+
+			//replace \n
+			{
+				type: 'lang',
+				filter: text => text.replace(/\\n+/g, "\n")
+			},
+			/**
+			 * Showdown Icon Extension, Glyphicon and FontAwesome support for showdown
+			 * http://github.com/dbtek/showdown-icon
+			 * 2014, Ismail Demirbilek
+			 * License: MIT
+			 */
+			{
+				type: "lang",
+				regex: "\\B(\\\\)?@glyphicon-([\\S]+)\\b",
+				replace: function(a, b, c) {
+					return b === "\\" ? a : '<span class="glyphicon glyphicon-' + c + '">' + "</span>"
+				}
+			},
+			{
+				type: "lang",
+				regex: "\\B(\\\\)?@fa-([\\S]+)\\b",
+				replace: function(a, b, c) {
+					return b === "\\" ? a : '<i class="fa fa-' + c + '">' + "</i>"
+				}
+			}
+
+		];
+	})
+}));
 function mdConverter(rawData) {
-	let converter = new showdown.Converter(); //增加拓展table
+	let converter = new showdown.Converter({
+		extensions: ['myext']
+	});
+
 	converter.setOption('tables',
 		true); //启用表格选项。从showdown 1.2.0版开始，表支持已作为可选功能移入核心拓展，showdown.table.min.js扩展已被弃用
 	converter.setOption('openLinksInNewWindow',true) //链接在新窗口打开
