@@ -9,8 +9,8 @@
     var as_cancelButton = document.createElement('button');
     var as_buttonSection = document.createElement('div');
 
-    as_okButton.innerText = 'Okay';
-    as_cancelButton.innerText = 'Cancel';
+    as_okButton.innerText = '是';
+    as_cancelButton.innerText = '否';
     as_textnode.innerText = text;
 
     as_box.classList.add("as-box");
