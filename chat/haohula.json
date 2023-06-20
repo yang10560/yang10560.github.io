@@ -10,7 +10,7 @@
     "token": "Pk8QG0HoLBh4lLpnquSrT3BlbkFJrDDEz6qukgvMtbKcHUEE"
   },
   "ails": {
-    "clientv": "0.1.202",
+    "clientv": "0.1.204",
     "signKey": "WI,2rU#_r:r~aF4aJ36[.Z(/8Rv93Rf"
   },
   "eso": {
@@ -32,25 +32,25 @@
     "list": [
       {
         "url": "https://chat.0.bnu120.space/",
-        "key": "do_not_do_this_"
+        "key": "do_not_do_thi"
       },{
         "url": "https://chat.1.bnu120.space/",
-        "key": "do_not_do_this_"
+        "key": "do_not_do_thi"
       },{
         "url": "https://chat.2.bnu120.space/",
-        "key": "do_not_do_this_"
+        "key": "do_not_do_thi"
       },{
         "url": "https://chat.3.bnu120.space/",
-        "key": "do_not_do_this_"
+        "key": "do_not_do_thi"
       },{
         "url": "https://chat.4.bnu120.space/",
         "key": "un"
       },{
         "url": "https://chat.5.bnu120.space/",
-        "key": "do_not_do_this_"
+        "key": "do_not_do_thi"
       },{
         "url": "https://chat.6.bnu120.space/",
-        "key": "thisisnotgood"
+        "key": "do_not_do_thi"
       }
     ],
     "bnuInt": 4,
