@@ -3,14 +3,14 @@
     "token": [
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlMzg2M2YxMzIzNzY3MTRmZjdhZSIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4ODI5MTczNywiZXhwIjoxNjg4NDY0NTM3fQ.E-gFI8Aeljb269PgHe8B7L5rzjm8-f1EMrDyHkSZ1b8",
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NWUzZjdkOTQ4YjE5OTRhMDNiYWRmZSIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4ODI5MTY0NiwiZXhwIjoxNjg4NDY0NDQ2fQ.-SeR07V-KXTxVPujFMfY-y9mbNqnl3jQinXtt7fJh00",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlOWE0YTFkZThjYTRjMzgzNDM2NyIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4ODE0MDk5MiwiZXhwIjoxNjg4MzEzNzkyfQ.ucEskBK1jg-Kf5n27ZNoO2KhiwN-Yx_cTPyFWhX9b1E"
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlOWE0YTFkZThjYTRjMzgzNDM2NyIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4ODM4OTc0MywiZXhwIjoxNjg4NTYyNTQzfQ._hYGhGledw359QWmpSRJeGtGXf5IyO6f9STfSR8BQoI"
     ]
   },
   "xiami": {
     "token": "Pk8QG0HoLBh4lLpnquSrT3BlbkFJrDDEz6qukgvMtbKcHUEE"
   },
   "ails": {
-    "clientv": "0.1.234",
+    "clientv": "0.1.236",
     "signKey": "WI,2rU#_r:r~aF4aJ36[.Z(/8Rv93Rf"
   },
   "eso": {
@@ -37,7 +37,7 @@
         "url": "https://chat.1.bnu120.space/",
         "key": "d_not_231so_thi"
       },{
-        "url": "https://chat.2.bnu120.space/",
+        "url": "https://chat2.bnu120.space/",
         "key": "d_not_231so_thi"
       },{
         "url": "https://chat.3.bnu120.space/",
@@ -57,10 +57,10 @@
     "bnukey": "d_not_231so_thi"
   },
   "pizza": {
-    "secret": "salame"
+    "secret": "Marinara"
   },
   "xiaowenzi": {
-     "url": "https://fasd131fssoi7896agou79ip6.lovebaby.today/",
+     "url": "https://gakjdg4865gsgpu7i98.lovebaby.today/",
      "token": "ak-oneperfect520"
   }
 }
