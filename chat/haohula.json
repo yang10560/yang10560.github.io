@@ -3,14 +3,14 @@
     "token": [
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlMzg2M2YxMzIzNzY3MTRmZjdhZSIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4ODQ2NjEwNCwiZXhwIjoxNjg4NjM4OTA0fQ.lHPDfRbV-BzOazucpahaa-3BRmxpKBcNK3ruwLJVcac",
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NWUzZjdkOTQ4YjE5OTRhMDNiYWRmZSIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4ODQ2NjA2NCwiZXhwIjoxNjg4NjM4ODY0fQ.1AF6of8ToT7INBv7j7fWc_G8R1okYOImyNUXwscz1xY",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlOWE0YTFkZThjYTRjMzgzNDM2NyIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4ODM4OTc0MywiZXhwIjoxNjg4NTYyNTQzfQ._hYGhGledw359QWmpSRJeGtGXf5IyO6f9STfSR8BQoI"
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlOWE0YTFkZThjYTRjMzgzNDM2NyIsInZlcnNpb24iOjAsInZpcFZlcnNpb24iOjAsImJyYW5jaCI6InpoIn0sImlhdCI6MTY4ODYxMDgzNCwiZXhwIjoxNjg4NzgzNjM0fQ.EERxmj7-fwYFE0V1U288HAheHoUegG8FxGztrUVP7ig"
     ]
   },
   "xiami": {
     "token": "Pk8QG0HoLBh4lLpnquSrT3BlbkFJrDDEz6qukgvMtbKcHUEE"
   },
   "ails": {
-    "clientv": "0.1.238",
+    "clientv": "0.1.239",
     "signKey": "WI,2rU#_r:r~aF4aJ36[.Z(/8Rv93Rf"
   },
   "eso": {
