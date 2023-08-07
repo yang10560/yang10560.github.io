@@ -1,16 +1,14 @@
 {
   "haohula": {
     "token": [
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlMzg2M2YxMzIzNzY3MTRmZjdhZSIsInZlcnNpb24iOjAsImJyYW5jaCI6InpoIiwiY2hhdFZpcEVuZFRpbWUiOjB9LCJpYXQiOjE2OTExNTI3MDIsImV4cCI6MTY5MTMyNTUwMn0.LE7wqilDxjc-Vzwts35c4AzeB_S1erHJ2VNSfv23Aek",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NWUzZjdkOTQ4YjE5OTRhMDNiYWRmZSIsInZlcnNpb24iOjAsImJyYW5jaCI6InpoIiwiY2hhdFZpcEVuZFRpbWUiOjB9LCJpYXQiOjE2OTExNTI3MzgsImV4cCI6MTY5MTMyNTUzOH0.QdKp9itA75Kptq7VF7xJ9YeN3Rmr-z4M6asruMbdZCU",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IjY0NjBlOWE0YTFkZThjYTRjMzgzNDM2NyIsInZlcnNpb24iOjAsImJyYW5jaCI6InpoIiwiY2hhdFZpcEVuZFRpbWUiOjB9LCJpYXQiOjE2OTExNTI3NzEsImV4cCI6MTY5MTMyNTU3MX0.e-Chgc0h3kr8kWVTPQmeh1qMbQMtSDoVZsZIwUspRXE"
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.xxx.LE7wqilDxjc-Vzwts35c4AzeB_S1erHJ2VNSfv23Aek"
     ]
   },
   "xiami": {
     "token": "Pk8QG0HoLBh4lLpnquSrT3BlbkFJrDDEz6qukgvMtbKcHUEE"
   },
   "ails": {
-    "clientv": "0.1.261",
+    "clientv": "0.1.262",
     "signKey": "WI,2rU#_r:r~aF4aJ36[.Z(/8Rv93Rf"
   },
   "eso": {
@@ -43,14 +41,11 @@
         "url": "https://d.free-chat.asia/",
         "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT PING IT !!!!!"
       },{
-        "url": "https://g.free-chat.asia/",
-        "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT PING IT !!!!!"
-      },{
-        "url": "https://f.free-chat.asia/",
+        "url": "https://h.free-chat.asia/",
         "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT PING IT !!!!!"
       }
     ],
-    "bnuInt": 4,
+    "bnuInt": 0,
     "bnukey": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT PING IT !!!!!"
   },
   "pizza": {
