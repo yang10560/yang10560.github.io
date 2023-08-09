@@ -17,7 +17,8 @@
   "ptrboom": {
     "token": "contact_me_to_work_together_hello@promptboom.com",
     "did": "186ca49715a674ed4e2119c981fa48a7",
-    "url": "https://api.promptboom.com/requestPowerChat"
+    "url": "https://api.promptboom.com/requestPowerChat",
+    "version": "1.0"
   },
   "chatzhang": {
     "cookie": "c=1"
