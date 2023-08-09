@@ -12,12 +12,12 @@
     "signKey": "WI,2rU#_r:r~aF4aJ36[.Z(/8Rv93Rf"
   },
   "eso": {
-    "accesscode": "586-481-535A"
+    "accesscode": "3.5forfree"
   },
   "ptrboom": {
     "token": "contact_me_to_work_together_hello@promptboom.com",
-    "did": "dd633043916550bea93f56e1af08debd",
-    "url": "https://llm.promptboom.com/requestPowerChat"
+    "did": "186ca49715a674ed4e2119c981fa48a7",
+    "url": "https://api.promptboom.com/requestPowerChat"
   },
   "chatzhang": {
     "cookie": "c=1"
