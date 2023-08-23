@@ -709,7 +709,7 @@ function gg() {
 	location.href = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random();
 
 }
-if (!location.href.includes("random") && !location.href.includes("antijump")) {
+if (!location.href.includes("random") || !location.href.includes("antijump")) {
 	//刷新缓存
 	location.href = location.protocol + "//" + location.host + location.pathname + "?random=" + Math.random()+"&antijump=" + Math.random();
 }
