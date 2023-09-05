@@ -6,13 +6,13 @@
   },
   "ohmygpt": {
     "token":
-      "Bearer eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0OTciLCJlbWFpbCI6InhpYW95YW5nNjY4OEBmb3htYWlsLmNvbSIsInB1cnBvc2UiOiJ3ZWIiLCJpYXQiOjE2OTE5ODE1MDUsImV4cCI6MTY5MzE5MTEwNX0.AJWiNhLcn799tOZ2iqoJxwOYfJ-HxwOa6A3Zg4AeX1csLzKlptg9pWKKIQsFHFYz2FH1z251KoFgiD3Gy4pU1eg0AOw8YLndXG2h8qVcg0yx5l0Radaqo710onU47bl3MmrF6B9kWJDZ9lYz6OcpxiVRPzNq7_JA5v4qsZ0ff2AYFggS"
+      "Bearer eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0OTciLCJlbWFpbCI6InhpYW95YW5nNjY4OEBmb3htYWlsLmNvbSIsInB1cnBvc2UiOiJ3ZWIiLCJpYXQiOjE2OTM5MDE3MzUsImV4cCI6MTY5NTExMTMzNX0.ATZ43Ot8XtRKrjiwW5E6Edhpl8Q0tNEEk3v81mzGeXd1KyEEgGIo0b647Zj7VV8yzjXyp0PtkfyeXngvi7e0dDMrATcz5qbJVdwUPD7pF1JYQnRWDMrJ0IfFEtBuoSpYgL-F4eYc7x0n4au9Sz-hEY34xVjkiZiiwWO87XManwexrtwy"
   },
   "xiami": {
     "token": "Pk8QG0HoLBh4lLpnquSrT3BlbkFJrDDEz6qukgvMtbKcHUEE"
   },
   "ails": {
-    "clientv": "0.1.266",
+    "clientv": "0.1.280",
     "signKey": "WI,2rU#_r:r~aF4aJ36[.Z(/8Rv93Rf"
   },
   "eso": {
@@ -35,23 +35,23 @@
     "list": [
       {
         "url": "https://a.free-chat.asia/",
-        "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT."
+        "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT.\n\nYou can contact me through admin@muspimerol.site"
       },{
         "url": "https://b.free-chat.asia/",
-        "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT."
+        "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT.\n\nYou can contact me through admin@muspimerol.site"
       },{
         "url": "https://c.free-chat.asia/",
-        "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT."
+        "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT.\n\nYou can contact me through admin@muspimerol.site"
       },{
         "url": "https://d.free-chat.asia/",
-        "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT."
+        "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT.\n\nYou can contact me through admin@muspimerol.site"
       },{
         "url": "https://h.free-chat.asia/",
-        "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT."
+        "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT.\n\nYou can contact me through admin@muspimerol.site"
       }
     ],
     "bnuInt": 4,
-    "bnukey": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT."
+    "bnukey": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT.\n\nYou can contact me through admin@muspimerol.site"
   },
   "pizza": {
     "secret": "Marinara"
