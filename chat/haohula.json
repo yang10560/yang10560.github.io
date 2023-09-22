@@ -12,7 +12,7 @@
     "token": "Pk8QG0HoLBh4lLpnquSrT3BlbkFJrDDEz6qukgvMtbKcHUEE"
   },
   "ails": {
-    "clientv": "0.1.289",
+    "clientv": "0.1.290",
     "signKey": "WI,2rU#_r:r~aF4aJ36[.Z(/8Rv93Rf"
   },
   "eso": {
@@ -58,6 +58,6 @@
   },
   "xiaowenzi": {
      "url": "https://ga7g98uo7p9p7u8.lovebaby.today/",
-     "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ4aWFveWFuZzY2ODgiLCJpYXQiOjE2OTI2ODA1NzIsImV4cCI6MTY5MjkzOTc3Mn0.E0OcuydHCue0wc2XaXLPK_4laR4dvKV1lEb1EQmbXREJpxJFNhvk6UbKQZ2IMIjP8_5TxNf7Szv79W4LEKO7yA"
+     "token": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ4aWFveWFuZzY2ODhAZm94bWFpbC5jb20iLCJpYXQiOjE2OTUzODQ2NTgsImV4cCI6MTY5NTY0Mzg1OH0.xOH58TIecUupNPCp4c3VkskVHII1GoCaCpN4KwRO3ztlmn4qemEWY309ZNDBxvllBil5jWZsdXEdAfWFG2WWAg"
   }
 }
