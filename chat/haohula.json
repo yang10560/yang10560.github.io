@@ -12,7 +12,7 @@
     "token": "Pk8QG0HoLBh4lLpnquSrT3BlbkFJrDDEz6qukgvMtbKcHUEE"
   },
   "ails": {
-    "clientv": "0.1.291",
+    "clientv": "0.1.292",
     "signKey": "WI,2rU#_r:r~aF4aJ36[.Z(/8Rv93Rf"
   },
   "eso": {
@@ -34,14 +34,14 @@
   "bnu": {
     "list": [
       {
-        "url": "https://a.free-chat.asia/",
-        "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT !!!\n\nYou can contact me through admin@muspimerol.site"
+        "url": "https://e3.frechat.xyz/",
+        "key": "please use https://forward.free-chat.asia/v1/chat/completion for free if you want!!! Don't steal my money, thank you!! Docs is at https://forward.free-chat.asia/docs"
       },{
         "url": "https://b.free-chat.asia/",
         "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT !!!\n\nYou can contact me through admin@muspimerol.site"
       },{
-        "url": "https://c.free-chat.asia/",
-        "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT !!!\n\nYou can contact me through admin@muspimerol.site"
+        "url": "https://e3.frechat.xyz/",
+        "key": "please use https://forward.free-chat.asia/v1/chat/completion for free if you want!!! Don't steal my money, thank you!! Docs is at https://forward.free-chat.asia/docs"
       },{
         "url": "https://d.free-chat.asia/",
         "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT !!!\n\nYou can contact me through admin@muspimerol.site"
@@ -50,8 +50,9 @@
         "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT !!!\n\nYou can contact me through admin@muspimerol.site"
       }
     ],
-    "bnuInt": 4,
-    "bnukey": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT !!!\n\nYou can contact me through admin@muspimerol.site"
+    "bnuInt": 0,
+    "bnukey": "please use https://forward.free-chat.asia/v1/chat/completion for free if you want!!! Don't steal my money, thank you!! Docs is at https://forward.free-chat.asia/docs"
+
   },
   "pizza": {
     "secret": "Marinara"
