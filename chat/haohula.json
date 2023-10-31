@@ -6,13 +6,13 @@
   },
   "ohmygpt": {
     "token":
-      "Bearer eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0OTciLCJlbWFpbCI6InhpYW95YW5nNjY4OEBmb3htYWlsLmNvbSIsInB1cnBvc2UiOiJ3ZWIiLCJpYXQiOjE2OTY4NTQ1NjMsImV4cCI6MTY5ODA2NDE2M30.ATXUoutDLpKCw8Is8nObiNM6JwNWF3M6_Qw0nqZyoyitRyrCWYkFfoG1TQpv3XlZXzB1x3RgLQFx0sp3SIaDn8N6AUg_B3CHVGu-CQGNEGXuIcVli0GLyuyv9yCmL1zXI_E_GuHz-rGcB2SGg7bORTZFMEhqCZvjG1nyLULXSC1qyDwR"
+      "Bearer eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0OTciLCJlbWFpbCI6InhpYW95YW5nNjY4OEBmb3htYWlsLmNvbSIsInB1cnBvc2UiOiJ3ZWIiLCJpYXQiOjE2OTg3MjI5NTAsImV4cCI6MTY5OTkzMjU1MH0.AL8RLknG2IY9HVzBox7H1WFshr-EdFPRRi19nMFTmYxEGfe-gdElU2CWUmpmZicYjwD-OX2da5nxwwzG1Rv-NN2qAKVbWQnhmVo2oDhaSE-KtsYuYrtLj-ecuOSnbhk8z6YhsGxsp6q8MRnAOLWtGHlrcmiXEbV2eFGisGfVZnJ7PvxX"
   },
   "xiami": {
     "token": "Pk8QG0HoLBh4lLpnquSrT3BlbkFJrDDEz6qukgvMtbKcHUEE"
   },
   "ails": {
-    "clientv": "0.1.292",
+    "clientv": "0.1.293",
     "signKey": "WI,2rU#_r:r~aF4aJ36[.Z(/8Rv93Rf"
   },
   "eso": {
