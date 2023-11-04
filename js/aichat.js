@@ -663,6 +663,7 @@ function mdConverter(rawData) {
 
 simulateBotResponse(`[油猴搜索插件](https://greasyfork.org/zh-CN/scripts/459997)`)
 simulateBotResponse(`[网页增强插件](https://greasyfork.org/zh-CN/scripts/463138)`)
+simulateBotResponse(`[网页中英双显互译](https://greasyfork.org/zh-CN/scripts/469073)`)
 simulateBotResponse(`[X浏览器内置油猴支持](https://www.xbext.com/tutorials/using-chatgpt-grease-monkey-script/)`)
 simulateBotResponse(`[AI交流群:249733992](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=gwrwhtWe-670WyxWHByAo0zs4fKC016C&authKey=ZJGQAMvKol5PIEaRVbfBFreQnzor100Gb6P7FViMn0kD2hnpax5fls17UXjnZXS1&noverify=0&group_code=249733992)`)
 try{
