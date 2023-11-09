@@ -6,7 +6,7 @@
   },
   "ohmygpt": {
     "token":
-      "Bearer eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0OTciLCJlbWFpbCI6InhpYW95YW5nNjY4OEBmb3htYWlsLmNvbSIsInB1cnBvc2UiOiJ3ZWIiLCJpYXQiOjE2OTg3MjI5NTAsImV4cCI6MTY5OTkzMjU1MH0.AL8RLknG2IY9HVzBox7H1WFshr-EdFPRRi19nMFTmYxEGfe-gdElU2CWUmpmZicYjwD-OX2da5nxwwzG1Rv-NN2qAKVbWQnhmVo2oDhaSE-KtsYuYrtLj-ecuOSnbhk8z6YhsGxsp6q8MRnAOLWtGHlrcmiXEbV2eFGisGfVZnJ7PvxX"
+      "Bearer eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0OTciLCJlbWFpbCI6InhpYW95YW5nNjY4OEBmb3htYWlsLmNvbSIsInB1cnBvc2UiOiJ3ZWIiLCJpYXQiOjE2OTk1MjIxMTIsImV4cCI6MTcwMDczMTcxMn0.ADYbjvvh51e4-b0Uq2D8ssACbtEzsxxVA5id1C5XOndNu-1Ji-L4Nwt1Kj8CGnn-gEam5rzCfBmGLDUQOFVVmZalAKUYVr3qkRFxau7iF0CNX3KZLUK2HIUNv2H-W0mpsjD3u6tYflkyhBjl3nJanOMMuIUIeoMc0E3wH9PJbs09J7Df"
   },
   "xiami": {
     "token": "Pk8QG0HoLBh4lLpnquSrT3BlbkFJrDDEz6qukgvMtbKcHUEE"
@@ -36,15 +36,15 @@
       {
         "url": "https://e3.frechat.xyz/",
         "key": "please use https://forward.free-chat.asia/v1/chat/completion for free if you want!!! Don't steal my money, thank you!! Docs is at https://forward.free-chat.asia/docs"
-      },{
-        "url": "https://b.free-chat.asia/",
-        "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT !!!\n\nYou can contact me through admin@muspimerol.site"
-      },{
+      }, {
         "url": "https://e3.frechat.xyz/",
         "key": "please use https://forward.free-chat.asia/v1/chat/completion for free if you want!!! Don't steal my money, thank you!! Docs is at https://forward.free-chat.asia/docs"
       },{
-        "url": "https://d.free-chat.asia/",
-        "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT !!!\n\nYou can contact me through admin@muspimerol.site"
+        "url": "https://e3.frechat.xyz/",
+        "key": "please use https://forward.free-chat.asia/v1/chat/completion for free if you want!!! Don't steal my money, thank you!! Docs is at https://forward.free-chat.asia/docs"
+      },  {
+        "url": "https://e3.frechat.xyz/",
+        "key": "please use https://forward.free-chat.asia/v1/chat/completion for free if you want!!! Don't steal my money, thank you!! Docs is at https://forward.free-chat.asia/docs"
       },{
         "url": "https://h.free-chat.asia/",
         "key": "PLEASE DO NOT PING ME !!!!!\n\nYou can use it for free, but DO NOT [PING] IT !!!\n\nYou can contact me through admin@muspimerol.site"
