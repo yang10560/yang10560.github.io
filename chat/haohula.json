@@ -6,7 +6,7 @@
   },
   "ohmygpt": {
     "token":
-      "Bearer eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0OTciLCJlbWFpbCI6InhpYW95YW5nNjY4OEBmb3htYWlsLmNvbSIsInB1cnBvc2UiOiJ3ZWIiLCJpYXQiOjE2OTk1MjIxMTIsImV4cCI6MTcwMDczMTcxMn0.ADYbjvvh51e4-b0Uq2D8ssACbtEzsxxVA5id1C5XOndNu-1Ji-L4Nwt1Kj8CGnn-gEam5rzCfBmGLDUQOFVVmZalAKUYVr3qkRFxau7iF0CNX3KZLUK2HIUNv2H-W0mpsjD3u6tYflkyhBjl3nJanOMMuIUIeoMc0E3wH9PJbs09J7Df"
+      "Bearer eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2NjMyIiwiZW1haWwiOiIyOTQ5MTI0MkBxcS5jb20iLCJwdXJwb3NlIjoid2ViIiwiaWF0IjoxNjk5OTMzMTIyLCJleHAiOjE3MDExNDI3MjJ9.AHK19DxhPGGf8mAy82ot-htSVcA6gZd_oZYrl1tV0z07cEQ0YMPB0kKwCBIp5gC8hkr3WgvYzHiez8eIy0QEPmo3AEQoA0H8YXDwp_cy90aWy8HtLElstc1Iyb3jfs3Vn13QCZimMled8Ju5X9BIW5N_2Qo8QX85ihHtJgc8M1BJU64a"
   },
   "xiami": {
     "token": "Pk8QG0HoLBh4lLpnquSrT3BlbkFJrDDEz6qukgvMtbKcHUEE"
@@ -20,8 +20,8 @@
   },
   "ptrboom": {
     "token": "contact_me_to_work_together_hello@promptboom.com",
-    "did": "186ca49715a674ed4e2119c981fa48a7",
-    "url": "https://api.promptboom.com/requestPowerChat",
+    "did": "24d4ce60b55832c53d7f47a5458751c0",
+    "url": "https://api.powerchat.top/requestPowerChat",
     "version": "1.0"
   },
   "chatzhang": {
