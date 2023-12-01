@@ -667,7 +667,7 @@ simulateBotResponse(`[网页中英双显互译](https://greasyfork.org/zh-CN/scr
 simulateBotResponse(`[X浏览器内置油猴支持](https://www.xbext.com/tutorials/using-chatgpt-grease-monkey-script/)`)
 simulateBotResponse(`[AI交流群:249733992](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=gwrwhtWe-670WyxWHByAo0zs4fKC016C&authKey=ZJGQAMvKol5PIEaRVbfBFreQnzor100Gb6P7FViMn0kD2hnpax5fls17UXjnZXS1&noverify=0&group_code=249733992)`)
 try{
-	toastr.warning(`尽量选择tampermonkey管理脚本，其他可能存在不兼容等问题。手机端推荐用X浏览器(无需安装扩展), 而kiwi，狐猴浏览器安装tampermonkey油猴扩展`,"",{"timeOut": "10000"})
+	toastr.warning(`尽量选择tampermonkey管理脚本，其他可能存在不兼容等问题。手机端推荐用X浏览器(无需安装扩展), 而kiwi，狐猴浏览器安装tampermonkey油猴扩展`,"",{"timeOut": "5000"})
 }catch (ex) {
 	console.error(ex)
 }
@@ -736,7 +736,7 @@ setTimeout(() => {
 	
 	if(!localStorage.getItem("mxy")){
 		try{
-			toastr.warning("使用即同意协议：换线路，哪个能用用哪个，有的需要梯子。插件免费。不要点击来自答案中的第三方网站，收费行为与本站无关，被骗自行负责。","",{"timeOut": "10000"})
+			toastr.warning("使用即同意协议：换线路，哪个能用用哪个，有的需要梯子。插件免费。不要点击来自答案中的第三方网站，收费行为与本站无关，被骗自行负责。","",{"timeOut": "5000"})
 		}catch (ex) {
 			console.error(ex)
 		}
