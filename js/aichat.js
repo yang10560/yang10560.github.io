@@ -496,8 +496,11 @@ sendButton.addEventListener("click", () => {
 });
 
 sendButton2.addEventListener("click", () => {
-	showWait()
-	handleUserInput(2)
+	//showWait()
+	//handleUserInput(2)
+	alert("该接口已挂，请安装插件安装脚本,尝试不同的线路。谢谢合作！")
+	location.href = 'https://scriptcat.org/zh-CN/script-show-page/1064'
+
 });
 
 document.getElementById("clearBtn").addEventListener("click", () => {
