@@ -727,8 +727,8 @@ console.log("aikey:" + localStorage.getItem("myAIkey"))
 setTimeout(() => {
 	let chatX = document.getElementById("aiJKbtn")
 
-	if (!chatX && !localStorage.getItem("wtips")) {
-		let manualInput = confirm("检测到未使用油猴增加,是否使用增强?");
+	if (!chatX /* && !localStorage.getItem("wtips")*/) {
+		let manualInput = confirm("检测到未使用油猴插件,必须安装才能使用！");
 		if (manualInput) {
 			localStorage.setItem("wtips", true)
 			location.href = "https://greasyfork.org/zh-CN/scripts/463138"

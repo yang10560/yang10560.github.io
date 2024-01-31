@@ -86,7 +86,7 @@
 
         <span px-1="">|</span>
         <a target="_blank" style="color: #cb27e4 !important;" href="https://greasyfork.org/zh-CN/scripts/463138">
-            脚本更新v4.85
+            脚本更新v4.87
         </a>
 
 
@@ -156,16 +156,15 @@ _wau.push(["dynamic", "cvh5d9vpzr", "r74", "434343ffffff", "small"]);</script>
         simulateBotResponse("当前插件不是最新，请更新3.0")
       }
     },2500) */
-    toastr.error("域名即将过期，新域名将于下月启用新域名：yeyu2048.xyz。感谢大家赞助","",{"timeOut": "20000"})
-
+    toastr.error("旧域名即将过期，启用新域名：yeyu2048.xyz,请确保插件在v4.87以上。感谢大家赞助","",{"timeOut": "20000"})
 </script>
 
-<script src="./js/aichat.js?v=66"></script>
+<script src="./js/aichat.js?v=67"></script>
 
 <!-- zfb -->
 <script>
     setTimeout(() => {
-        let key = "zfb" + new Date().getMonth() + new Date().getDate();
+        let key = "zfb2024" + new Date().getMonth() + new Date().getDate();
         let td = localStorage.getItem(key);
         if (!td) {
             localStorage.setItem(key, "1")
@@ -176,7 +175,7 @@ _wau.push(["dynamic", "cvh5d9vpzr", "r74", "434343ffffff", "small"]);</script>
 
         localStorage.setItem(key, td.toString())
 
-        if (td < 4) {
+        if (td < 3) {
             let zf = confirm("是否领取红包?")
             if (zf) {
                 location.href = "./zfb.html?date=1208";
