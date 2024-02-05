@@ -11,12 +11,12 @@ hljs.configure({
 
 if(navigator.userAgent.match(/MQQBrowser/gi)){
 	try{
-		toastr.error("请不要在QQ内部打开，https://yeyu1024.xyz/gpt.html","")
+		toastr.error("请不要在QQ内部打开，https://yeyu2048.xyz/gpt.html","")
 	}catch (ex) {
 		console.error(ex)
 	}
 	setTimeout(()=>{
-		document.body.innerHTML ="请不要在QQ内部打开,请复制到其他浏览器打开，https://yeyu1024.xyz/gpt.html"
+		document.body.innerHTML ="请不要在QQ内部打开,请复制到其他浏览器打开，https://yeyu2048.xyz/gpt.html"
 	},1000)
 
 	//window.close()
